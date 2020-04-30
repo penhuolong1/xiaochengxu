@@ -1,0 +1,17 @@
+<view class="header">
+  <text class="title" style="top: {{titleTop}}px;">法律查询</text>
+  <image class="img" src="{{imgUrl}}/legalQueries/head-bc-img.png" />
+  <image class="back-img" style="top: {{backImgTop}}px;" src="{{imgUrl}}/legalQueries/Back@3x.png" />
+  <view class="input-wrapper-outer" wx:if="{{isSearch}}">
+    <view class="input-wrapper-inner">
+      <input type="text" placeholder-class="placeholder-class" placeholder="请输入关系词:买卖合同纠纷按" />
+      <i-icon type="search" class="search-icon" size="20" color="#fff" />
+    </view>
+  </view>
+  <view class="query-criteria">
+    <view class="icon-wrapper">
+      <i-icon type="search" class="search-icon" size="24" color="#fff" />
+    </view>
+    <view class="query-title">买卖合同纠纷案</view>
+  </view>
+</view>

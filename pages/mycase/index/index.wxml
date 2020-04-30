@@ -1,0 +1,28 @@
+<view style="height:100%;">
+  <view class='menu-footer'>
+    <view class="footer-item {{caseType==1?'active-menu':''}}" bindtap="handleChange">
+      <text  style='font-size:15px;'>已审核</text>
+    </view>
+    <view  class="footer-item {{caseType==0?'active-menu':''}}" redirect bindtap="handleChange">
+      <text  style='font-size:15px;'>待审核</text>
+    </view>
+  </view>
+  <scroll-view scroll-y bindscrolltolower="loadingData" class='listcontent'>
+    <view class="caseList" wx:for="{{caseList}}" wx:key="{{ index }}" data-id="{{item.lawCaseId}}" bindtap="entryCase">
+      <view class="left " wx:if="{{caseType==0}}">{{item.dCaseNo}}{{item.acceptance==2?'(不同意)':(item.acceptance==3?'(补正)':'')}}</view>
+      <view class="left " wx:if="{{caseType==1}}">
+        {{item.acceptance==1?item.sqCaseNo:item.dCaseNo}}
+        {{(item.acceptance==2?'(不予受理)':(item.acceptance==3?'(补正)':''))}}
+      </view>
+      <view class="right">
+        <i-icon type="enter" size="20" style="color:#ccc"/>
+      </view>
+    </view>
+    <view wx:if="{{isLoading}}" style="padding-top: 16px;">
+      <i-load-more  i-class="loads"  tip="{{tip}}" loading='{{isLoading}}' />
+    </view>
+    <view wx:if="{{caseList.length == 0 || pageNum >= pageNumber }}" style="padding-top: 16px;">
+      <i-load-more  i-class="loads"  tip="{{caseList.length == 0 ? '暂无数据' : '到底了~'}}" loading='{{ false }}' />
+    </view>
+  </scroll-view>
+</view>

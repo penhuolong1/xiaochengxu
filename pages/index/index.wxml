@@ -1,0 +1,60 @@
+<!-- 自定义的导航栏 -->
+<view class="custom" style="padding-top:{{statusBarHeight}}px">
+  <view class="textTit" wx:if="{{!topSeachBarBox}}">
+    <text>{{userInfoName}}</text>
+    <view class="textIco">
+      <image src="{{imgUrl}}/home-icon/searchIco.png" bindtap='searchBar' />
+    </view>
+  </view>
+  <view class="textTit" wx:if="{{topSeachBarBox}}">
+    <view class="searchBarBox">
+      <view>
+        <input autofocus placeholder="请输入搜索关键字" />
+      </view>
+      <image src="{{imgUrl}}/home-icon/searchIco.png" />
+    </view>
+  </view>
+</view>
+<view class="empty_custom" style="padding-top:{{statusBarHeight}}px"></view>
+<view class='homePage' bindtouchstart="touchstart" bindtouchmove="touchmove" bindtouchend="touchend">
+  <!-- tab -->
+  <view class="menu">
+    <view class='menu-footer' style="top:{{statusBarHeight+60}}px">
+      <view class='footer-item active-menu'>
+        <image src='{{imgUrl}}/home-icon/home_check.png'></image>
+        <text style='font-size:15px;color:#428FDA;font-weight: bold;'>首页</text>
+      </view>
+      <view class='footer-item' redirect data-text="消息" bindtap='changeTabUrl'>
+        <image src='{{imgUrl}}/home-icon/message.png'></image>
+        <text style='font-size:15px;color:#A0A4AA'>消息</text>
+        <text class="lips" wx:if="{{isHaveNews}}"></text>
+      </view>
+      <view class='footer-item' redirect data-text="我的" bindtap='changeTabUrl'>
+        <image src='{{imgUrl}}/home-icon/center.png'></image>
+        <text style='font-size:15px;color:#A0A4AA'>我的</text>
+      </view>
+    </view>
+  </view>
+  <scroll-view scroll-y class='content' style="padding-top:{{statusBarHeight+50}}px">
+    <view class='menu-content' wx:if="{{roleType=='caseStaff'}}">
+      <view wx:for="{{caseStaff}}" class='itmMenu' bindtap="selectMenu" wx:key="index" data-item="{{item}}">
+        <view class="box">
+          <text>{{item.name}}</text>
+          <image src="{{item.logo}}"></image>
+        </view>
+      </view>
+    </view>
+    <view class='menu-content' wx:if="{{roleType=='averageUser'}}">
+      <view wx:for="{{averageUser}}" class='itmMenu' bindtap="selectMenu" wx:key="index" data-item="{{item}}">
+        <view class="box">
+          <text>{{item.name}}</text>
+          <image src="{{item.logo}}"></image>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+</view>
+<import src="../certification/certification.wxml" />
+<template is="certification" data="{{isAttestModal}}"></template>
+<import src="../alarmFrame/alarmFrame.wxml" />
+<template is="alarmFrame" data="{{logShow}}"></template>

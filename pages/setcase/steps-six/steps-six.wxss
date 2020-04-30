@@ -1,0 +1,275 @@
+.listMain {
+  padding-bottom: 60px;
+}
+
+.listcontent {
+  overflow-y: scroll;
+  position: fixed;
+  top: 125px;
+  bottom: 0px;
+
+}
+
+.textIco-b {
+  float: left;
+  text-align: center;
+  margin-right: 5px;
+}
+
+.textIco-b image {
+  width: 12px;
+}
+
+.filters-mask {
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+}
+
+.minTit {
+  line-height: 50px;
+  color: #495060;
+  font-size: 14px;
+  padding-left: 20px;
+  border-bottom: 1px solid #F2F5F8;
+  display: flex;
+  justify-content: space-between;
+  padding-right: 20px;
+}
+
+.minTit .right {
+  display: flex;
+}
+
+.minTit .left text {
+  float: right;
+  padding-right: 20px;
+  color: #4285F4;
+}
+
+.add {
+  display: flex;
+  margin: 10px auto 0 auto;
+  line-height: 50px;
+  width: 86%;
+  font-size: 14px;
+  border-bottom: 1px solid #F2F5F8;
+}
+
+.add .left {
+  width: 150px;
+}
+
+.add .right {
+  flex-grow: 1;
+  text-align: right;
+  color: #4285F4;
+  font-weight: bold;
+}
+
+.upload {
+  width: 90%;
+  margin: 0 auto;
+  border: 1px solid #F2F5F8;
+}
+
+.uploadBox {
+  width: 49%;
+  display: inline-block;
+  text-align: center;
+  height: 160px;
+  line-height: 35px;
+  color: #727E8B;
+  font-size: 12px;
+}
+
+.uploadIco {
+  width: 50px;
+  height: 50px;
+  color: #fff;
+  background-color: #4285F4;
+  border-radius: 50%;
+  text-align: center;
+  margin: 50px auto 0 auto;
+  line-height: 45px;
+}
+
+
+/* pages/setcase/three/three.wxss */
+.three {
+  margin-top: 15px;
+}
+
+.susong {
+  width: 100%;
+  height: 150px;
+}
+
+.upidentityfilD {
+  /* border:1px solid #ccc; */
+  margin: 10px 0;
+  display: inline-block;
+}
+
+.plains-file {
+  padding: 15px;
+  max-height: 300px;
+  background: #fff;
+  text-align: center;
+}
+
+.uploadDiv {
+  background-color: #FAFAFD;
+  border: 1px #999 dashed;
+  width: 40%;
+  margin: 20px auto;
+  height: 120px;
+  border-radius: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.uploadDiv .iconfont {
+  font-size: 36px;
+
+}
+
+.delBtns {
+  background-color: #fff;
+  border: 1px dashed #ed4014;
+  color: #ed4014;
+}
+
+.plains-lawyer {
+  margin-bottom: 10px;
+}
+
+.section {
+  /* border-bottom: 1px solid #d9d9d9; */
+  box-shadow: inset 0 -1px 0.2px #ccc;
+}
+
+.section text {
+  line-height: 40px;
+}
+
+.four {
+  margin-top: 15px;
+  min-height: 90px;
+  background: #fff;
+}
+
+.assCla {
+  padding: 10px 20px;
+}
+
+.assCla image {
+  width: 40px;
+  height: 40px;
+}
+
+.submit {
+  width: 544rpx;
+  height: 88rpx;
+  line-height: 88rpx;
+  border-radius: 44rpx;
+  background: #4285F4;
+  color: #fff;
+  font-size: 34rpx;
+}
+.submit:first-child{
+  margin-bottom: 10px;
+}
+
+.imgBox {
+  padding: 15px 10px 0 10px;
+  border-radius: 10px;
+  text-align: left;
+}
+
+.imgBox .box {
+  width: 33.3%;
+  display: inline-block;
+  height: 130px;
+  vertical-align: top;
+  text-align: center;
+  line-height: 130px;
+  margin-bottom: 15px;
+  position: relative;
+}
+
+.delTxt {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  color: #4285F4;
+  height: 24px;
+  line-height: 20px;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.imgBox .box image,
+.imgBox .box .show {
+  width: 100px;
+  height: 100%;
+  border: 1px solid #F2F5F8;
+}
+
+
+.mains {
+  width: 100%;
+  height: 100%;
+}
+
+.content {
+  width: 100%;
+  height: calc(100% - 142px);
+  padding-top: 50px;
+}
+
+.setcase-footer {
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+  right: 0px;
+  left: 0px;
+  height: 120px;
+  background-color: #fff;
+}
+
+.section {
+  height: 40px;
+  padding: 8px 15px;
+}
+
+.picker {
+  line-height: 40px;
+}
+
+.nextBtn {
+  width: 43%;
+}
+
+.float-left {
+  float: left;
+}
+
+.float-right {
+  float: right;
+}

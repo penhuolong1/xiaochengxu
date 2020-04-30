@@ -1,0 +1,100 @@
+<!-- 自定义的导航栏 -->
+<view class="custom" style="padding-top:{{statusBarHeight}}px">
+  <view class="textTit" wx:if="{{!topSeachBarBox}}">
+    <view class="textIco textIco-b" bindtap='back'>
+      <image src="{{imgUrl}}/home-icon/back_button.png" />
+    </view>
+    <text>调解申请</text>
+  </view>
+</view>
+<view class="empty_custom" style="padding-top:{{statusBarHeight}}px"></view>
+<view class='listMain'>
+  <view class='menu-footer' style="margin-top:10px">
+    <view class="footer-item" redirect style="width: 100%">
+      <text style='font-size:15px;color:#4285F4;font-weight:bold'>提交预览与确认</text>
+    </view>
+  </view>
+  <scroll-view scroll-y bindscrolltolower="loadingData" class='listcontent'>
+    <view class="listLine" data-type="申请人">
+      <view class="left">申请人</view>
+      <view class="main">{{applicantObj.litigantName?applicantObj.litigantName:''}}</view>
+      <view class="right" bind:tap="addApplicant">
+         <i-icon type="add" size="18" />
+      </view>
+    </view>
+    <view class="listLine" data-id="{{item.id}}" bind:tap="toLitigntPage" wx:for="{{applicantObj}}">
+      <view class="left">申请人{{index+1}}</view>
+      <view class="main">{{item.litigantName?item.litigantName:''}}</view>
+      <view class="right">
+         <i-icon type="enter" size="18" />
+      </view>
+    </view>
+    <!-- <view class="listLine" data-type="申请代理人" bindtap="edit">
+      <view class="left">申请代理人</view>
+      <view class="main">{{lawyerName ? lawyerName : ''}}</view>
+      <view class="right">
+        <i-icon type="enter" style="color:#ccc;" size="18" />
+      </view>
+    </view> -->
+    <view class="listLine" data-type="被申请人">
+      <view class="left">被申请人</view>
+      <view class="main">{{defendantObj.litigantName?defendantObj.litigantName:""}}</view>
+      <view class="right" bind:tap="addDefendant">
+         <i-icon type="add"  size="18" />
+      </view>
+    </view>
+    <view class="listLine" data-id="{{item.id}}" bind:tap="toLitigntPage" wx:for="{{defendantObj}}">
+      <view class="left">被申请人{{index+1}}</view>
+      <view class="main">{{item.litigantName?item.litigantName:''}}</view>
+      <view class="right">
+         <i-icon type="enter" size="18" />
+      </view>
+    </view>
+    <!-- <view class="listLine" data-type="第三人" bindtap="edit">
+      <view class="left">第三人</view>
+      <view class="main">{{thirdPeoObj.litigantName?thirdPeoObj.litigantName:""}}</view>
+      <view class="right">
+        <i-icon type="enter" style="color:#ccc;" size="18" />
+      </view>
+    </view> -->
+    <view class="listLine" data-type="调解机构" bindtap="edit">
+      <view class="left">调解机构</view>
+      <view class="main">{{courtName?courtName:""}}</view>
+      <view class="right">
+        <i-icon type="enter" style="color:#ccc;" size="18" />
+      </view>
+    </view>
+    <view class="listLine" data-type="诉讼请求" bindtap="edit">
+      <view class="left">诉讼请求</view>
+      <view class="main">{{subObj.mediateRequest?subObj.mediateRequest:''}}</view>
+      <view class="right">
+        <i-icon type="enter" style="color:#ccc;" size="18" />
+      </view>
+    </view>
+    <view class="listLine" data-type="诉讼请求" bindtap="edit">
+      <view class="left">标的总额（元/人民币）</view>
+      <view class="main">{{subObj.applyStandard?subObj.applyStandard:''}}</view>
+      <view class="right">
+        <i-icon type="enter" style="color:#ccc;" size="18" />
+      </view>
+    </view>
+    <view class="listLine" data-type="事实与理由" bindtap="edit">
+      <view class="left">事实与理由</view>
+      <view class="main">{{subObj.reason?subObj.reason:''}}</view>
+      <view class="right">
+        <i-icon type="enter" style="color:#ccc;" size="18" />
+      </view>
+    </view>
+    <view class="listLine" style="border-bottom:none" data-type="证据材料" bindtap="edit">
+      <view class="left">证据材料</view>
+      <view class="main">{{applicantObj.evidences.length}}</view>
+      <view class="right">
+        <i-icon type="enter" style="color:#ccc;" size="18" />
+      </view>
+    </view>
+  </scroll-view>
+  <view class='setcase-footer1'>
+    <button bindtap="draftsBtn" class="submit come">暂存待发</button>
+    <button bindtap="nextStep" class="submit">提交审核</button>
+  </view>
+</view>

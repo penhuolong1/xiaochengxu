@@ -1,0 +1,55 @@
+<view class="wrapper">
+  <view class="send-wrapper">
+    <view class="text" wx:if="{{!isShowFile}}">
+      <input placeholder="请输入内容" bindconfirm="chatSend" bindinput="inputSend" value='{{value}}'></input>
+    </view>
+    <view class="send-img-btn" bindtap="chatSend" data-index="1">
+      <image src="{{imgUrl}}/chatRoom/send.png" />
+    </view>
+  </view>
+  <view class="function-wrapper">
+    <image class="voice-png" bind:tap="showVoice" src="{{imgUrl}}/chatRoom/voice.png"></image>
+    <!-- <image class="folder-png" bind:tap="uploadFileWX" src="{{imgUrl}}/chatRoom/folder.png"></image> -->
+    <image class="image-png" bind:tap="uploadImg" src="{{imgUrl}}/chatRoom/image.png"></image>
+    <image class="camera-png" bind:tap="uploadImg1" src="{{imgUrl}}/chatRoom/camera.png"></image>
+    <image class="camera1-png" src="{{imgUrl}}/chatRoom/camera1.png" bind:tap="entryRoom"></image>
+    <image class="edit-png" bind:tap="getRecord" src="{{imgUrl}}/chatRoom/edit.png"></image>
+  </view>
+  <!-- 语音部分 -->
+  <view class="sound-record-wrapper" wx:if="{{isVoice}}">
+    <view class="sound-record-image-wrapper">
+      <image class="submit-sound" src="{{imgUrl}}/chatRoom/submitSound.png" bind:tap="uploadVoice1"></image>
+    </view>
+    <view class="sound-record-image-wrapper">
+      <image class="record-sound" src="{{imgUrl}}/chatRoom/soundRecord.png" bind:touchstart="startRecord" bind:touchend="endRecord"></image>
+    </view>
+    <view class="sound-record-image-wrapper">
+      <image class="del-sound" bind:tap="hideVoice" src="{{imgUrl}}/chatRoom/delSound.png"></image>
+    </view>
+  </view>
+</view>
+<!-- 上传图片 -->
+<view class="upload-wrapper" wx:if="{{uploadImgArray.length>0 && isShowUploadImg}}">
+  <checkbox-group bindchange="checkboxChange">
+    <view class="content">
+      <view class="upload-img-wrapper" wx:for="{{uploadImgArray}}" wx:key="index">
+        <image src="{{item.showImg}}" />
+        <checkbox class="cbox" value="{{item.uploadImg}}" checked />
+      </view>
+    </view>
+  </checkbox-group>
+  <view class="send-img-wrapper">
+    <view class="send" bind:tap="chatSendImg">发送</view>
+  </view>
+</view>
+<!-- 上传文件 -->
+<view class="file-wrapper" wx:if="{{isShowFile}}" style="top: {{statusBarHeight+45}}px">
+  <view class="header">文件</view>
+  <view class="content">
+    <view class="item" wx:for="{{fileUrlArray}}" wx:key="index" bind:tap="selectFile" data-index="{{index}}">
+      <text>{{item.name}}</text>
+      <image src="{{imgUrl}}/right.png" wx:if="{{item.checked}}"></image>
+    </view>
+  </view>
+  <view class="submit-wrapper" bind:tap="submitFile">发送</view>
+</view>

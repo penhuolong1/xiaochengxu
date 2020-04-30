@@ -1,0 +1,36 @@
+<view class='headers'>
+  <i-steps current="{{current}}">
+    <i-step>
+      <view slot="title">身份认证</view>
+      <!-- <view slot="content">
+                这里是该步骤的描述信息
+            </view> -->
+    </i-step>
+    <i-step>
+      <view slot="title">身份确认</view>
+      <!-- <view slot="content">
+                这里是该步骤的描述信息
+            </view> -->
+    </i-step>
+    <i-step>
+      <view slot="title">完成</view>
+      <!-- <view slot="content">
+                这里是该步骤的描述信息
+            </view> -->
+    </i-step>
+  </i-steps>
+</view>
+<view class="main" hover-class="none" hover-stop-propagation="false">
+  <view style='padding:35px 10px;'>
+    <i-input value="{{ name }}" title="姓名" bind:change="changeName" placeholder="姓名" />
+    <i-input value="{{ id_number }}" bind:change="changeIdNumber" type="text" title="身份证号码" placeholder="请输入身份证号码" />
+  </view>
+  <i-button i-class='btndex' bindclick="handleClick" type="primary">下一步</i-button>
+  <i-toast id="toast" />
+  <!-- <view class="footer">
+    <image class="logo item app-icon" src="{{imgUrl}}/ic_app_logo.jpg" mode="aspectFit" lazy-load="false"></image>
+    <view class="item">
+      在线法院
+    </view>
+  </view> -->
+</view>

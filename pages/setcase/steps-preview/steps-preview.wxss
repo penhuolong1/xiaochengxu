@@ -1,0 +1,73 @@
+.listcontent{
+  overflow-y:scroll;
+  position: fixed;
+  top: 130px;
+  bottom: 100px;
+}
+.textIco-b{
+  float: left;
+  text-align: center;
+  margin-right: 5px;
+}
+.textIco-b image{
+  width: 12px;
+}
+.filters-mask{
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+}
+
+.listLine{
+  display:flex;
+  height: 60px;
+  line-height: 60px;
+  width: 88%;
+  margin: 0 auto;
+  font-size: 15px;
+  border-bottom:1px solid  rgba(242,245,248,1.00);
+  padding-left:14px;
+}
+.listLine .left{
+  order:1;
+  width:200px;
+  color: #323643;
+  min-width:200px;
+}
+.listLine .right{
+  order:3;
+  width:25px;
+  text-align: right;
+  font-weight: bold;
+}
+.listLine .main{
+  order:2;
+  flex-grow:1;
+  text-align: right;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+  color: #727E8B;
+  font-size: 15px;
+}
+.setcase-footer1 {
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+  right: 0px;
+  left: 0px;
+  bottom: 0px;
+  height: 100px;
+  background-color:#fff;
+}
+.come {
+  background-color: #fff;
+  color: #1B2D5D;
+  margin-bottom: 10px;
+  border-radius: 44rpx;
+  border: 1px solid #E2E6EC;
+}

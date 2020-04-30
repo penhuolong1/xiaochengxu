@@ -1,0 +1,62 @@
+/* pages/setcase/three/three.wxss */
+.plains{
+  margin-top:10px;
+}
+.susong{
+  width:100%;
+  height:150px;
+}
+.section text{
+  line-height: 40px;
+}
+.plains-file{
+  margin-top: 10px;
+  min-height: 250px;
+  background: #fff;
+  width: 100%;
+  text-align: center;
+}
+.upidentityfilD {
+    /* width: 80%; */
+    /* border: 1px solid #ccc; */
+    margin: 10px 0;
+    display: inline-block;
+    
+}
+.img-logo{
+  width: 128px;
+  height: 128px;
+  margin-top:45px;
+}
+.mains{
+  width:100%;
+  height:100%;
+}
+.content{
+  width: 100%;
+  height: calc(100% - 72px);
+}
+.setcase-footer{
+  position:fixed;
+  bottom:0px;
+  width:100%;
+  right:0px;
+  left:0px;
+  height: 60px;
+}
+.section{
+  height: 40px;
+  padding:8px 15px;
+}
+.picker{
+  line-height: 40px;
+}
+.nextBtn{
+  width:43%;
+}
+.float-left{
+  float: left;
+}
+.float-right{
+  float: right;
+}

@@ -1,0 +1,129 @@
+/* page{
+  height: calc(100% - 120px)
+} */
+.listcontent{
+  overflow-y: scroll;
+  height: calc(100% - 75px);
+  margin-top: 20px;
+}
+.caseList {
+  width: 90%;
+  display: flex;
+  margin: 0 auto;
+  line-height: 60px;
+  border-bottom: 1px solid #F2F5F8;
+}
+.caseList .left { 
+  flex-grow: 1;
+  font-size: 14px;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+}
+.caseList .right{
+  width:30px;
+  line-height:52px;
+}
+.caseList .right .check {
+  color: #86D530;
+}
+.footer-item {
+  width: 50%;
+}
+.menu-footer{
+  position: relative;
+  z-index: 1;
+}
+.textIco-b{
+  float: left;
+  text-align: center;
+  margin-right: 5px;
+}
+.textIco-b image{
+  width: 12px;
+}
+.filters-mask{
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+}
+
+
+.listMain{
+  position: relative;
+}
+
+.loads{
+  color: #fff
+}
+.i-load-more-tip{
+  color: #fff !important;
+}
+.contents{
+  width: 90%;
+  position: relative;
+  left: 5%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.content-block{
+  width: 90%;
+  margin: 0 auto;
+  min-height: 180px;
+  border-bottom: 1px solid #F2F5F8;
+  font-family: PingFang SC;
+  padding-bottom: 10px;
+}
+.content-block>view{
+
+}
+.next-vi>view{
+  min-height: 50px;
+  vertical-align:middle;
+  font-size: 15px;
+  font-family: PingFang SC;
+  font-weight: 400;
+  color: rgba(50,54,67,1);
+  padding: 15px 0;
+  box-sizing: border-box
+}
+.arrow-right-ico{
+  width: 18px;
+  height: 9px;
+  margin-right: 10px;
+}
+.content-title{
+  font-size: 13px;
+  color: rgba(101,116,150,1) !important;
+  padding-top: 25px !important;
+  padding-bottom: 5px !important;
+}
+.fact{
+  margin-top:10px;
+  min-height: 80px;
+  background: #E2E6EC;
+  color: #fff;
+  border-radius: 10px;
+  box-sizing: border-box;
+  padding: 10px 12px;
+  word-wrap:break-word;
+}
+.sign{
+  width: 48%;
+  height: 90px;
+  display: inline-block;
+}
+.submit-s{
+  width: 544rpx;
+  height: 88rpx;
+  line-height: 88rpx;
+  border-radius: 44rpx;
+  background: #fff;
+  color: rgba(27,45,93,1);
+  font-size: 34rpx;
+  border: 1px solid rgba(226,230,236,1);
+}

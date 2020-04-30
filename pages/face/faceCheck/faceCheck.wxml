@@ -1,0 +1,13 @@
+<view class="main" hover-class="none" hover-stop-propagation="false">
+  <view style='margin:35px 10px 80px 10px;border-radius: 20px;background-color:#F2F5F8'>
+    <i-input value="{{ name }}" title="姓名" bind:change="changeName"  placeholder="姓名"/>
+    <view class="line"></view>
+    <i-input value="{{ idCard }}" bind:change="changeIdNumber" type="text" title="身份证号码" placeholder="请输入身份证号码" />
+  </view>
+  <i-button 
+  type="primary" 
+  shape="circle" 
+  size="default"  
+  bindclick="handleClick" 
+  >下一步</i-button>
+</view>

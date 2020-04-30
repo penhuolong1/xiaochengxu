@@ -1,0 +1,24 @@
+<!--components/login/login.wxml-->
+<template name="certification">
+    <view class="certification_mask" wx:if="{{isAttestModal}}">
+        <view class="certification_main">
+            <text class="logo"> 抱歉</text>
+            <view class="prompt">
+                <text style="border-bottom: 1px solid #ececec;">
+                    您尚未完成身份验证，暂无权限，请认证！
+                </text>
+                <text>
+                    是否立即进行身份验证？
+                </text>
+            </view>
+            <view class="footer">
+                <text bindtap='certification' data-text="no" style="border-right: 1px solid rgba(8,20,31,0.13);color:#424E5E">
+                    否
+                </text>
+                <text bindtap='certification' data-text="yes" >
+                    是
+                </text>
+            </view>
+        </view>
+    </view>
+</template>

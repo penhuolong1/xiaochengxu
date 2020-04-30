@@ -1,0 +1,24 @@
+<!-- 自定义的导航栏 -->
+<view class="custom" style="padding-top:{{statusBarHeight}}px">
+  <view class="textTit" wx:if="{{!topSeachBarBox}}">
+    <view class="textIco textIco-b" bindtap='back'>
+      <image src="{{imgUrl}}/home-icon/back_button.png" />
+    </view>
+    <text>调解申请</text>
+  </view>
+</view>
+<view class="empty_custom" style="padding-top:{{statusBarHeight}}px"></view>
+<view class='listMain'>
+  <view class='menu-footer'>
+    <view class="footer-item {{caseType==1?'active-menu':''}}" data-type="1" bindtap="handleChange">
+      <text style='font-size:15px;'>当事人身份信息</text>
+    </view>
+    <view class="footer-item {{caseType==0?'active-menu':''}}" data-type="0" bindtap="handleChange">
+      <text style='font-size:15px;'>代理人身份信息</text>
+    </view>
+  </view>
+</view>
+<view class="form-wrapper">
+  <applicant-form bind:back="back" bind:addAddLitigantSuccess="addAddLitigantSuccess" isShowDetail="{{isEdit}}" bind:addAgent="addAgent" litigantId="{{litigantId}}" type="{{type}}" caseId="{{caseId}}" wx:if="{{caseType == 1}}"></applicant-form>
+  <agent-form isShowDetail="{{isEdit}}" intoPageTime="{{intoPageTime}}" litigantId="{{litigantId}}" wx:if="{{caseType == 0}}"></agent-form>
+</view>

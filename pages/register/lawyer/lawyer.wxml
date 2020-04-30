@@ -1,0 +1,21 @@
+<view class='mains'>
+  <scroll-view scroll-view scroll-y class='content'>
+    <i-panel title="" i-class='forms'>
+      <i-input value="{{ lawyerName }}" bind:change='getlawyerName' title="姓名" placeholder="请输入姓名" />
+      <i-input value="{{ lawyerIdCard }}" bind:change='getlawyerIdCard' title="身份证号" placeholder="请输入身份证号" />
+      <i-input value="{{ lawyerPassword }}" type="password" bind:change='getlawyerPassword' title="密码" placeholder="请输入密码" />
+      <i-input value="{{ lawyerPassword2 }}" type="password" bind:change='getlawyerPassword2' title="确认密码" placeholder="请确认密码" />
+      <i-input value="{{ lawyerEmail }}" bind:change='getlawyerEmail' type="textarea" title="电子邮件" placeholder="请输入电子邮件" />
+      <i-input value="{{ lawerNum }}" bind:change='getlawerNum' type="textarea" title="律师证件号" placeholder="请输入律师证件号" />
+      <i-input value="{{ lawFirm }}" bind:change='getlawFirm' type="textarea" title="律师事务所" placeholder="请输入律师事务所" />
+    </i-panel>
+    <i-panel title="上传律师证件照片" i-class='plains'></i-panel>
+    <view class='plains-file'>
+      <image wx:if="{{photoUrl1 == ''}}" class="upidentityfilD img-logo" bindtap='uploadImg' data-vb="front" src="{{imgUrl}}/pic.png" alt="湖里法院" style="padding:15px;"></image>
+      <image wx:if="{{photoUrl1 != ''}}" class="upidentityfilD" bindtap='uploadImg' data-vb="front" src="{{photoUrl1}}" alt="湖里法院" style="padding:15px;"></image>
+    </view>
+  </scroll-view>
+  <view class='setcase-footer'>
+    <i-button bind:click="nextStep" type="primary">注册</i-button>
+  </view>
+</view>

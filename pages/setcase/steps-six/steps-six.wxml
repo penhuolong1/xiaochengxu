@@ -1,0 +1,82 @@
+<!-- 自定义的导航栏 -->
+<view class="custom" style="padding-top:{{statusBarHeight}}px">
+  <view class="textTit" wx:if="{{!topSeachBarBox}}">
+    <view class="textIco textIco-b" bindtap='back'>
+      <image src="{{imgUrl}}/home-icon/back_button.png" />
+    </view>
+    <text>证据信息</text>
+  </view>
+</view>
+<view class="empty_custom" style="padding-top:{{statusBarHeight}}px"></view>
+<view class='listMain'>
+  <view class='menu-footer' style="margin-top:10px">
+    <view class="footer-item" redirect style="width: 100%">
+      <text style='font-size:15px;color:#4285F4;font-weight:bold'>证据信息</text>
+    </view>
+  </view>
+  <scroll-view scroll-y bindscrolltolower="loadingData" style="bottom:{{isShowDetail ? '130px':'0px'}}" class='listcontent'>
+    <view wx:for="{{ allEvidenceAry }}" wx:key="{{ index }}">
+      <view class="minTit">
+        <view class="left">
+          证据{{index+1}}
+          <text wx:if="{{index!==0 && isShowDetail}}" data-index="{{index}}" bindtap="del">删除</text>
+        </view>
+      </view>
+      <i-input value="{{ item.eviName }}" isShowDetail="{{!isShowDetail}}" type="input" data-index="{{index}}" bind:change='geteviName' title="证据名称" placeholder="输入证据名称" maxlength="50" />
+      <i-input value="{{ item.objectOfProof }}" isShowDetail="{{!isShowDetail}}" type="input" data-index="{{index}}" bind:change='getobjectOfProof' title="证明对象" placeholder="请输入证明对象" maxlength="50" />
+      <i-input value="{{ item.source }}" isShowDetail="{{!isShowDetail}}" type="input" data-index="{{index}}" bind:change='getsource' title="证据来源" placeholder="请输入证据来源" maxlength="50" />
+      <i-input value="{{ item.count }}" isShowDetail="{{!isShowDetail}}" type="number" data-index="{{index}}" bind:change='getCount' title="份数" placeholder="请输入份数" maxlength="50" />
+      <view class="minTit">
+        <view class="left">提供人</view>
+        <picker wx:if="{{isShowDetail}}" name="litigantId" data-type="{{index}}" bindchange="getlitigantId" value="{{id}}" range-key="litigantName" range="{{litigants}}">
+          <view class="right">
+            <view class="text">{{litigants[item.litigantId].litigantName}}</view>
+            <view class="icon">
+              <i-icon type="unfold" />
+            </view>
+          </view>
+        </picker>
+        <view class="right" wx:if="{{!isShowDetail}}">
+          <view class="text">{{litigants[item.litigantId].litigantName}}</view>
+        </view>
+      </view>
+      <view class="minTit">
+        <view class="left">上传证据材料</view>
+      </view>
+      <view class="upload" bindtap='uploadImg' data-index="{{index}}" wx:if="{{item.imgAry.length==0 && isShowDetail}}">
+        <view class='uploadBox' style="width: 100%">
+          <view class="uploadIco">
+            <i-icon type="createtask" size="40" style="margin-left:-3px;" />
+          </view>
+          <view>拍照上传</view>
+        </view>
+      </view>
+      <view class="upload" wx:if="{{item.imgAry.length>0}}">
+        <view class="imgBox">
+          <view class="box" wx:for="{{ item.imgAry }}" wx:for-item="itemName" wx:for-index="ind" wx:key="{{ ind }}">
+            <image src="{{  itemName.viewImg }}" bindtap="imgYu" data-list="{{item.imgAry}}" data-src="{{itemName.viewImg}}" />
+            <view wx:if="{{isShowDetail}}" class="delTxt" bindtap="delImg" data-index="{{index}}" data-img="{{ind}}">
+              删除
+            </view>
+          </view>
+          <view class="box" bindtap='uploadImg' wx:if="{{isShowDetail}}" data-index="{{index}}">
+            <view class="show">
+              <i-icon type="add" size="50" style="color:#ccc;" />
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="add" bindtap="addObj" wx:if="{{isShowDetail}}">
+      <view class="left">添加新证据</view>
+      <view class="right">
+        添加
+        <i-icon type="add" size="20" style="color:#4285F4;font-weight:bold" />
+      </view>
+    </view>
+  </scroll-view>
+  <view class='setcase-footer' wx:if="{{isShowDetail}}">
+    <button bindtap="nextStep1" class="submit">下一步</button>
+    <button bindtap="nextStep" class="submit">提交保存</button>
+  </view>
+</view>

@@ -1,0 +1,172 @@
+/* page{
+  height: calc(100% - 120px)
+} */
+.listcontent{
+  overflow-y: scroll;
+  height: calc(100% - 75px);
+  margin-top: 20px;
+}
+.list {
+  display: flex;
+  font-size: 14px;
+  line-height: 60px;
+  height:60px;
+  border-bottom: 1px solid #F2F5F8;
+  width: 100%;
+}
+.list .right {
+  width:30px;
+  text-align: right;
+  color:#727E8B;
+}
+.list .left{
+  flex-grow: 1;
+  color: #323643;
+  padding-left: 8px;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+}
+.detailsInfo .list .right{
+  width:250px;
+}
+.list .right text{
+  display:inline-block;
+  max-width:240px;
+  margin-right:8px;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+.footer-item {
+  width: 50%;
+}
+.menu-footer{
+  /* top: 75px; */
+  position: relative;
+}
+.textIco-b{
+  float: left;
+  text-align: center;
+  margin-right: 5px;
+}
+.textIco-b image{
+  width: 12px;
+}
+.filters-mask{
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+}
+
+.listMain{
+  height:calc(100% - 135px);
+  position: relative;
+}
+.content-info{
+  margin-top:20px;
+}
+
+
+.caseList {
+  width: 90%;
+  margin: 0 auto;
+  line-height: 60px;
+  min-height: 60px;
+  border-bottom: 1px solid #F2F5F8;
+}
+
+.submit-add{
+  width: 47%;
+  height: 88rpx;
+  line-height: 88rpx;
+  border-radius: 44rpx;
+  background: #4285F4;
+  color: #fff;
+  font-size: 34rpx;
+  float: right;
+}
+.submit-cancel{
+  width: 47%;
+  height: 88rpx;
+  line-height: 88rpx;
+  border-radius: 44rpx;
+  background: #fff;
+  color: rgba(27,45,93,1);
+  font-size: 34rpx;
+  float: left;
+  border: 1px solid rgba(226,230,236,1);
+}
+
+/* pages/setcase/three/three.wxss */
+.forms{
+  margin-top:10px;
+}
+.susong{
+  width:100%;
+  height:150px;
+}
+.i-input {
+  padding:7px 0;
+  color:#495060;
+}
+.i-cell {
+  position:relative;
+  margin:0 0 0 16px;
+  display:flex;
+  background:#fff;
+  align-items:center;
+  line-height:1.4;
+  font-size:14px;
+  overflow:hidden;
+  border-bottom: 1px solid #F2F5F8;
+}
+.i-input-title {
+  color:#495060;
+  min-width:110px;
+  padding-right:10px;
+}
+
+
+
+
+
+
+.mains{
+  width:100%;
+  height:100%;
+}
+.content{
+  width: 94%;
+  height: calc(100% - 132px);
+  padding-top: 55px;
+  margin: 0 auto;
+}
+.setcase-footer{
+  position:fixed;
+  bottom:0px;
+  width:100%;
+  right:0px;
+  left:0px;
+  height: 60px;
+}
+.section{
+  height: 40px;
+  padding:8px 15px;
+}
+.picker{
+  line-height: 40px;
+}
+.nextBtn{
+  width:43%;
+}
+.float-left{
+  float: left;
+}
+.float-right{
+  float: right;
+}

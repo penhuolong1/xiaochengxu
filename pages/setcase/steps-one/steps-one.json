@@ -1,0 +1,7 @@
+{
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "i-button": "../../../../dist/button/index",
+    "i-load-more": "../../dist/load-more/index"
+  }
+}

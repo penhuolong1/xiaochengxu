@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "证据列表",
+  "usingComponents": {
+    "i-button": "../../../../dist/button/index",
+    "i-panel": "../../../../dist/panel/index"
+  }
+}

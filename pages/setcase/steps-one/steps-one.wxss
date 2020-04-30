@@ -1,0 +1,146 @@
+.listcontent{
+  overflow-y: scroll;
+  height: calc(100% - 40px);
+  margin-top:10px;
+}
+.caseList {
+  width: 90%;
+  display: flex;
+  margin: 0 auto;
+  line-height: 60px;
+  border-bottom: 1px solid #F2F5F8;
+}
+.caseList .left { 
+  flex-grow:1;
+  color: #323643;
+  font-size:15px;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+  padding-left:15px;
+}
+.caseList .right{
+  width:30px;
+  line-height:52px;
+}
+.caseList .right .check {
+  color: #86D530;
+}
+
+/* pages/setcase/one/one.wxss */
+page{
+  background: #fff;
+}
+.one-menu{
+  padding:15px 30px;
+  background:#fff;
+  height:275px;
+}
+.one-radio{
+  line-height:65px;
+  display:block;
+  border-bottom:1px solid  rgba(242,245,248,1.00);
+}
+.mains{
+  width:100%;
+  height:100%;
+}
+.content{
+  width:100%;
+  height:calc(100% - 132px);
+  padding-top:60px;
+}
+.setcase-footer{
+  position:fixed;
+  bottom:0px;
+  width:100%;
+  right:0px;
+  left:0px;
+}
+.caseList {
+  width: 90%;
+  display: flex;
+  margin: 0 auto;
+  line-height: 60px;
+  border-bottom: 1px solid #F2F5F8;
+}
+.caseList .left { 
+  flex-grow: 1;
+  font-size: 14px;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+}
+.caseList .right{
+  width:100px;
+  line-height:52px;
+  text-align:right;
+}
+.caseList .right .check {
+  color: #86D530;
+  float: right;
+}
+.footer-item {
+  width: 50%;
+}
+.menu-footer{
+  /* top: 75px; */
+  position: relative;
+}
+.textIco-b{
+  float: left;
+  text-align: center;
+  margin-right: 5px;
+}
+.textIco-b image{
+  width: 12px;
+}
+.filters-mask{
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+}
+
+
+.light{
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    position: absolute;
+    right:15px;
+    line-height: 57px;
+}
+.open{
+    background: #04d712;
+    box-shadow:  1px 2px 6px #5ff75f;
+}
+.disable{
+  background: #999;
+  box-shadow: inset 0px 0px 10px #eee;
+}
+.listMain{
+  height:calc(100% - 135px);
+  position: relative;
+}
+
+.loads{
+  color: #fff
+}
+.i-load-more-tip{
+  color: #fff !important;
+}
+
+/* 公共按钮样式 */
+.setcase-footer{
+  position:fixed;
+  bottom:0px;
+  width:100%;
+  right:0px;
+  left:0px;
+  height: 60px;
+}

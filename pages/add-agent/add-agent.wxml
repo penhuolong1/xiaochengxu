@@ -1,0 +1,16 @@
+<!-- 自定义的导航栏 -->
+<view class="custom" style="padding-top:{{statusBarHeight}}px">
+  <view class="textTit" wx:if="{{!topSeachBarBox}}">
+    <view class="textIco textIco-b" bindtap='back'>
+      <image src="{{imgUrl}}/home-icon/back_button.png" />
+    </view>
+    <text>调解申请</text>
+  </view>
+</view>
+<view class="empty_custom" style="padding-top:{{statusBarHeight}}px"></view>
+<view class='listMain'>
+  <view class='menu-footer'>代理人身份信息</view>
+</view>
+<view class="form-wrapper">
+  <agent-form isShowDetail="{{isEdit}}" litigantId="{{litigantId}}" lawyerId="{{lawyerId}}" isAgent="{{true}}"></agent-form>
+</view>

@@ -1,0 +1,72 @@
+<!-- 自定义的导航栏 -->
+<view class="custom" style="padding-top:{{statusBarHeight}}px">
+  <view class="textTit" wx:if="{{!topSeachBarBox}}">
+    <view class="textIco textIco-b" bindtap='back'>
+      <image src="{{imgUrl}}/home-icon/back_button.png" />
+    </view>
+    <text>调解申请</text>
+  </view>
+</view>
+<view class="empty_custom" style="padding-top:{{statusBarHeight}}px"></view>
+<view class='listMain'>
+  <view class='menu-footer' style="top:10px">
+    <view class="footer-item" redirect style="width: 100%">
+      <text style='font-size:15px;color:#4285F4;font-weight:bold'>填写立案信息</text>
+    </view>
+  </view>
+  <scroll-view scroll-y bindscrolltolower="loadingData" class='listcontent'>
+    <view class="listLine" data-type="申请人" bindtap="addType">
+      <view class="left">申请人</view>
+      <view class="main">
+        <text></text>
+      </view>
+      <view class="right">
+        <i-icon type="add" style="color:#4285F4;" size="25" />
+      </view>
+    </view>
+    <view class="list-wrapper" wx:if="{{applicantObj && applicantObj.length > 0}}">
+      <view class="listLine" wx:for="{{applicantObj}}" data-id="{{item.id}}" bind:tap="turnApplicantDetail">
+      <view class="left">{{item.litigantName}}</view>
+        <view class="main"></view>
+        <view class="right">
+          <i-icon type="enter" size="20" style="color:#ccc" />
+        </view>
+      </view>
+    </view>
+    <!-- <view class="listLine" data-type="代理人" bindtap="addType">
+      <view class="left">申请代理人</view>
+      <view class="main">
+        <text>{{lawyerName?lawyerName:''}}</text>
+      </view>
+      <view class="right">
+        <i-icon type="add" style="color:#4285F4;" size="25" />
+      </view>
+    </view> -->
+    <view class="listLine" data-type="被申请人" bindtap="addType">
+      <view class="left">被申请人</view>
+      <view class="main"></view>
+      <view class="right">
+        <i-icon type="add" style="color:#4285F4;" size="25" />
+      </view>
+    </view>
+    <view class="list-wrapper" wx:if="{{defendantObj && defendantObj.length > 0}}">
+      <view class="listLine" wx:for="{{defendantObj}}" data-id="{{item.id}}" bind:tap="turnApplicantDetail">
+      <view class="left">{{item.litigantName}}</view>
+        <view class="main"></view>
+        <view class="right">
+          <i-icon type="enter" size="20" style="color:#ccc" />
+        </view>
+      </view>
+    </view>
+    <!-- <view class="listLine" data-type="第三人" bindtap="addType">
+      <view class="left">第三人</view>
+      <view class="main">{{thirdPeoObj.litigantName?thirdPeoObj.litigantName:''}}</view>
+      <view class="right">
+        <i-icon type="add" style="color:#4285F4;" size="25" />
+      </view>
+    </view> -->
+  </scroll-view>
+  <view class='setcase-footer'>
+    <button bindtap="nextStep" class="submit">下一步</button>
+  </view>
+</view>

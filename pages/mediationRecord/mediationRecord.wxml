@@ -1,0 +1,25 @@
+<!-- pages/mediationRecord/mediationRecord.wxml -->
+<view class="custom" style="padding-top:{{statusBarHeight}}px">
+  <view class="textTit">
+    <view class="textIco textIco-b">
+      <image bind:tap="back" src="{{imgUrl}}/home-icon/back_button.png" />
+    </view>
+    <text>调解笔录生成</text>
+  </view>
+</view>
+<view class="empty-custom" style="padding-top: 20px;"></view>
+<view class="wrapper">
+  <view class="header">调解笔录</view>
+  <view class="title">
+    <text class="text">调解笔录</text>
+    <view class="down-wrapper" bind:tap="downMessage">
+      <text>下载</text>
+      <image src="{{imgUrl}}/down.png" />
+    </view>
+  </view>
+  <view class="content">
+    <!-- <web-view src="http://vip.ow365.cn/?i=21206&ssl=1&furl=https://cstj.olcourt.cn/upload/word/2020/04/15/71a34ee3-c3e8-4a4e-9b75-c72900b4cb8d.doc"></web-view> -->
+    <!-- <web-view src="https://www.baidu.com/"></web-view> -->
+  </view>
+  <view class="sumbit-button">当事人签署</view>
+</view>

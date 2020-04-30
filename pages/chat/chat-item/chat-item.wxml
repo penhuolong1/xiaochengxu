@@ -1,0 +1,43 @@
+<view class="mask" wx:if="{{message.time == showTime}}" bind:tap="hideFun"></view>
+<view wx:if="{{message.iswithdraw}}" class="withdraw-text">
+  <text>{{withdrawName}}撤回了一条消息</text>
+</view>
+<view class="wrapper {{direction}}" wx:if="{{isShowSend}}" wx:if="{{message.iswithdraw != true}}">
+  <view class="avator" wx:if="{{message.messageid != deleteId}}">{{message.userName[0]}}</view>
+  <view class="content" wx:if="{{message.messageid != deleteId}}" bind:tap="longTap" data-time="{{message.time}}">
+    <view class="function-wrapper" wx:if="{{message.time == showTime}}">
+      <view class="function-item" data-content="{{message.text}}" bind:tap="translateText" wx:if="{{message.type=='voice'}}">
+        <image src="{{imgUrl}}/translate.png" />
+        <text>转文本</text>
+      </view>
+      <view class="function-item" bind:tap="withdraw" data-id="{{message.messageid}}" data-time="{{message.time}}" wx:if="{{direction=='right'}}">
+        <image src="{{imgUrl}}/withdraw.png" />
+        <text>撤回</text>
+      </view>
+      <view class="function-item" bindtap="delMessage" data-id="{{message.messageid}}">
+        <image src="{{imgUrl}}/delmessage.png" />
+        <text>删除</text>
+      </view>
+    </view>
+    <view class="text" wx:if="{{message.type=='text'}}">{{message.text}}</view>
+    <view class="img-wrapper" wx:if="{{message.type=='img'}}">
+      <image src="https://cstj.olcourt.cn/{{message.text}}" data-src="https://cstj.olcourt.cn/{{message.text}}" bind:tap="previewImage" />
+    </view>
+    <view class="voice" wx:if="{{message.type=='voice'}}">
+      <image wx:if="{{isShowVoiceStart}}" data-src="{{message.src}}" data-content="{{message.text}}" src="{{imgUrl}}/voiceStart.png" bind:tap="voicePlay"></image>
+      <image wx:if="{{!isShowVoiceStart}}" src="{{imgUrl}}/voiceStop.png"></image>
+      <view class="content1">
+        <view class="item-wrapper">
+          <view class="item" wx:for="{{voiceHeightArray}}" style="height: {{item}}px;"></view>
+        </view>
+        <view class="voice-time">{{message.voiceTime}}''</view>
+      </view>
+    </view>
+    <view class="voice-text" wx:if="{{voiceText && message.type=='voice'}}">{{voiceText}}</view>
+    <view class="file" wx:if="{{message.type=='file'}}">
+      <view class="file-name" bind:tap="getFile" data-src="{{message.text}}" bind:tap="getFile">
+        {{message.fileName}}
+      </view>
+    </view>
+  </view>
+</view>

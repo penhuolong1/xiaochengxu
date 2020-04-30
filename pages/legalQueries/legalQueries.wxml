@@ -1,0 +1,34 @@
+<!-- 法律查询首页 -->
+<law-head></law-head>
+<view class="wrapper">
+  <view class="law-item">
+    <view class="title-wrapper">婚姻家庭</view>
+    <view class="img-wrapper">
+      <image src="{{imgUrl}}/legalQueries/marriage.png" style="width: 100%" />
+    </view>
+  </view>
+  <view class="law-item">
+    <view class="title-wrapper">道路交通</view>
+    <view class="img-wrapper">
+      <image src="{{imgUrl}}/legalQueries/traffic.png" />
+    </view>
+  </view>
+  <view class="law-item">
+    <view class="title-wrapper">物业纠纷</view>
+    <view class="img-wrapper">
+      <image src="{{imgUrl}}/legalQueries/tenement.png" />
+    </view>
+  </view>
+  <view class="law-item">
+    <view class="title-wrapper">劳动争议</view>
+    <view class="img-wrapper">
+      <image src="{{imgUrl}}/legalQueries/labour.png" />
+    </view>
+  </view>
+  <view class="law-item">
+    <view class="title-wrapper">医疗纠纷</view>
+    <view class="img-wrapper">
+      <image src="{{imgUrl}}/legalQueries/medical_treatment.png" />
+    </view>
+  </view>
+</view>

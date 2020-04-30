@@ -1,0 +1,84 @@
+/* pages/third/third.wxss */
+.footer {
+  position: absolute;
+  bottom: 30px;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+}
+ .item {
+  margin: 4px;
+}
+button.plain {
+  margin-top: 60%;
+  color: #FAFAFA;
+  background-color: #34AADC;
+  line-height: 50px;
+  height: 50px;
+  border-radius: 100px;
+}
+button.plain.button-hover {
+  color: #FAFAFA;
+  background-color: rgba(52, 170, 220, 0.808);
+}
+.logo {
+  width: 48px;
+  height: 48px;
+}
+.app-icon {
+  border-radius: 50%;
+}
+.main{
+  padding-right:20px;
+  padding-left:20px;
+}
+.headers{
+  margin-top: 25px
+}
+
+.btndex{
+  border-radius: 44rpx;
+  background:#4285F4; 
+  color: #fff;
+  font-size: 34rpx;
+  width: 80%;
+  margin: 8px auto 0 auto;
+} 
+.getCodeBtn{
+  position:absolute;
+  right:12px;
+  top:12px;
+  color: #2D8CF0;
+  font-size: 16px;
+  z-index: 999;
+  height:45px;
+  width:85px;
+  text-align: center;
+}
+.bDiv{
+  position:relative;
+  width:100%;
+  height:51px;
+  display:inline-block;
+}
+.inputBox{
+  width:80%;
+  margin:0 auto;
+}
+.inputBox input{
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 20px;
+  padding:8px 15px;
+}
+.codeInput{
+  width: 58%;
+  display:inline-block;
+}
+.inputBox span{
+  float:right;
+  line-height:38px;
+  color: #2D8CF0;
+}

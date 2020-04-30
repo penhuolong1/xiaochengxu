@@ -1,0 +1,28 @@
+<view class='mains'>
+  <view class='menu-footer'>
+    <view class="footer-item" redirect style="width: 100%">
+      <text style='font-size:15px;color:#4285F4;font-weight:bold'>证据列表</text>
+    </view>
+  </view>
+  <scroll-view scroll-view scroll-y class='content'>
+    <view class="everyEvidence" wx:for="{{ evidenceAry }}" wx:key="{{ index }}">
+      <view class="minTit">证据{{index+1}}</view>
+      <view class="content-block">
+        <view>
+          <image class="arrow-right-ico" src="{{imgUrl}}/arrow-right.png" />
+          证据名称：{{item.evidenceName}}
+        </view>
+        <view>
+          <image class="arrow-right-ico" src="{{imgUrl}}/arrow-right.png" />
+          证明对象：{{item.objectOfProof}}
+        </view>
+      </view>
+      <view class="minTit" wx:if="{{item.evidenceAttachments.length>0}}">文件</view>
+      <view class="imgBox" wx:if="{{item.evidenceAttachments.length>0}}">
+        <view class="box" wx:for="{{ item.evidenceAttachments }}" wx:for-item="itemName" wx:for-index="ind" wx:key="{{ ind }}">
+          <image src="{{http1+itemName.url}}" bindtap="imgYu" data-list="{{item.evidenceAttachments}}" data-src="{{http1+itemName.url}}" />
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+</view>

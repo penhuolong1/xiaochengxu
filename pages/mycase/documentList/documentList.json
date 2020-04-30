@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "i-tabs": "../../../dist/tabs/index",
+    "i-load-more": "../../../dist/load-more/index",
+    "i-cell-group": "../../../dist/cell-group/index",
+    "i-cell": "../../../dist/cell/index",
+    "i-tab": "../../../dist/tab/index"
+  }
+}

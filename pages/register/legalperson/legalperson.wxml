@@ -1,0 +1,28 @@
+<view class='mains'>
+  <scroll-view scroll-view scroll-y class='content'>
+    <i-panel title="" i-class='forms'>
+      <i-input value="{{ name }}" bind:change='getname' title="公司名称" placeholder="请输入公司名称" />
+      <i-input value="{{ idCard }}" bind:change='getidCard' title="统一信用代码" placeholder="请输入统一信用代码" />
+      <i-input value="{{ password }}" type="password" bind:change='getpassword' title="密码" placeholder="请输入密码" />
+      <i-input value="{{ password2 }}" type="password" bind:change='getpassword2' title="确认密码" placeholder="请确认密码" />
+      <i-input value="{{ email }}" bind:change='getemail' type="textarea" title="电子邮件" placeholder="请输入电子邮件" />
+      <i-input value="{{ trueAddress }}" bind:change='gettrueAddress' type="textarea" title="地址" placeholder="例：福建省厦门市思明区莲前东路xx号" />
+      <i-input value="{{ legalManName }}" bind:change='getlegalManName' type="textarea" title="法定代表人/负责人" placeholder="请输入法定代表人/负责人" />
+      <i-input value="{{ legalManPhone }}" bind:change='getlegalManPhone' type="textarea" title="手机号码" placeholder="请输入手机号码" />
+      <i-input value="{{ legalManId }}" bind:change='getlegalManId' type="textarea" title="身份证码" placeholder="请输入法定代表人/负责人身份证码" />
+    </i-panel>
+    <i-panel title="上传委托书" i-class='plains'></i-panel>
+    <view class='plains-file'>
+      <image wx:if="{{photoUrl1 == ''}}" class="upidentityfilD img-logo" bindtap='uploadImg' data-vb="front" src="{{imgUrl}}/pic.png" alt="湖里法院" style="padding:15px;"></image>
+      <image wx:if="{{photoUrl1 != ''}}" class="upidentityfilD" bindtap='uploadImg' data-vb="front" src="{{photoUrl1}}" alt="湖里法院" style="padding:15px;"></image>
+    </view>
+    <i-panel title="上传劳动合同" i-class='plains'></i-panel>
+    <view class='plains-file'>
+      <image wx:if="{{photoUrl3 == ''}}" class="upidentityfilD img-logo" bindtap='uploadImg' data-vb="opposite" src="{{imgUrl}}/pic.png" alt="湖里法院" style="padding:15px;"></image>
+      <image wx:if="{{photoUrl3 != ''}}" class="upidentityfilD" bindtap='uploadImg' data-vb="opposite" src="{{photoUrl3}}" alt="湖里法院" style="padding:15px;"></image>
+    </view>
+  </scroll-view>
+  <view class='setcase-footer'>
+    <i-button bind:click="nextStep" type="primary">注册</i-button>
+  </view>
+</view>

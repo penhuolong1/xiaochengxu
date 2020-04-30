@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "视频调解",
+  "disableScroll": true,
+  "usingComponents": {
+    "i-drawer": "../../dist/drawer/index",
+    "i-button": "../../../dist/button/index",
+    "i-panel": "../../dist/panel/index"
+  }
+}

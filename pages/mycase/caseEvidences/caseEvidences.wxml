@@ -1,0 +1,30 @@
+<!--pages/mycase/caseEvidences/caseEvidences.wxml-->
+<view>
+  <i-panel title="" i-class='plains'> 
+    <view class="section" >
+      <picker name="hx_index" bindchange="bindPickerChangeAn" value="{{array[hx_index].dsrName}}" range-key="{{'names'}}" range="{{array}}">
+        <view class="picker">
+          {{selectNames}}
+        </view>
+      </picker>
+    </view>
+  </i-panel>
+  <view style="margin-top:20px;padding:0 10px;" wx:key="{{item.id}}" wx:for="{{evdenceList}}">
+    <i-cell-group >
+      <i-cell title="">
+        <text class="{{item.dsrStatus == '原告' ? 'plaim-span' : (item.dsrStatus == '被告' ? 'defent-span' : 'law-span')}}" >{{item.dsrStatus}}</text>
+        <text>{{item.dsrName}}</text>
+      </i-cell>
+      <i-cell 
+      bindtap="entryEvi"
+      title="{{it.name}}" 
+      data-dt="{{it}}"  
+      is-link  
+      wx:key="{{it.id}}" 
+      wx:for-item="it" 
+      wx:for="{{item.eviList}}">
+        <image class="right-cel" src="{{it.url}}" alt="湖里法院"></image>
+      </i-cell>
+  </i-cell-group>
+  </view>
+</view>

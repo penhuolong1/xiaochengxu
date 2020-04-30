@@ -1,0 +1,67 @@
+/* pages/setcase/three/three.wxss */
+.forms{
+  margin-top:10px;
+}
+.susong{
+  width:100%;
+  height:150px;
+}
+.i-input {
+  padding:7px 15px;
+  color:#495060;
+}
+.i-cell {
+  position:relative;
+  padding:12px 15px;
+  display:flex;
+  background:#fff;
+  align-items:center;
+  line-height:1.4;
+  font-size:14px;
+  overflow:hidden;
+}
+.i-input-title {
+  color:#495060;
+  min-width:80px;
+  padding-right:10px;
+}
+
+
+
+
+
+
+.mains{
+  width:100%;
+  height:100%;
+}
+.content{
+  width: 94%;
+  margin: 0 auto;
+  height: calc(100% - 72px);
+  padding-top: 60px;
+}
+.setcase-footer{
+  position:fixed;
+  bottom:0px;
+  width:100%;
+  right:0px;
+  left:0px;
+  height: 60px;
+}
+.section{
+  height: 40px;
+  padding:8px 15px;
+}
+.picker{
+  line-height: 40px;
+}
+.nextBtn{
+  width:43%;
+}
+.float-left{
+  float: left;
+}
+.float-right{
+  float: right;
+}

@@ -1,0 +1,46 @@
+page{
+  background: #fff;
+}
+.content{
+  width:80%;
+  margin: 0 auto;
+  height:calc(100% - 138px);
+  padding:66px 0;
+}
+.setcase-footer{
+  position:fixed;
+  bottom:0px;
+  width:100%;
+  right:0px;
+  left:0px;
+}
+.minTit {
+  margin:0 auto;
+  font-size:15px;
+  line-height:30px;
+}
+.detail {
+  display: flex;
+  margin: 0 auto;
+  line-height: 30px;
+  color: #323643;
+  padding: 5px 0;
+  font-size: 13px;
+  padding-left:3px;
+}
+.detail image{
+  width:16px;
+  height:14px;
+  margin:8px 6px 0 0;
+}
+.detail .left{
+  flex-grow: 1;
+}
+.detail .right{
+  width:90%;
+}
+.line {
+  width:90%;
+  margin:15px auto;
+  border-bottom:1px solid rgba(221,224,233,1);
+}

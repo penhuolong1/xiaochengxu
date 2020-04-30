@@ -1,0 +1,81 @@
+.content{
+  width: 86%;
+  margin: 0 auto;
+  height: calc(100% - 72px);
+  padding-top: 70px;
+}
+.mains{
+  width:100%;
+  height:100%;
+}
+
+.listcontent{
+  overflow-y: scroll;
+  height: calc(100% - 75px);
+  width:88%;
+  margin:20px auto 0 auto;
+}
+.menu-footer{
+  /* top: 75px; */
+  position: relative;
+}
+.textIco-b{
+  float: left;
+  text-align: center;
+  margin-right: 5px;
+}
+.textIco-b image{
+  width: 12px;
+}
+.filters-mask{
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+}
+
+.setcase-footer{
+  position:fixed;
+  bottom:0px;
+  width:100%;
+  right:0px;
+  left:0px;
+  height: 60px;
+}
+.minTit {
+  display: flex;
+  height:40px;
+}
+.minTit .left {
+  width:150px;
+}
+.minTit .right {
+  flex-grow: 1;
+  text-align: right;
+  color: #727E8B;
+}
+.susong{
+  width:92%;
+  height:200px;
+  background: rgba(255,255,255,1);
+  border: 1px solid #ccc;
+  line-height: 30px;
+  padding: 10px;
+}
+.section{
+  height: 40px;
+  padding:8px 15px;
+  border-bottom:1px solid #F2F5F8;
+}
+.submit {
+  width: 544rpx;
+  height: 88rpx;
+  line-height: 88rpx;
+  border-radius: 44rpx;
+  background:#4285F4; 
+  color: #fff;
+  font-size: 34rpx;
+}

@@ -1,0 +1,42 @@
+<!-- 自定义的导航栏 -->
+<view class="custom" style="padding-top:{{statusBarHeight}}px">
+  <view class="textTit" wx:if="{{!topSeachBarBox}}">
+    <view class="textIco textIco-b" bindtap='back'>
+      <image src="{{imgUrl}}/home-icon/back_button.png" />
+    </view>
+    <text>调解机构</text>
+  </view>
+  <view class="textTit" wx:if="{{topSeachBarBox}}">
+    <view class="searchBarBox">
+      <view>
+        <input bindinput='getNo' autofocus placeholder="请输入搜索案号" confirm-type="search" bindconfirm="searchCaseNo" />
+      </view>
+      <image src="{{imgUrl}}/home-icon/searchIco.png" bind:tap="searchCaseNo" />
+    </view>
+  </view>
+</view>
+<view class="empty_custom" style="padding-top:{{statusBarHeight}}px"></view>
+<view class='listMain'>
+  <view class='menu-footer' style="top:10px">
+    <view class="footer-item" redirect style="width: 100%">
+      <text style='font-size:15px;color:#4285F4;font-weight:bold'>调解机构选择</text>
+    </view>
+  </view>
+  <scroll-view scroll-y bindscrolltolower="loadingData" class='listcontent'>
+    <view class="caseList">
+      <view class="left">请选择申请机构</view>
+      <view class="right">
+        <i-icon type="unfold" size="25" style="color:#ccc" />
+      </view>
+    </view>
+    <view class="caseList" wx:for="{{contentType}}" wx:key="{{ index }}" data-index="{{index}}" bindtap="changeCheck">
+      <view class="left ">{{item.name}}</view>
+      <view class="right">
+        <i-icon type="right" class="check" size="25" wx:if="{{item.check}}" />
+      </view>
+    </view>
+  </scroll-view>
+  <view class='setcase-footer'>
+    <button bindtap="nextStep" class="submit">下一步</button>
+  </view>
+</view>

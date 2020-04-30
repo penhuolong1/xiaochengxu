@@ -1,0 +1,70 @@
+.user-main{
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.content{
+  height:calc(100% - 60px);
+  width:100%;
+  background:#fff;
+  padding-top: 20px;
+}
+.bg{
+    width: 256px;
+    height: 110px;
+    margin: 0 auto;
+}
+.bg image{
+    width: 100%;
+    height: 100%;
+}
+.loginBox {
+    width: 270px;
+    height: 340px;
+    margin: 4px auto 0 auto;
+    background: rgba(255,255,255,0.6);
+    box-shadow: 0px 2px 14px 0px rgba(0,0,0,0.06);
+    border-radius: 10px;
+}
+.tit1 {
+    font-size:22px;
+    font-weight:500;
+    color:rgba(33,37,43,1);
+    text-align:center;
+    line-height:60px;
+    margin-top: 10px;
+}
+.tit2 {
+    font-size: 14px;
+    font-weight: 400;
+    text-align:center;
+    color: rgba(34,52,94,1);
+    line-height: 22px;
+}
+.loginInput {
+    margin-top: 22px;
+}
+.loginInput .line {
+    width: 180px;
+    padding: 5px 15px;
+    margin: 0 auto 25px auto;
+    background-color: #F2F5F8;
+    border-radius: 20px;  
+    display: flex;
+}
+.loginInput .line input{
+    flex-grow: 1;
+    height: 30px;
+    margin-left: 8px;
+    font-size:14px;
+}
+.loginBtn {
+    width:200px;
+    height:88rpx;
+    line-height:88rpx;
+    border-radius:40rpx;
+    background:#4285F4;
+    color:#fff;
+    font-size:14px;
+    margin-top: 44px;
+}

@@ -1,0 +1,29 @@
+<view class='mains'>
+    <i-panel title="" i-class='forms'>
+        <i-input value="{{ evidencInfo.name }}" bind:change='getEvidenceName' title="证据名称："  placeholder="请输入证据名称" />
+        <i-input value="{{ evidencInfo.prove }}" bind:change='getEvidenceprove' title="证明对象："  placeholder="请输入证明对象" />
+        <i-input value="{{ evidencInfo.source }}" bind:change='getEvidencesource' title="证据来源："  placeholder="请输入证据来源" />
+    </i-panel>
+    <view class="file-content">
+      <view>附件(只支持上传图片)：</view>
+      <view style="text-align:center;margin-top:20px;">
+        <button  bind:tap="selectFiles" class="btns">点击上传文件</button>
+      </view>
+      <view style="text-align:center;font-size:14px;margin-top:15px;">
+        <view
+          wx:key="{{item.fileId}}" 
+          wx:for-item="item" 
+          wx:for="{{evidencInfo.file}}"
+          style="margin:5px 0px;"
+        >
+          <text>{{item.fileName}} </text>
+          <view class="cls" data-dt="{{item}}" bindtap="delEvi"><i-icon type="close"  size="24" /></view>
+          
+        </view>
+      </view>
+    </view>
+    <view style="text-align:center;">
+      <button  bind:tap="submits" class="subbtns">提交</button>
+    </view>
+    
+</view>

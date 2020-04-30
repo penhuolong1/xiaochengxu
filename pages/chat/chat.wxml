@@ -1,0 +1,42 @@
+<!-- pages/chat/chat.wxml -->
+<view class="custom" style="padding-top:{{statusBarHeight}}px">
+  <view class="textTit" wx:if="{{!topSeachBarBox}}">
+    <text>{{titleText}}</text>
+    <view class="textIco">
+      <image class="back-img" src="{{imgUrl}}/home-icon/back_button.png" wx:if="{{!isShowFileFlag}}" bindtap='back' />
+      <image src="{{imgUrl}}/back.png" bind:tap="hideFile" wx:if="{{isShowFileFlag}}" />
+    </view>
+  </view>
+  <view class="textTit" wx:if="{{topSeachBarBox}}">
+    <view class="searchBarBox">
+      <view>
+        <input autofocus placeholder="请输入搜索关键字" />
+      </view>
+      <image src="{{imgUrl}}/home-icon/searchIco.png" />
+    </view>
+  </view>
+</view>
+<view class="empty-custom" style="padding-top: 20px;"></view>
+<view class="wrapper">
+  <view class="header">参与人</view>
+  <view class="content">
+    <view class="item" wx:for="{{rotes}}" wx:key="{{index}}">
+      <view class="avator">
+        <view class="type"></view>
+      </view>
+      <view class="name">{{item.name}}</view>
+    </view>
+  </view>
+</view>
+<!-- <chat-group wx:if="{{groupUser && groupUser.length >0}}" groupUser="{{groupUser}}"></chat-group> -->
+<view class="chat-content">
+  <scroll-view scroll-y scroll-top="{{scrollTop}}" style="height: 100%">
+    <view class="time">今天 {{time}}</view>
+    <block wx:for="{{chatRecord}}">
+      <chat-item direction="left" message="{{item}}" id="chat-item-{{item.messageid}}" bind:withdraw="withdraw"></chat-item>
+    </block>
+  </scroll-view>
+</view>
+<view class="chat-send-wrapper">
+  <chat-send id="chatSend" bind:chatSend='chatSend' bind:chatSendImg="chatSendImg" bind:chatSendVoice="chatSendVoice" bind:isShowFile="isShowFile" bind:chatSendFile="chatSendFile"></chat-send>
+</view>

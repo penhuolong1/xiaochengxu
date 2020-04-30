@@ -1,0 +1,60 @@
+<!-- 自定义的导航栏 -->
+<view class="custom" style="padding-top:{{statusBarHeight}}px">
+  <view class="textTit" wx:if="{{!topSeachBarBox}}">
+    <view class="textIco textIco-b" bindtap='back'>
+      <image src="{{imgUrl}}/home-icon/back_button.png" />
+    </view>
+    <text>纠纷概况</text>
+  </view>
+</view>
+<view class="empty_custom" style="padding-top:{{statusBarHeight}}px"></view>
+<view class='listMain'>
+  <view class='menu-footer' style="top:10px">
+    <view class="footer-item" redirect style="width: 100%">
+      <text style='font-size:15px;color:#4285F4;font-weight:bold'>调解请求</text>
+    </view>
+  </view>
+  <scroll-view scroll-y bindscrolltolower="loadingData" class='listcontent'>
+    <view class="minTit">
+      <view class="left">• 请求事项</view>
+    </view>
+    <view style="width:100%">
+      <textarea bindinput="getMediateRequest" maxlength="10000" value='{{mediateRequest}}' id="factContent" class='susong' placeholder="请填写调解请求" />
+    </view>
+    <view class="minTit">
+      <view class="left">• 事实与理由</view>
+    </view>
+    <view style="width:100%">
+      <textarea bindinput="getReason" maxlength="10000" value='{{reason}}' id="factContent" class='susong' placeholder="请填写事实与理由" />
+    </view>
+    <view class="form-item">
+      <view class="left">是否涉及财产</view>
+      <picker name="isAboutProperty" bindchange="changeisAboutProperty"  range-key="{{'text'}}" range="{{aboutPropertyAry}}">
+        <view class="right">
+          <view class="text">{{isAboutProperty}}</view>
+          <view class="icon">
+          <i-icon type="unfold"/>
+          </view>
+        </view>
+      </picker>
+    </view>
+    <view class="form-item" wx:if="{{isAboutProperty == '是'}}">
+      <view class="left">标的</view>
+      <view class="right">
+        <view class="text">
+          <input class="applyStandard" placeholder-class="placeholder-class" bind:input="getApplyStandard" value='{{applyStandard}}' placeholder="请输入标的"/>
+        </view>
+        <view class="label">
+         元
+        </view>
+      </view>
+    </view>
+    <!-- <view class="section">
+      <input class='biaodi' bindinput='getstandarMoney' value='{{applyStandard}}' type='digit' placeholder="标的" />
+      <text style='line-height:40px;color:#4285F4'>元</text>
+    </view> -->
+  </scroll-view>
+  <view class='setcase-footer'>
+    <button bindtap="nextStep" class="submit">下一步</button>
+  </view>
+</view>

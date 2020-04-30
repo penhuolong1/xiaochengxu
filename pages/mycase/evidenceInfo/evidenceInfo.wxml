@@ -1,0 +1,66 @@
+<!-- pages/mycase/evidenceInfo/evidenceInfo.wxml -->
+<view>
+  <i-cell-group>
+    <i-cell title="证据名称：" value="{{evidenceInfo.name}}"></i-cell>
+    <i-cell title="证据对象：" value="{{evidenceInfo.prove}}"></i-cell>
+    <i-cell title="证据来源：" value="{{evidenceInfo.where}}"></i-cell>
+    <i-cell title="提交时间：" value="{{evidenceInfo.proveTime}}"></i-cell>
+    <i-cell title="附件：">
+      <text class="right-cel" data-dt="{{evidenceInfo.fileAddr}}" bindtap="openModal">查看</text>
+    </i-cell>
+    <i-cell title="质证信息：">
+      <view wx:key="{{key}}" wx:for-item="item" wx:for="{{reverList}}" style="margin-top:15px;">
+        <view class="revert-title">
+          <text style="margin-left: 10px;float: left;margin-top:9px;" class="{{item.dsrStatus == '原告' ? 'plaim-span' : (item.dsrStatus == '被告' ? 'defent-span' : 'law-span')}}">
+            {{item.dsrStatus}}
+          </text>
+          <text class="litigantname">{{item.dsrName}}</text>
+          <text style="margin-right: 10px;" class="times">{{item.time}}</text>
+        </view>
+        <view class="revert-content">
+          <view class="three-con">
+            <text class="three">
+              真实性：
+              <text class="{{item.zhen != 1 ? 'red' : 'green'}}">
+                {{item.zhen != 1 ? "不认可" : "认可"}}
+              </text>
+            </text>
+            <text class="three">
+              合法性：
+              <text class="{{item.zhen != 1 ? 'red' : 'green'}}">
+                {{item.zhen != 1 ? "不认可" : "认可"}}
+              </text>
+            </text>
+            <text class="three">
+              关联性：
+              <text class="{{item.zhen != 1 ? 'red' : 'green'}}">
+                {{item.zhen != 1 ? "不认可" : "认可"}}
+              </text>
+            </text>
+          </view>
+          <view class="reason-cont">
+            <text class="reason">原因：</text>
+            <text class="contents">{{item.content}}</text>
+          </view>
+          <view class="reason-cont">
+            <text class="reason">其他意见：</text>
+            <text class="contents">{{item.content2}}</text>
+          </view>
+        </view>
+      </view>
+    </i-cell>
+  </i-cell-group>
+</view>
+<i-modal title="附件列表" visible="{{ visible1 }}" show-cancel='{{cancelText}}' bind:ok="handleClose1" ok-text="关闭" bind:cancel="handleClose1">
+  <i-cell-group>
+    <i-cell wx:key="{{key}}" wx:for-item="item" wx:for="{{fileList}}" title="{{item.name}}">
+      <text class="right-cel" data-dt="{{item}}" bindtap="openFile">下载</text>
+    </i-cell>
+  </i-cell-group>
+</i-modal>
+<view wx:if="{{isPic}}" class='picShow'>
+  <view class="quit-b" bind:tap="toggleClosePic">
+    <image src="{{imgUrl}}/cansole.png" alt="" class="quit" />
+  </view>
+  <image class="img" src='{{picSrc}}' />
+</view>

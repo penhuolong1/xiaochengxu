@@ -1,0 +1,36 @@
+<!-- 自定义的导航栏 -->
+<view class="custom" style="padding-top:{{statusBarHeight}}px">
+  <view class="textTit" wx:if="{{!topSeachBarBox}}">
+    <view class="textIco textIco-b" bindtap='back'>
+      <image src="{{imgUrl}}/home-icon/back_button.png" />
+    </view>
+    <text>草稿箱</text>
+  </view>
+</view>
+<view class="empty_custom" style="padding-top:{{statusBarHeight}}px"></view>
+<view class='listMain'>
+  <view class='menu-footer' style="top:10px">
+    <view class="footer-item" redirect style="width: 100%">
+      <text style='font-size:15px;color:#4285F4;font-weight:bold'>草稿箱</text>
+    </view>
+  </view>
+  <scroll-view scroll-y bindscrolltolower="loadingData" class='listcontent'>
+    <view class="caseList" wx:for="{{caseList}}" wx:key="{{ index }}">
+      <view class="left " data-index="{{index}}" bindtap="changeCheck">{{item.serialNumber}}</view>
+      <view class="right">
+        <i-icon type="right" class="check" size="25" wx:if="{{item.check}}" />
+        <i-icon type="close" class="check" style='color:#ccc;' size="16" wx:if="{{!item.check}}" data-case="{{item.lawCaseId}}" bindtap="del" />
+      </view>
+    </view>
+    <view class="listLine" bindtap="addType" bindtap="addCase">
+      <view class="left">新增申请</view>
+      <view class="main">添加</view>
+      <view class="right">
+        <i-icon type="add" style="color:#4285F4;" size="25" />
+      </view>
+    </view>
+  </scroll-view>
+  <view class='setcase-footer'>
+    <button bindtap="nextStep" class="submit">下一步</button>
+  </view>
+</view>

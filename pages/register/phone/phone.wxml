@@ -1,0 +1,13 @@
+<!--pages/setcase/one/one.wxml-->
+<view class='mains'>
+  <scroll-view scroll-view class='content' style="padding-top: 30px;">
+    <i-panel title="" i-class='forms' >
+        <i-input value="{{ phone }}" type="number" bind:change='getphoneNumer' title="手机号"  placeholder="请输入手机号" />
+        <i-input value="{{ phoneCode }}" type="number" bind:change='getphoneCode' title="验证码"  placeholder="请输入验证码" i-class='code'/>
+        <text class="send-code" bindtap="sendCode">{{codeStr}}</text>  
+    </i-panel>
+  </scroll-view>
+  <view class='setcase-footer'>
+    <i-button  bind:click="nextStep" type="primary">下一步</i-button>
+  </view>
+</view>

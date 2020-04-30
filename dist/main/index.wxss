@@ -1,0 +1,65 @@
+
+/* view */
+.main {
+  margin-top: 20rpx;
+  position: absolute;
+  left: 25rpx;
+  width: 700rpx;
+  height:calc(100% - 180rpx)
+}
+/* page {
+
+  background-repeat: no-repeat;
+  background-position-x: 150rpx;
+  background-position-y: 800rpx;
+  background-size: 400rpx;
+} */
+
+/* input {
+  margin-top: 24rpx;
+  padding-left: 1.5em;
+  line-height: 45px;
+  height: 45px;
+  border-radius: 90px;
+  background-color: #49494B;
+} */
+
+.footer {
+  position: absolute;
+  bottom: 15px;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+}
+/* .footer */
+ .vertical-line {
+  width: 1px;
+  height: 30px;
+  /* background-color: #fff; */
+}
+/* .footer */
+ .item {
+  margin: 4px;
+}
+
+.logo {
+  width: 48px;
+  height: 48px;
+}
+.app-icon {
+  border-radius: 50%;
+}
+page {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: -moz-linear-gradient(270deg, rgba(34,46,64,1) 0%, rgba(64,169,255,1) 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(34,46,64,1)), color-stop(100%, rgba(64,169,255,1)));
+  background: -webkit-linear-gradient(270deg, rgba(34,46,64,1) 0%, rgba(64,169,255,1) 100%);
+  background: linear-gradient(180deg, rgba(34,46,64,1) 0%, rgba(64,169,255,1) 100%);
+  /* color: #fff; */
+  /* background-color: #000; */
+}

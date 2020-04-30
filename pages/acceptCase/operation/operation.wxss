@@ -1,0 +1,69 @@
+.listcontent{
+  overflow-y: scroll;
+  height: calc(100% - 100px);
+  margin-top: 60px;
+}
+.caseList {
+  width: 90%;
+  display: flex;
+  margin: 0 auto;
+  line-height: 60px;
+  border-bottom: 1px solid #F2F5F8;
+}
+.caseList .left { 
+  flex-grow:1;
+  color: #323643;
+  font-size:15px;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+  padding-left:15px;
+}
+.caseList .right{
+  width:30px;
+  line-height:52px;
+}
+.caseList .right .check {
+  color: #86D530;
+}
+.susong{
+  width:83%;
+  height:200px;
+  background: rgba(255,255,255,1);
+  border: 1px solid #F2F5F8;
+  line-height: 30px;
+  padding: 10px;
+  margin: 20px auto 0 auto;
+}
+
+
+/* pages/setcase/one/one.wxss */
+page{
+  background: #fff;
+}
+.one-menu{
+  padding:15px 30px;
+  background:#fff;
+  height:275px;
+}
+.one-radio{
+  line-height:65px;
+  display:block;
+  border-bottom:1px solid  rgba(242,245,248,1.00);
+}
+.mains{
+  width:100%;
+  height:100%;
+}
+.content{
+  width:100%;
+  height:calc(100% - 132px);
+  padding-top:60px;
+}
+.setcase-footer{
+  position:fixed;
+  bottom:0px;
+  width:100%;
+  right:0px;
+  left:0px;
+}

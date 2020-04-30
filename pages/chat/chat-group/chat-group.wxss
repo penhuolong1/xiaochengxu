@@ -1,0 +1,50 @@
+.wrapper {
+  padding: 0 40rpx;
+}
+
+.wrapper .header {
+  font-family: PingFang SC;
+  color: #C1C0C8;
+  font-size: 12px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.content {
+  display: flex;
+}
+
+.content .item {
+  width: 80px;
+  text-align: center;
+}
+
+.content .item .avator {
+  position: relative;
+  display: inline-block;
+  width: 130rpx;
+  height: 130rpx;
+  border-radius: 50%;
+  background: rgba(242, 245, 248, 1);
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+}
+
+.content .item .name {
+  margin-top: 10px;
+  color: #50545A;
+  font-size: 12px;
+  max-width: 168rpx;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: center;
+}
+
+.content .avator .type {
+  position: absolute;
+  width: 30rpx;
+  height: 30rpx;
+  border-radius: 50%;
+  background-color: #3AD29F;
+  right: 5px;
+}

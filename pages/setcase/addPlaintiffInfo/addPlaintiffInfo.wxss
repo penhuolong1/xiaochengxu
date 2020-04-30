@@ -1,0 +1,172 @@
+.listcontent{
+  overflow-y: scroll;
+  height: calc(100% - 75px);
+  width: 92%;
+  margin:10px auto 0 auto;
+}
+.menu-footer{
+  /* top: 75px; */
+  position: relative;
+}
+.textIco-b{
+  float: left;
+  text-align: center;
+  margin-right: 5px;
+}
+.textIco-b image{
+  width: 12px;
+}
+.filters-mask{
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+}
+.listLine{
+  display:flex;
+  height: 60px;
+  line-height: 60px;
+  font-size: 15px;
+  border-bottom:1px solid  rgba(242,245,248,1.00);
+}
+.listLine .left{
+  order:1;
+  width:120px;
+  color: #323643;
+}
+.listLine .right{
+  order:3;
+  width:40px;
+  text-align: right;
+  font-weight: bold;
+}
+.listLine .main{
+  order:2;
+  flex-grow:1;
+  text-align: right;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+  color: #727E8B;
+  font-size: 15px;
+}
+.content{
+  width: 90%;
+  margin: 0 auto;
+  height: calc(100% - 127px);
+  padding-top: 55px;
+}
+.minTit {
+  line-height:50px;
+  color:#495060;
+  font-size: 14px;
+  margin-left:10px;
+}
+.upload {
+  margin: 10px auto 0 auto;
+  border: 1px solid #F2F5F8;
+}
+.uploadBox {
+  width: 49%;
+  display:inline-block;
+  text-align: center;
+  height:200px;
+  line-height: 35px;
+  color: #727E8B;
+  font-size: 12px;
+}
+.uploadBox image {
+  width:80%;
+  margin:40px auto 0 auto;
+  height:104px;
+}
+.uploadIco {
+  width: 50px;
+  height: 50px;
+  color: #fff;
+  background-color: #4285F4;
+  border-radius: 50%;
+  text-align: center;
+  margin: 50px auto 0 auto;
+  line-height: 45px;
+}
+.i-input {
+  padding:7px 0;
+  color:#495060;
+}
+.i-cell {
+  position:relative;
+  padding:12px 10px;
+  display:flex;
+  background:#fff;
+  align-items:center;
+  line-height:1.4;
+  font-size:14px;
+  overflow:hidden;
+  border-bottom: 1px solid #F2F5F8;
+}
+.i-input-title {
+  color:#495060;
+  min-width:110px;
+  padding-right:10px;
+}
+
+
+
+
+/* pages/setcase/three/three.wxss */
+.plains{
+  margin-top:10px;
+}
+.susong{
+  width:100%;
+  height:150px;
+}
+.section text{
+  line-height: 40px;
+}
+.plains-file{
+  margin-top: 10px;
+  min-height: 250px;
+  background: #fff;
+  width: 100%;
+  text-align: center;
+}
+.upidentityfilD {
+    /* width: 80%; */
+    /* border: 1px solid #ccc; */
+    margin: 10px 0;
+    display: inline-block;
+}
+
+.mains{
+  width:100%;
+  height:100%;
+}
+.setcase-footer{
+  position:fixed;
+  bottom:0px;
+  width:100%;
+  right:0px;
+  left:0px;
+  height: 60px;
+}
+.section{
+  height: 40px;
+  padding:8px 15px;
+}
+.picker{
+  line-height: 40px;
+}
+.nextBtn{
+  width:43%;
+}
+.float-left{
+  float: left;
+}
+.float-right{
+  float: right;
+}

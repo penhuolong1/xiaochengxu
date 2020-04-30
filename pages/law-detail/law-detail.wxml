@@ -1,0 +1,114 @@
+<law-head isSearch="{{false}}"></law-head>
+<view class="wrapper">
+  <view class="law-detail-menu">
+    <view class="menu-item active">
+      <text>基本信息</text>
+    </view>
+    <view class="menu-item">
+      <text>当事人</text>
+    </view>
+    <view class="menu-item">
+      <text>本院查明</text>
+    </view>
+    <view class="menu-item">
+      <text>裁判结果</text>
+    </view>
+    <view class="menu-item">
+      <text>本院认为</text>
+    </view>
+  </view>
+  <scroll-view class="content" scroll-y="true">
+    <view class="title-wrapper">买卖合同纠纷案</view>
+    <view class="key-word-wrapper ">
+      <view class="key-word">逾期支付价款</view>
+      <view class="key-word">逾期支付价款</view>
+      <view class="key-word">逾期支付价款</view>
+      <view class="key-word">逾期支付价款</view>
+      <view class="key-word">逾期支付价款</view>
+    </view>
+    <view class="content-box">
+      <view class="title">
+        <view class="title-icon">
+          <image src="https://cstj.olcourt.cn/miniprogramImg/arrow-right-blue.png"></image>
+        </view>
+        <view class="title-text">基本信息</view>
+      </view>
+      <view class="data-wrapper">
+        <view class="label">案号:</view>
+        <view class="text">无</view>
+      </view>
+      <view class="data-wrapper">
+        <view class="label">案号:</view>
+        <view class="text">无</view>
+      </view>
+      <view class="data-wrapper">
+        <view class="label">案号:</view>
+        <view class="text">无</view>
+      </view>
+      <view class="data-wrapper">
+        <view class="label">案号:</view>
+        <view class="text">无</view>
+      </view>
+      <view class="data-wrapper">
+        <view class="label">案号:</view>
+        <view class="text">无</view>
+      </view>
+    </view>
+    <view class="content-box">
+      <view class="title">
+        <view class="title-icon">
+          <image src="https://cstj.olcourt.cn/miniprogramImg/arrow-right-blue.png"></image>
+        </view>
+        <view class="title-text">基本信息</view>
+      </view>
+      <view class="data-wrapper">
+        <view class="label">案号:</view>
+        <view class="text">无</view>
+      </view>
+      <view class="data-wrapper">
+        <view class="label">案号:</view>
+        <view class="text">无</view>
+      </view>
+      <view class="data-wrapper">
+        <view class="label">案号:</view>
+        <view class="text">无</view>
+      </view>
+      <view class="data-wrapper">
+        <view class="label">案号:</view>
+        <view class="text">无</view>
+      </view>
+      <view class="data-wrapper">
+        <view class="label">案号:</view>
+        <view class="text">无</view>
+      </view>
+    </view>
+    <view class="content-box">
+      <view class="title">
+        <view class="title-icon">
+          <image src="https://cstj.olcourt.cn/miniprogramImg/arrow-right-blue.png"></image>
+        </view>
+        <view class="title-text">基本信息</view>
+      </view>
+      <view class="data-wrapper">
+        <view class="label">案号:</view>
+        <view class="text">无</view>
+      </view>
+      <view class="data-wrapper">
+        <view class="label">案号:</view>
+        <view class="text">无</view>
+      </view>
+      <view class="data-wrapper">
+        <view class="label">案号:</view>
+        <view class="text">无</view>
+      </view>
+      <view class="data-wrapper">
+        <view class="label">案号:</view>
+        <view class="text">无</view>
+      </view>
+      <view class="data-wrapper">
+        <view class="label">案号:</view>
+        <view class="text">无</view>
+      </view>
+    </view>
+  </scroll-view>
+</view>

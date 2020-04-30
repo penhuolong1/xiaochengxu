@@ -1,0 +1,26 @@
+<view>
+  <view class='menu-footer' style="top:5px" hidden='{{writing}}'>
+    <view class="footer-item" redirect style="width: 100%">
+      <text style='font-size:15px;color:#4285F4'>在线签名</text>
+    </view>
+  </view>
+  <view class="wrapper" hidden='{{writing}}'>
+    <view class="handBtn">
+      <button catchtap="retDraw" class="delBtn dels">重写</button>
+      <button catchtap="setDraw" style='top:250px;' class="submitBtn delBtn">保存</button>
+      <button catchtap="closeDraw" style='top:355px;' class="delBtn closeBtn">关闭</button>
+      <!-- <button catchtap="subCanvas" class="subBtn">完成</button> -->
+    </view>
+    <view class="handCenter">
+      <canvas class="handWriting" disable-scroll="true" bindtouchstart="uploadScaleStart" bindtouchmove="uploadScaleMove" bindtouchend="uploadScaleEnd" bindtap="mouseDown" canvas-id="handWriting"></canvas>
+    </view>
+    <view class="handRight">
+      <view class="handTitle">手写板</view>
+    </view>
+  </view>
+  <canvas canvas-id="canvas" style="width:340px;height:170px;margin-top:150px;"></canvas>
+  <view hidden='{{!writing}}'>
+    <image bindload="imageLoad" style='width:{{imgwidth}}rpx; height:{{imgheight }}rpx;' src='{{nowUrl}}'></image>
+    <!-- <button bindtap="changs">56666</button> -->
+  </view>
+</view>

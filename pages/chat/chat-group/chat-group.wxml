@@ -1,0 +1,11 @@
+<view class="wrapper">
+  <view class="header">参与人</view>
+  <view class="content">
+    <view class="item" wx:for="{{rotes}}" wx:key="{{index}}">
+      <view class="avator">
+        <view class="type"></view>
+      </view>
+      <view class="name">{{item.name}}</view>
+    </view>
+  </view>
+</view>

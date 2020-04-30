@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "案件信息",
+  "usingComponents": {
+    "i-button": "../../../../dist/button/index",
+    "i-panel": "../../../../dist/panel/index",
+    "i-input": "../../../../dist/input/index",
+    "i-action-sheet": "../../../dist/action-sheet/index"
+  }
+}

@@ -1,0 +1,29 @@
+<!-- pages/mycase/index/index.wxml -->
+<view class="dex">
+  <!-- <view class='searchHeader'>
+       <input class='searchInput' bindinput='getNo' placeholder-class='plade' confirm-type="search" placeholder="输入案号搜索" bindconfirm="searchCaseNo"/>
+       <view class='search-icon' bind:tap="searchCaseNo">
+        <image class='searchImg'  src="{{imgUrl}}/search.svg"></image>
+       </view>
+  </view> -->
+  <!-- <i-tabs current="{{ current }}" bindchange="handleChange">
+      <i-tab key="tab1" title="未结案"></i-tab>
+      <i-tab key="tab2" title="已结案"></i-tab>
+  </i-tabs> -->
+  <scroll-view scroll-y bindscrolltolower="loadingData" class='listcontent'>
+    <i-cell-group>
+      <i-cell wx:key="{{item.key}}" wx:for="{{caseList}}" data-dt="{{item}}" title="{{item.name}}" bindtap="openFile" is-link>
+        <!-- <text class="{{item.processType =='举证期' ? 'right-cel right-span' : 'right-cel defent-span'}}">{{item.processType}}</text> -->
+      </i-cell>
+    </i-cell-group>
+    <view hidden="{{showLoad}}">
+      <i-load-more i-class="loads" tip="{{tip}}" loading='{{isLoading}}' />
+    </view>
+  </scroll-view>
+</view>
+<view wx:if="{{isPic}}" class='picShow'>
+  <view class="quit-b" bind:tap="toggleClosePic">
+    <image src="{{imgUrl}}/cansole.png" alt="" class="quit" />
+  </view>
+  <image class="img" src='{{picSrc}}' />
+</view>

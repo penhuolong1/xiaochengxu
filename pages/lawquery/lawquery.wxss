@@ -1,0 +1,118 @@
+.wrapper {
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  margin-top: -20px;
+  padding: 0 20px;
+  position: fixed;
+  top: 130px;
+  border-radius: 44px 44px 0 0;
+}
+.wrapper .header {
+  display: flex;
+  margin-top: 20px;
+  justify-content: space-between;
+}
+.wrapper .header .label {
+  font-size: 12px;
+  color: #4F6C8D;
+}
+.wrapper .header .result {
+  color: #B1B3B7;
+  font-size: 10px;
+}
+.wrapper .condition-wrapper {
+  margin-top: 15px;
+  display: flex;
+}
+.condition-wrapper .condition-item {
+  padding: 3px 10px;
+  background-color: #4285F4;
+  color: #fff;
+  border-radius: 10px;
+  display: flex;
+}
+.condition-wrapper .condition-item .text {
+  margin-right: 10px;
+  font-size: 12px;
+}
+.condition-wrapper .condition-item .icon-wrapper{
+  font-size: 10px;
+  position: relative;
+  top: 2px;
+}
+.wrapper .title-wrapper {
+  margin-top: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items:flex-end;
+}
+.title-wrapper .text {
+  color: #323643;
+  font-size: 16px;
+  font-weight: bold;
+}
+.title-wrapper .detail {
+  font-size: 11px;
+  color: #1DD2C1;
+}
+.wrapper .key-word-wrapper {
+  margin-top: 15px;
+}
+.key-word-wrapper .key-word {
+  color: #186BFE;
+  font-size: 12px;
+  margin-right: 10px;
+  display: inline;
+}
+
+.wrapper .content-wrapper {
+  border: 1px solid #F2F5F8;
+  margin-top: 13px;
+}
+.content-wrapper .title {
+  height: 45px;
+  line-height: 45px;
+  padding: 0 10px;
+}
+.content-wrapper .title .text {
+  font-size: 12px;
+  color: #657496;
+  margin-right: 10px;
+  display: inline-block;
+}
+.content-wrapper .content-menu {
+  height: 30px;
+  line-height: 30px;
+  display: flex;
+  padding: 0 10px;
+  box-shadow:0px 3px 6px rgba(0,0,0,0.16);
+}
+.content-wrapper .content-menu .menu-item {
+  flex: 1;  
+  color: #657496;
+  font-size: 14px;
+  font-weight: bolder;
+  text-align: center;
+}
+.content-wrapper .content-menu .menu-item.active {
+  color: #4285F4;
+}
+
+.content-wrapper .content-menu .menu-item.active text {
+  padding-bottom: 5px;
+  border-bottom: 2px solid #4285F4;
+}
+.content-wrapper .content {
+  display: flex;
+  padding: 15px 0px;
+}
+.content-wrapper .content .content-icon {
+  width: 20px;
+}
+.content-wrapper .content .content-text {
+  flex: 1;
+  font-size:14px;
+  color: #323643;
+  line-height: 22px;
+}

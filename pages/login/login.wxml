@@ -1,0 +1,23 @@
+<view class='user-main'>
+    <view class='content'>
+        <view class="bg">
+            <image src="{{imgUrl}}/login.png" />
+        </view>
+        <view class="loginBox">
+            <view class="tit1">欢迎登录</view>
+            <!-- <view class="tit2">仓山司法智慧联调平台</view> -->
+            <view class="tit2">溯源社会治理统一服务</view>
+            <view class="loginInput">
+                <view class="line">
+                    <i-icon type="mine" size="23" style="color:#AEB5C0;flex-grow: 1;margin-top: 3px" />
+                    <input value="{{ name }}" bind:change='getName' type="text" placeholder="用户名/手机号" auto-focus />
+                </view>
+                <view class="line">
+                    <i-icon type="lock" size="23" style="color:#AEB5C0;flex-grow: 1;margin-top: 3px" />
+                    <input value="{{ password }}" bind:change='getPwd' type="password" placeholder="请输入密码" />
+                </view>
+                <button bindtap='login' class="loginBtn">登录</button>
+            </view>
+        </view>
+    </view>
+</view>

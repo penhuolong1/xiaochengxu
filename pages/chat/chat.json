@@ -1,0 +1,8 @@
+{
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "chat-group": "./chat-group/chat-group",
+    "chat-item": "./chat-item/chat-item",
+    "chat-send": "./chat-send/chat-send"
+  }
+}

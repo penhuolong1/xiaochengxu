@@ -1,0 +1,9 @@
+{
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "i-button": "../../../../dist/button/index",
+    "i-icon": "../../../../dist/icon/index",
+    "i-action-sheet": "../../../../dist/action-sheet/index",
+    "i-swipeout": "../../../../dist/swipeout/index"
+  }
+}

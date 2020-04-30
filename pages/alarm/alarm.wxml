@@ -1,0 +1,9 @@
+<!-- pages/alarm/alarm.wxml -->
+<view class="content">
+  <image class="image" style="width:180px;height:82px;" src="{{imgUrl}}/alarm-tittle.png" />
+  <image class="image" style="width:180px;height:183px;margin-top:35px" src="{{imgUrl}}/alarm-logo.png" />
+  <button bindtap="getInRoom" style="background:#07C160;margin-top:100px;" class="submit">
+    {{isLoagin ? '立即报警' : '一键登陆'}}
+  </button>
+  <button wx:if="{{!isAuthor}}" class="getBtn" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo"></button>
+</view>

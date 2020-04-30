@@ -1,0 +1,25 @@
+<view class="main" hover-class="none" hover-stop-propagation="false">
+  <view style='padding:30px 10px;text-align:center;'>
+    <image mode="aspectFit" src="{{imgUrl}}/success.png" class='result-img'></image>
+    <view class='tip'>
+      <text>认证成功！</text>
+    </view>
+    <view class='tip' style='margin-top:10px'>
+      <text>{{infos}}</text>
+    </view>
+  </view>
+  <i-input value="{{ phoneNumer }}" bind:change="changeIdNumber" type="text" title="手机号码" placeholder="请输入手机号码" />
+  <i-panel title="无标题输入框" class='bDiv'>
+    <i-input value="{{ code }}" bind:change="changeCode" placeholder="请输入验证码" />
+    <span bindtap="getCode" class='getCodeBtn'>{{codeStr}}</span>
+  </i-panel>
+  <i-button i-class='btndex' bindclick="handleClick" type="primary">完成</i-button>
+  <i-toast id="toast" />
+  <!-- <i-button i-class='btndex' bindclick="handleClick" type="primary">退出</i-button> -->
+  <!-- <view class="footer">
+    <image class="logo item app-icon" src="{{imgUrl}}/ic_app_logo.jpg" mode="aspectFit" lazy-load="false"></image>
+    <view class="item">
+      在线法院
+    </view>
+  </view> -->
+</view>

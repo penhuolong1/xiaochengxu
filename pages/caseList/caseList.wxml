@@ -1,0 +1,23 @@
+<view style="height:100%;">
+  <view class='menu-footer'>
+    <view class="footer-item" redirect style="width: 100%">
+      <text style='font-size:15px;color:#4285F4;font-weight:bold;'>案件管理</text>
+    </view>
+  </view>
+  <scroll-view scroll-y bindscrolltolower="loadingData" class='listcontent'>
+    <view class="caseList" wx:for="{{caseList}}" wx:key="{{ index }}" data-id="{{item.lawCaseId}}" bindtap="entryCase">
+      <view class="left " wx:if="{{item.process==1||(item.process==!1&&item.acceptance!==1)}}">{{item.dCaseNo}}</view>
+      <view class="left " wx:else>{{item.acceptance==1?item.sqCaseNo:item.dCaseNo}}</view>
+      <view class="right">
+        <i-icon type="enter" size="20" style="color:#ccc"/>
+      </view>
+    </view>
+    <view wx:if="{{isLoading}}" style="padding-top: 16px;">
+      <i-load-more  i-class="loads"  tip="{{tip}}" loading='{{isLoading}}' />
+    </view>
+    <view wx:if="{{caseList.length == 0 || pageNum >= pageNumber }}" style="padding-top: 16px;">
+      <i-load-more  i-class="loads"  tip="{{caseList.length == 0 ? '暂无数据' : '到底了~'}}" loading='{{ false }}' />
+    </view>
+    
+  </scroll-view>
+</view>

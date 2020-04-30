@@ -1,0 +1,8 @@
+{
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "i-load-more": "../../dist/load-more/index",
+    "applicant-form": "./applicantForm/applicantForm",
+    "agent-form": "./agentForm/agentForm"
+  }
+}

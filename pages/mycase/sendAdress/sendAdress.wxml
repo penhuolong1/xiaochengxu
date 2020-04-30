@@ -1,0 +1,30 @@
+<!--pages/mycase/sendAdress/sendAdress.wxml-->
+<view>
+  <view class="text-content">
+    <view style="text-indent:1em">
+      <text class="lights"> </text>
+        为便于当事人及时收到人民法院诉讼文书，保证诉讼程序顺利进行，当事人应当如实
+        提供确切的送达地址。
+    </view>
+    <view style="text-indent:1em">
+      <text class="lights"> </text>
+        您在本平台提供或确认的送达地址，将适用于一审、二审、三审、再审再查、执行程序，以及同期在受理法院审理的其他案件。
+    </view>
+    <view style="text-indent:1em">
+       <text class="lights"> </text>
+        您注册本平台时已验证手机号码，该手机号码将作为您的联系方式予以确认。
+    </view>
+    <view style="text-indent:1em">
+        <text class="lights"> </text>
+        请填写有效的邮寄地址。如本人收件不需要填写收件人姓名和电话；如他人代收请一并填写代收人姓名和电话。
+    </view>
+  </view>
+  <textarea bindinput='getAddress' class="input-adress" bindblur="bindTextAreaBlur" auto-height placeholder="请填写送达地址" />
+  <view class="text-content">
+    <view style="text-indent:1em">
+        <text class="lights"> </text>
+        因送达人自己提供或者确认的送达地址不准确、拒不提供送达地址、送达地址变更未及时告知法院、送达人本人或者受送达人指定的代收人拒绝签收，导致诉讼文书未能被受送达人实际签收的，文书退回之日视为送达之日。
+    </view>
+  </view>
+  <button bindtap='submitAdress' class="submit">确认邮寄送达地址</button>
+</view>

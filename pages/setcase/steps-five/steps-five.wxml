@@ -1,0 +1,30 @@
+<!-- 自定义的导航栏 -->
+<view class="custom" style="padding-top:{{statusBarHeight}}px">
+  <view class="textTit" wx:if="{{!topSeachBarBox}}">
+    <view class="textIco textIco-b" bindtap='back'>
+      <image src="{{imgUrl}}/home-icon/back_button.png" />
+    </view>
+    <text>调解申请</text>
+  </view>
+</view>
+<view class="empty_custom" style="padding-top:{{statusBarHeight}}px"></view>
+<view class='listMain'>
+  <view class='menu-footer' style="top:10px">
+    <view class="footer-item" redirect style="width: 100%">
+      <text style='font-size:15px;color:#4285F4;font-weight:bold'>事实与理由</text>
+    </view>
+  </view>
+  <scroll-view scroll-y bindscrolltolower="loadingData" class='listcontent'>
+    <view class="minTit">
+      <view class="left">事实与理由</view>
+      <!-- <view class="right">事实与理由怎么填写</view> -->
+    </view>
+    <view style="width:100%">
+      <textarea value='{{reason}}' maxlength="10000" id="factContent" class='susong' bindinput='getreasonContent' placeholder="请填写事实与理由" />
+    </view>
+  </scroll-view>
+  <view class='setcase-footer'>
+    <button bindtap="nextStep" wx:if="{{operation=='edit'}}" class="submit">确定</button>
+    <button bindtap="nextStep" wx:else class="submit">下一步</button>
+  </view>
+</view>

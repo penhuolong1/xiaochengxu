@@ -1,0 +1,44 @@
+<!-- 自定义的导航栏 -->
+<view class="custom" style="padding-top:{{statusBarHeight}}px">
+  <view class="textTit" wx:if="{{!topSeachBarBox}}">
+    <view class="textIco textIco-b" bindtap='back'>
+      <image src="{{imgUrl}}/home-icon/back_button.png" />
+    </view>
+    <text>文书管理</text>
+  </view>
+  <view class="textTit" wx:if="{{topSeachBarBox}}">
+    <view class="searchBarBox">
+      <view>
+        <input bindinput='getNo' autofocus placeholder="请输入搜索案号" confirm-type="search" bindconfirm="searchCaseNo" />
+      </view>
+      <image src="{{imgUrl}}/home-icon/searchIco.png" />
+    </view>
+  </view>
+</view>
+<view class="empty_custom" style="padding-top:{{statusBarHeight}}px"></view>
+<view class='listMain'>
+  <view class='menu-footer'>
+    <view class="footer-item" redirect style="width: 100%">
+      <text style='font-size:15px;color:#4285F4'>履行方式和时限部分</text>
+    </view>
+  </view>
+  <view class="contents">
+    <view class="content-block">
+      <view class="content-title">履行方式和时限部分</view>
+      <view>
+        <image class="arrow-right-ico" src="{{imgUrl}}/arrow-right.png" />
+        履行方式、时限：
+        <textarea auto-height auto-focus bindinput="bindTextAreaBlur" value='{{method}}' id="factContent" class='susong' maxlength="-1" placeholder="请填写履行方式和、时限" />
+      </view>
+      <view style="margin-top:20px;">
+        <image class="arrow-right-ico" src="{{imgUrl}}/arrow-right.png" />
+        本协议一式
+        <input class="sn-input" bindinput="bindTextAreaBlur2" value="{{total}}" type="number" placeholder="数量" />
+        份，当事人、人民调解委员会各持一份。
+      </view>
+    </view>
+  </view>
+  <view style="margin: 10px 0px;">
+    <button bindtap="nextStep" class="submit">保存</button>
+  </view>
+</view>

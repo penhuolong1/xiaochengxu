@@ -1,0 +1,189 @@
+<!-- 自定义的导航栏 -->
+<view class="custom" style="padding-top:{{statusBarHeight}}px">
+  <view class="textTit" wx:if="{{!topSeachBarBox}}">
+    <view class="textIco textIco-b" bindtap='back'>
+      <image src="{{imgUrl}}/home-icon/back_button.png" />
+    </view>
+    <text>文书管理</text>
+  </view>
+  <view class="textTit" wx:if="{{topSeachBarBox}}">
+    <view class="searchBarBox">
+      <view>
+        <input bindinput='getNo' autofocus placeholder="请输入搜索案号" confirm-type="search" bindconfirm="searchCaseNo" />
+      </view>
+      <image src="{{imgUrl}}/home-icon/searchIco.png" />
+    </view>
+  </view>
+</view>
+<view class="empty_custom" style="padding-top:{{statusBarHeight}}px"></view>
+<view class='listMain'>
+  <view class='menu-footer'>
+    <view class="footer-item" redirect style="width: 100%">
+      <text style='font-size:15px;color:#4285F4'>调解协议</text>
+    </view>
+  </view>
+  <view class="contents">
+    <view class="content-block" wx:for="{{litigantPlainList}}" wx:key="{{ index }}">
+      <view class="content-title">申请人</view>
+      <view class="next-vi" wx:if="{{item.litigantType==0}}">
+        <view>
+          <image class="arrow-right-ico" src="{{imgUrl}}/arrow-right.png" />
+          申请人姓名：{{item.litigantName}}
+        </view>
+        <view>
+          <image class="arrow-right-ico" src="{{imgUrl}}/arrow-right.png" />
+          性别：{{item.litigantSex == 0 ? '男' : '女'}}
+        </view>
+        <view>
+          <image class="arrow-right-ico" src="{{imgUrl}}/arrow-right.png" />
+          居民身份证：{{item.identityCard}}
+        </view>
+        <view>
+          <image class="arrow-right-ico" src="{{imgUrl}}/arrow-right.png" />
+          住址：{{item.address}}
+        </view>
+        <view>
+          <image class="arrow-right-ico" src="{{imgUrl}}/arrow-right.png" />
+          联系电话：{{item.litigantPhone}}
+        </view>
+      </view>
+      <view class="next-vi" wx:if="{{item.litigantType!=0}}">
+        <view>
+          <image class="arrow-right-ico" src="{{imgUrl}}/arrow-right.png" />
+          公司名称：{{item.litigantName}}
+        </view>
+        <view>
+          <image class="arrow-right-ico" src="{{imgUrl}}/arrow-right.png" />
+          统一信用代码：{{item.identityCard}}
+        </view>
+        <view>
+          <image class="arrow-right-ico" src="{{imgUrl}}/arrow-right.png" />
+          固定电话：{{item.litigantPhone}}
+        </view>
+        <view>
+          <image class="arrow-right-ico" src="{{imgUrl}}/arrow-right.png" />
+          注册地址：{{item.address}}
+        </view>
+        <view>
+          <image class="arrow-right-ico" src="{{imgUrl}}/arrow-right.png" />
+          代表人姓名：{{item.legalManName}}
+        </view>
+        <view>
+          <image class="arrow-right-ico" src="{{imgUrl}}/arrow-right.png" />
+          代表人手机号：{{item.legalManPhone}}
+        </view>
+        <view>
+          <image class="arrow-right-ico" src="{{imgUrl}}/arrow-right.png" />
+          代表人身份证号：{{item.legalManId}}
+        </view>
+      </view>
+    </view>
+    <view class="content-block" wx:for="{{litigantDeList}}" wx:key="{{ index }}">
+      <view class="content-title">被申请人</view>
+      <view class="next-vi" wx:if="{{item.litigantType==0}}">
+        <view>
+          <image class="arrow-right-ico" src="{{imgUrl}}/arrow-right.png" />
+          被申请人姓名：{{item.litigantName}}
+        </view>
+        <view>
+          <image class="arrow-right-ico" src="{{imgUrl}}/arrow-right.png" />
+          性别：{{item.litigantSex == 0 ? '男' : '女'}}
+        </view>
+        <view>
+          <image class="arrow-right-ico" src="{{imgUrl}}/arrow-right.png" />
+          居民身份证：{{item.identityCard}}
+        </view>
+        <view>
+          <image class="arrow-right-ico" src="{{imgUrl}}/arrow-right.png" />
+          住址：{{item.address}}
+        </view>
+        <view>
+          <image class="arrow-right-ico" src="{{imgUrl}}/arrow-right.png" />
+          联系电话：{{item.litigantPhone}}
+        </view>
+      </view>
+      <view class="next-vi" wx:if="{{item.litigantType!=0}}">
+        <view>
+          <image class="arrow-right-ico" src="{{imgUrl}}/arrow-right.png" />
+          公司名称：{{item.litigantName}}
+        </view>
+        <view>
+          <image class="arrow-right-ico" src="{{imgUrl}}/arrow-right.png" />
+          统一信用代码：{{item.identityCard}}
+        </view>
+        <view>
+          <image class="arrow-right-ico" src="{{imgUrl}}/arrow-right.png" />
+          固定电话：{{item.litigantPhone}}
+        </view>
+        <view>
+          <image class="arrow-right-ico" src="{{imgUrl}}/arrow-right.png" />
+          注册地址：{{item.address}}
+        </view>
+        <view>
+          <image class="arrow-right-ico" src="{{imgUrl}}/arrow-right.png" />
+          代表人姓名：{{item.legalManName}}
+        </view>
+        <view>
+          <image class="arrow-right-ico" src="{{imgUrl}}/arrow-right.png" />
+          代表人手机号：{{item.legalManPhone}}
+        </view>
+        <view>
+          <image class="arrow-right-ico" src="{{imgUrl}}/arrow-right.png" />
+          代表人身份证号：{{item.legalManId}}
+        </view>
+      </view>
+    </view>
+    <view class="content-block">
+      <view class="content-title">事实认定</view>
+      <view>
+        <image class="arrow-right-ico" src="{{imgUrl}}/arrow-right.png" />
+        上列当事人于{{applyDate}}向我机构申请予以调解其{{brief}}一案，调解前我机构已经告知各方当事人有关人民调解的性质和参与调解的权利与义务，经调解，各方当事人认同以下事实：
+        <view class="fact">{{fact}}</view>
+      </view>
+    </view>
+    <view class="content-block">
+      <view class="content-title">协议结果部分</view>
+      <view>
+        <image class="arrow-right-ico" src="{{imgUrl}}/arrow-right.png" />
+        各方当事人达成协议如下：
+        <view class="fact">{{agreement}}</view>
+      </view>
+    </view>
+    <view class="content-block">
+      <view class="content-title">履行方式部分</view>
+      <view>
+        <image class="arrow-right-ico" src="{{imgUrl}}/arrow-right.png" />
+        履行方式、时限：
+        <view class="fact">{{method ? method : ""}}</view>
+      </view>
+      <view>
+        <image class="arrow-right-ico" src="{{imgUrl}}/arrow-right.png" />
+        本协议一式
+        <text style="font-weight:600;margin-left:5px;margin-right:5px">{{total ? total : ""}}</text>
+        份，当事人、人民调解委员会各持一份。
+      </view>
+    </view>
+    <view class="content-block">
+      <view class="content-title">签字部分</view>
+      <view>
+        <image class="arrow-right-ico" src="{{imgUrl}}/arrow-right.png" />
+        签字情况：
+        <view>
+          <image class="sign" wx:for="{{signList}}" wx:key="{{ index }}" src="{{item}}" />
+        </view>
+      </view>
+    </view>
+  </view>
+  <view style="margin: 10px 0px;">
+    <button class="submit-s" bindtap="edit">编辑</button>
+    <button bindtap="nextStep" wx:if="{{process == 0}}" class="submit">发起签名</button>
+    <button bindtap="getInSign" style="margin-bottom: 15px;" wx:if="{{process == 1&& !isSign}}" class="submit">
+      进入签名
+    </button>
+    <button class="submit-s" wx:if="{{process == 1 && isSign}}">已确认签字</button>
+    <button bindtap="nextStep2" style="background: rgba(243,120,150,1);color:#fff;border:none" wx:if="{{process == 1}}" class="submit">
+      结束签名流程
+    </button>
+  </view>
+  <view bindtap="handleTap" class="filters-mask" wx:if="{{topSeachBarBox}}"></view>
+</view>

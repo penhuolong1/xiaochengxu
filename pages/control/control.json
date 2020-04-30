@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "设置",
+  "usingComponents": {
+    "i-cell": "../../../dist/cell/index",
+    "i-cell-group": "../../../dist/cell-group/index",
+    "i-button": "../../../dist/button/index",
+    "i-input": "../../../dist/input/index",
+    "i-switch": "../../../dist/switch/index"
+  }
+}

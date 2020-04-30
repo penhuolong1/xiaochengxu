@@ -1,0 +1,27 @@
+.listcontent{
+  overflow-y: scroll;
+  height:calc(100% - 30px);
+  padding-top:40px;
+}
+.caseList {
+  width: 90%;
+  display: flex;
+  margin: 0 auto;
+  line-height: 60px;
+  border-bottom: 1px solid #F2F5F8;
+}
+.caseList .left { 
+  flex-grow: 1;
+  font-size: 14px;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+}
+.caseList .right{
+  width:30px;
+  line-height:52px;
+  text-align:right;
+}
+.footer-item {
+  width: 50%;
+}

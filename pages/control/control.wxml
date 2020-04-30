@@ -1,0 +1,38 @@
+<view class="main" hover-class="none" hover-stop-propagation="false">
+  <view style='margin:35px 10px 25px 10px;border-radius: 20px;background-color:#F2F5F8'>
+    <i-input value="{{ email }}" title="邮箱" disabled="{{isEdit}}" bind:change="changeemail"   placeholder="xxx@qq.com"/>
+    <view class="line"></view>
+    <i-input value="{{ phone }}" title="手机号" disabled="{{isEdit}}" bind:change="changephone" type="number"   placeholder="156xxx56"/>
+    <!-- <view class="line"></view>
+    <i-input value="{{ id_number }}" disabled bind:change="changeIdNumber" type="text" title="实名认证" placeholder="" /> -->
+  </view>
+  <i-button 
+  type="primary" 
+  shape="circle" 
+  size="default"  
+  bindclick="handleClick" 
+  >{{isEdit ? '更改' : '保存'}}</i-button>
+</view>
+<!-- <view class="main" hover-class="none" hover-stop-propagation="false">
+  <view style='margin:35px 10px 25px 10px;border-radius: 20px;background-color:#F2F5F8'>
+    <i-cell title="接收系统消息" style="height:50px;">
+      <i-switch value="{{switch1}}" bind:change="onChange" slot="footer"></i-switch>
+    </i-cell>
+    <view class="line"></view>
+    <i-cell title="接收电话消息" style="height:50px;">
+      <i-switch value="{{switch1}}" bind:change="onChange" slot="footer"></i-switch>
+    </i-cell>
+  </view>
+  <view>
+    <view style="display:inline-block;width:84%;margin-bottom: 10px;">
+      <i-input value="{{ value1 }}" title="接收号码" autofocus placeholder="13812345678" />
+    </view>
+    <view class="changePhone">更改</view>
+  </view>
+  <i-button 
+  type="primary" 
+  shape="circle" 
+  size="default"  
+  bindclick="handleClick" 
+  >保存</i-button>
+</view> -->

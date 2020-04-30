@@ -1,0 +1,83 @@
+/* pages/add-applicant/applicantForm/applicantForm.wxss */
+.wrapper {
+  padding: 10px 20px;
+}
+.form-item {
+  display: flex;
+  line-height: 40px;
+  justify-content: space-between;
+  padding: 7px 20px;
+  border-bottom: 1px solid #F2F5F8;
+  margin-left: 20px;
+  padding-left: 0px;
+}
+.listcontent {
+  position: fixed;
+  bottom: 110px;
+  top: 110px;
+  left: 0px;
+  right: 0px;
+  padding: 0 20px;
+}
+.minTit {
+  line-height:50px;
+  color:#495060;
+  font-size: 14px;
+  margin-left:20px;
+}
+.upload {
+  margin: 10px auto 0 auto;
+  border: 1px solid #F2F5F8;
+}
+.uploadBox {
+  width: 49%;
+  display:inline-block;
+  text-align: center;
+  height:200px;
+  line-height: 35px;
+  color: #727E8B;
+  font-size: 12px;
+}
+.uploadBox image {
+  width:80%;
+  margin:40px auto 0 auto;
+  height:104px;
+}
+.btn-wrapper {
+  margin-top: 10px;
+  position: fixed;
+  left: 0px;
+  right: 0px;
+  padding: 0 20px;
+  bottom: 10px;
+  background: #fff;
+}
+.btn-wrapper .btn1{
+  text-align: center;
+  border: 1px solid #E2E6EC;
+  height: 50px;
+  line-height: 50px;
+  border-radius: 25px;
+  color: #1B2D5D;
+  font-size: 14px;
+}
+.btn-wrapper .btn2 {
+  text-align: center;
+  height: 50px;
+  line-height: 50px;
+  background-color: #4285F4;
+  border-radius: 25px;
+  color: #fff;
+  font-size: 14px;
+  margin-top: 5px;
+}
+.uploadIco {
+  width: 50px;
+  height: 50px;
+  color: #fff;
+  background-color: #4285F4;
+  border-radius: 50%;
+  text-align: center;
+  margin: 50px auto 0 auto;
+  line-height: 45px;
+}

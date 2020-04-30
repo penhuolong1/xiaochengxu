@@ -1,0 +1,118 @@
+<!-- pages/add-applicant/applicantForm/applicantForm.wxml -->
+<view class="lawyer-wrapper no-wrapper" wx:if="{{!lawyers || lawyers.length == 0 && !isShowDetail}}">
+  <view class="lawyer-item">
+    <view class="text">无代理人</view>
+  </view>
+</view>
+<view class="lawyer-wrapper" wx:if="{{lawyers && lawyers.length > 1}}">
+  <view class="lawyer-item" wx:for="{{lawyers}}" data-id="{{item.id}}" bind:tap="toLawerDetail">
+    <view class="text">代理人: {{item.agentName}}</view>
+    <view class="icon">
+      <i-icon type="enter" size="20" style="color:#ccc" />
+    </view>
+  </view>
+  <view class="submit-btn" bind:tap="nextStep1">下一步</view>
+</view>
+<view class="author-wrapper" wx:if="{{isShowAuthor && lawyers.length  < 2 && isShowDetail}}" style="top: {{statusBarHeight+45}}px;">
+  <view class="title">是否授权代理人代理相关事项：（是请勾选）</view>
+  <scroll-view scroll-y class="content">
+    <view class="item" wx:for="{{authorAry}}" wx:key="{{index}}" bind:tap="selectAuthor" data-index="{{index}}">
+      <view class="icon">
+        <image wx:if="{{item.check}}" src="{{imgUrl}}/check-icon.png" />
+      </view>
+      <view class="text">{{item.text}}</view>
+    </view>
+    <view class="explain-wrapper" wx:if="{{isOthetAuthor}}">
+      <view class="label">
+        <view class="icon">
+          <image src="{{imgUrl}}/arrow-right.png" />
+        </view>
+        <view class="text">委托事项说明</view>
+      </view>
+      <view class="text-content">
+        <input type="textarea" bind:input="getOtherAuthority" value="{{agentPeople.otherAuthority}}" placeholder="请输入委托事项" />
+      </view>
+    </view>
+  </scroll-view>
+  <view class="submit-btn" bind:tap="submitAuthor">确认</view>
+</view>
+<view class="wrapper" wx:if="{{lawyers.length < 2}}">
+  <scroll-view scroll-y class='listcontent' style="bottom: {{isShowDetail? '110px': '10px'}}">
+    <view class='form-item'>
+      <view class='label'>代理人类型</view>
+      <picker wx:if="{{isShowDetail}}" name="agentType" bindchange="changeApplicantType" value="{{agentTypeAry[agentPeople.agentType-1].text}}" range-key="{{'text'}}" range="{{agentTypeAry}}">
+        <view class="picker">
+          {{agentTypeAry[agentPeople.agentType-1].text}}
+          <i-icon type="unfold" />
+        </view>
+      </picker>
+      <view class="detail-info" wx:if="{{!isShowDetail}}">
+        {{agentTypeAry[agentPeople.agentType-1].text}}
+      </view>
+    </view>
+    <i-input value="{{ agentPeople.name }}" isShowDetail="{{!isShowDetail}}" title="姓名" bind:change='getName' placeholder="名字" />
+    <view class='form-item'>
+      <view class='label'>性别</view>
+      <picker wx:if="{{isShowDetail}}" name="sex" data-type="性别" bindchange="bindPickerChangeSex" value="{{sexAry[agentPeople.sex].text}}" range-key="{{'text'}}" range="{{sexAry}}">
+        <view class="picker">
+          {{sexAry[agentPeople.sex].text}}
+          <i-icon type="unfold" />
+        </view>
+      </picker>
+      <view class="detail-info" wx:if="{{!isShowDetail}}">{{sexAry[agentPeople.sex].text}}</view>
+    </view>
+    <view class="form-item" bind:tap="showAuthor">
+      <view class="label">是否授权代理人代理相关事项</view>
+      <view class="picker" wx:if="{{isShowDetail}}">
+        <i-icon type="unfold" />
+      </view>
+      <view class="picker" wx:if="{{!isShowDetail && authorData.length == 0}}">无</view>
+      <view class="picker" style="color:#4285F4;" catch:tap="getAuthorDetail" wx:if="{{!isShowDetail && authorData.length > 0}}">
+        详情
+        <i-icon type="unfold" wx:if="{{!isShowAuthorDetail}}" />
+        <i-icon type="packup" style="float:right" wx:if="{{isShowAuthorDetail}}" />
+      </view>
+    </view>
+    <view class="authorDetail" wx:if="{{isShowAuthorDetail}}">
+      <view class="author-item" wx:for="{{authorData}}">
+        <view class="icon">
+          <image src="{{imgUrl}}/arrow-right.png" />
+        </view>
+        <view class="text">{{authorAry[item-1].text}}</view>
+      </view>
+      <view class="author-item" wx:if="{{agentPeople.otherAuthority}}">
+        <view class="icon">
+          <image src="{{imgUrl}}/arrow-right.png" />
+        </view>
+        <view class="text">{{agentPeople.otherAuthority}}</view>
+      </view>
+    </view>
+    <i-input value="{{ agentPeople.year }}" isShowDetail="{{!isShowDetail}}" title="年龄" type="number" bind:change='getyear' placeholder="请输入" />
+    <i-input value="{{ agentPeople.nation }}" isShowDetail="{{!isShowDetail}}" title="民族" bind:change='getnation' placeholder="请输入" />
+    <i-input wx:if="{{agentPeople.agentType == 1}}" value="{{ agentPeople.lawyerNum }}" isShowDetail="{{!isShowDetail}}" title="律师证件号" bind:change='getLawyerNum' placeholder="请输入" />
+    <i-input wx:if="{{agentPeople.agentType == 4}}" value="{{ agentPeople.partyRelationString }}" isShowDetail="{{!isShowDetail}}" title="亲属关系" bind:change='getPartyRelation' placeholder="请输入" />
+    <i-input value="{{ agentPeople.agentIdentiCard }}" isShowDetail="{{!isShowDetail}}" bind:change='getCard' title="公民身份证号码" placeholder="请输入" />
+    <i-input value="{{ agentPeople.agentMobile }}" isShowDetail="{{!isShowDetail}}" type="number" bind:change='getlitPhone' title="手机" placeholder="请输入" />
+    <i-input value="{{ agentPeople.address }}" isShowDetail="{{!isShowDetail}}" bind:change='getaddress' title="住址" placeholder="请输入" />
+    <i-input value="{{ agentPeople.unitInfo }}" isShowDetail="{{!isShowDetail}}" bind:change='getunitInfo' title="工作单位" placeholder="请输入" />
+    <!-- <i-input value="{{ employerAddress }}" type="textarea" bind:change='getemployerAddress' title="工作地址" placeholder="请输入"  />
+    <i-input value="{{ nativePlace }}" type="textarea" bind:change='getnativePlace' title="户籍地址" placeholder="请输入"  />
+    <i-input value="{{ sendAddress }}" type="textarea" bind:change='getsendAddress' title="常住地址" placeholder="请输入"  /> -->
+    <view class="minTit">
+      <view class="left">上传身份证件</view>
+    </view>
+    <view class="upload">
+      <view class='uploadBox' bindtap='uploadImg' data-vb="front">
+        <image src="{{photoUrl1}}"></image>
+      </view>
+      <view class='uploadBox' bindtap='uploadImg' data-vb="opposite">
+        <image src="{{photoUrl2}}"></image>
+      </view>
+    </view>
+  </scroll-view>
+  <view class="btn-wrapper" wx:if="{{isShowDetail}}">
+    <view class="btn1" wx:if="{{!isAgent}}" bind:tap="addAgant">添加代理人</view>
+    <view class="btn2" wx:if="{{!isShowNext}}" bind:tap="submit">保存</view>
+    <view class="btn2" wx:if="{{isShowNext}}" bind:tap="nextStep">下一步</view>
+  </view>
+</view>

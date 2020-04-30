@@ -1,0 +1,135 @@
+<view class='mains'>
+  <view class='menu-footer'>
+    <view class="footer-item" redirect style="width: 100%">
+      <text style='font-size:15px;color:#4285F4'>{{caseNo}}</text>
+    </view>
+  </view>
+  <scroll-view scroll-view scroll-y class='content'>
+    <view class="{{topClass}}">
+      <live-player class="item player {{ subscribeList.length > 3 ? 'col-4 row-4' : subscribeList.length > 2 ? 'col-6 row-6' : subscribeList.length > 1 ? (item.roleName == '调解员' || item.roleName == '调解机构' ? 'col-12 row-6' : 'col-6 row-6')  : 'col-12 row-6'}}" wx:key="{{item.key}}" wx:for="{{subscribeList}}" autoplay binderror="livePlayerError" min-cache="0.2" max-cache="0.8" id="{{item.key}}" src="{{item.url}}" mode="live" muted="{{!volume}}" object-fit="fillCrop">
+        <cover-view class="userName">{{item.roleName + ' ' + item.name}}</cover-view>
+      </live-player>
+      <live-pusher class="item player {{ subscribeList.length > 3 ? 'col-4 row-4' : subscribeList.length > 2 ? 'col-6 row-6' : subscribeList.length > 1 ? 'col-6 row-6' : subscribeList.length > 0 ? 'col-12 row-6' : 'col-12 row-12' }}" autopush debug="{{debug}}" wx:if="{{publishPath!==''}}" beauty="{{beauty}}" enable-camera="{{camera}}" min-bitrate="200" max-bitrate="400" mode="live" muted="{{!mic}}" url="{{publishPath}}">
+        <cover-view class='userName' style='color:#08a53d'>{{nowUserName}}</cover-view>
+      </live-pusher>
+    </view>
+    <view class="close">
+      <image bind:tap="onPhoneTab" src="{{imgUrl}}/close.png" />
+    </view>
+  </scroll-view>
+</view>
+<!-- <view class="screen" style="margin: 60px 0" hover-class="none" hover-stop-propagation="false">
+  <view class="screen">
+    <view class="{{topClass}}">
+      <live-player
+          class="item player {{ subscribeList.length > 3 ? 'col-4 row-4' : subscribeList.length > 2 ? 'col-6 row-6' : subscribeList.length > 1 ? (item.roleName == '法官' ? 'col-12 row-6' : 'col-6 row-6')  : 'col-12 row-6'}}"
+          wx:key="{{item.key}}"
+          wx:for="{{subscribeList}}"
+          autoplay
+          binderror="livePlayerError"
+          min-cache="0.2"
+          max-cache="0.8"
+          id="{{item.key}}"
+          src="{{item.url}}"
+          mode="RTC"
+          muted="{{!volume}}"
+          object-fit="fillCrop"
+        >
+        <cover-view class="userName">
+            {{item.roleName + ' ' + item.name}}
+          </cover-view>
+          
+        </live-player>
+
+         <live-pusher
+        class="item player {{ subscribeList.length > 3 ? 'col-4 row-4' : subscribeList.length > 2 ? 'col-6 row-6' : subscribeList.length > 1 ? 'col-6 row-6' : subscribeList.length > 0 ? 'col-12 row-6' : 'col-12 row-12' }}"
+        autopush
+        debug="{{debug}}"
+        wx:if="{{publishPath!==''}}"
+        beauty="{{beauty}}"
+        enable-camera="{{camera}}"
+        min-bitrate="200"
+        max-bitrate="400"
+        mode="RTC"
+        muted="{{!mic}}"
+        url="{{publishPath}}"
+      >
+      <cover-view class='userName' style='color:#08a53d'>
+          {{nowUserName}}
+        </cover-view>
+     
+      </live-pusher>
+      
+
+    </view>
+    <view class="{{bottomClass}}">
+      <view class="{{bottomClassOne}}">
+          <view class="item col-3">
+            <button bind:tap="onPhoneTab" class="icon-phone">
+            </button>
+          </view>
+          <view class="item col-3">
+            <view bind:tap="onShowDetail" data-index="1" class='{{xiangqingClass}}'>
+              <icon  class="iconfont icon-xiangqing"></icon>
+              <text class='ft-14'>案件详情</text>
+            </view>
+          </view>
+          <view class="item col-3">
+            <view bind:tap="onShowDetail" bind:longpress="onSpeech"  data-index="2" class='{{yuyingClass}}'>
+              <icon  class="iconfont icon-yuying2 teshu"></icon>
+              <text class='ft-14'>语音识别</text>
+            </view>
+          </view>
+          <view class="item col-3">
+            <view bind:tap="toggleRight1" data-index="3" class='{{zhengjuClass}}'>
+              <icon  class="iconfont icon-wenjuan1"></icon>
+              <text class='ft-14'>证据材料</text>
+            </view>
+            
+            
+          </view>
+          
+      </view>
+      <view hidden='{{tabValue1}}' class="{{bottomClassTwo}}">
+          <i-button  bind:click="signCheck" type="primary">签名确认</i-button>
+          <i-panel title="案号">
+              <view style="padding: 15px;">{{caseInfo.caseNo}}</view>
+          </i-panel>
+          <i-panel title="法院">
+              <view style="padding: 15px;">{{caseInfo.court}}</view>
+          </i-panel>
+          <i-panel title="法官">
+              <view style="padding: 15px;">{{caseInfo.judge}}</view>
+          </i-panel>
+          <i-panel title="书记员">
+              <view style="padding: 15px;">{{caseInfo.clerk}}</view>
+          </i-panel>
+          <i-panel title="原告">
+              <view style="padding: 15px;">{{caseInfo.plaintiff}}</view>
+          </i-panel>
+          <i-panel title="被告">
+              <view style="padding: 15px;">{{caseInfo.defendant}}</view>
+          </i-panel>
+      </view>
+      <scroll-view scroll-y hidden='{{tabValue2}}' class="{{bottomClassTwo}}" scroll-top="{{scrollTop}}" >
+          <view
+            wx:key="{{index}}"
+            wx:for="{{messageList}}"
+            data-dt="{{item}}" 
+            class='item-yy'>
+             <text class="{{item.roleName == '法官' ? 'green' : ''}}"> <text class="lights "></text> {{item.roleName + '' + item.name}} 16：26：23</text>
+              <text style='text-indent:0.8rem;'>{{item.content}}</text>
+          </view>
+      </scroll-view>
+      <view hidden='{{tabValue3}}' class="{{bottomClassTwo}}">
+          <view>
+
+          </view>
+         
+      </view>
+      
+
+    </view>
+  </view>
+  
+</view> -->

@@ -1,0 +1,173 @@
+/* page{
+  height: calc(100% - 120px)
+} */
+.listcontent{
+  overflow-y: scroll;
+  height: calc(100% - 75px);
+}
+.menu-footer{
+  /* top: 75px; */
+  position: relative;
+}
+.textIco-b{
+  float: left;
+  text-align: center;
+  margin-right: 5px;
+}
+.textIco-b image{
+  width: 12px;
+}
+.filters-mask{
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+}
+
+
+.light{
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    position: absolute;
+    right:15px;
+    line-height: 57px;
+}
+.open{
+    background: #04d712;
+    box-shadow:  1px 2px 6px #5ff75f;
+}
+.disable{
+  background: #999;
+  box-shadow: inset 0px 0px 10px #eee;
+}
+.listMain{
+  height:calc(100% - 135px);
+  position: relative;
+}
+
+.loads{
+  color: #fff
+}
+/* 公共按钮样式 */
+.setcase-footer{
+  position:fixed;
+  bottom:0px;
+  width:100%;
+  right:0px;
+  left:0px;
+  height: 60px;
+}
+.content{
+  width: 100%;
+  height: calc(100% - 127px);
+  padding-top:55px;
+}
+.listLine{
+  display:flex;
+  height: 70px;
+  line-height: 70px;
+  width: 86%;
+  margin: 0 auto;
+  border-bottom:1px solid  rgba(242,245,248,1.00);
+}
+.listLine .left{
+  order:1;
+  max-width:200px;
+  color: #323643;
+  font-size: 16px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.listLine .right{
+  order:3;
+  width:40px;
+  text-align: right;
+  font-weight: bold;
+}
+.listLine .main{
+  order:2;
+  flex-grow:1;
+  text-align: right;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+  color: #727E8B;
+  font-size: 15px;
+}
+.submit {
+  width: 544rpx;
+  height: 88rpx;
+  line-height: 88rpx;
+  border-radius: 44rpx;
+  background:#4285F4; 
+  color: #fff;
+  font-size: 34rpx;
+}
+
+
+/* pages/setcase/three/three.wxss */
+.four{
+  margin-top:15px;
+  min-height: 90px;
+  background: #fff;
+}
+.yd-font-span16{
+  font-size: 16px;
+  font-weight: 600;
+  display: block;
+  padding-bottom: 15px;
+}
+.assCla{
+  padding: 10px 20px;
+}
+.assCla image{
+  width: 40px;
+  height: 40px;
+}
+.four-item text{
+  line-height: 50px;
+}
+.four-item{
+  height: 50px;
+  width:100%;
+  border-bottom: 1px solid #ccc;
+}
+
+
+
+
+.mains{
+  width:100%;
+  height:100%;
+}
+
+.setcase-footer{
+  position:fixed;
+  bottom:0px;
+  width:100%;
+  right:0px;
+  left:0px;
+  height: 60px;
+}
+.section{
+  height: 40px;
+  padding:8px 15px;
+}
+.picker{
+  line-height: 40px;
+}
+.nextBtn{
+  width:43%;
+}
+.float-left{
+  float: left;
+}
+.float-right{
+  float: right;
+}

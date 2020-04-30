@@ -1,0 +1,12 @@
+<!-- components/login/login.wxml -->
+<template name="alarmFrame">
+    <view class="login_mask" wx:if="{{logShow}}">
+        <view class="login_main">
+            <!-- <icon class="iconfont icon-guanbi close" bindtap='close'></icon> -->
+            <i-icon type="close" size="28" color="#80848f" bindtap='close' class="icon-guanbi" />
+            <!-- <text style='margin-top:15px;' class="logo"> 警情预警</text> -->
+            <image style="margin:0 auto;" class="img-frame" src="{{imgUrl}}/alarmDng.png" />
+            <button bindtap='getInRoom' style="margin-bottom:15px;" class="submit">立即接警</button>
+        </view>
+    </view>
+</template>

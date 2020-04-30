@@ -1,0 +1,58 @@
+<!-- pages/message/message.wxml -->
+<!-- 自定义的导航栏 -->
+<view class="custom" style="padding-top:{{statusBarHeight}}px">
+  <view class="textTit" wx:if="{{!topSeachBarBox}}">
+    <text>消息</text>
+    <view class="textIco">
+      <image src="{{imgUrl}}/home-icon/searchIco.png" bindtap='searchBar' />
+    </view>
+  </view>
+  <view class="textTit" wx:if="{{topSeachBarBox}}">
+    <view class="searchBarBox">
+      <view>
+        <input autofocus placeholder="请输入搜索关键字" />
+      </view>
+      <image src="{{imgUrl}}/home-icon/searchIco.png" />
+    </view>
+  </view>
+</view>
+<view class="empty_custom" style="padding-top:{{statusBarHeight}}px"></view>
+<view class='homePage' bindtouchstart="touchstart" bindtouchmove="touchmove" bindtouchend="touchend" style="height:calc(100%-85px)">
+  <!-- tab -->
+  <view class="menu" style="top:{{statusBarHeight+40}}px">
+    <view class='menu-footer' style="top:{{statusBarHeight+60}}px">
+      <view class='footer-item' data-text="首页" bindtap='changeTabUrl'>
+        <image src='{{imgUrl}}/home-icon/home.png'></image>
+        <text style='font-size:15px;color:#A0A4AA'>首页</text>
+      </view>
+      <view class='footer-item  active-menu' redirect>
+        <image src='{{imgUrl}}/home-icon/message_check.png'></image>
+        <text style='font-size:15px;color:#428FDA;font-weight: bold;'>消息</text>
+      </view>
+      <view class='footer-item' redirect data-text="我的" bindtap='changeTabUrl'>
+        <image src='{{imgUrl}}/home-icon/center.png'></image>
+        <text style='font-size:15px;color:#A0A4AA'>我的</text>
+      </view>
+    </view>
+  </view>
+  <scroll-view scroll-y class='content' bindscrolltolower="loadingData">
+    <view wx:for="{{noteList}}" wx:key="index" data-item="{{item}}">
+      <view class='message-content'>
+        <view class="message">
+          <image src=''></image>
+          <text class="msgNum" wx:if="{{!item.is_read}}"></text>
+        </view>
+        <view class='text-content' data-read="{{item.is_read}}" data-id="{{item.id}}" bindtap="msgOpen">
+          <view class='message-title'>
+            <text class='message-tit' style="color:{{item.is_read ? '#7C7C7A' : ''}}">系统消息</text>
+            <text class='message-time'>{{item.date}}</text>
+          </view>
+          <view class='message-tip'>{{item.title}}</view>
+        </view>
+      </view>
+      <view class='systemMsg' wx:if="{{item.systemMsgShow}}">{{item.content}}</view>
+    </view>
+  </scroll-view>
+</view>
+<import src="../alarmFrame/alarmFrame.wxml" />
+<template is="alarmFrame" data="{{logShow}}"></template>

@@ -1,0 +1,73 @@
+<!--  审核完成 -->
+<view class='mains'>
+  <view class='menu-footer'>
+    <view class="footer-item" redirect style="width: 100%">
+      <text style='font-size:15px;color:#4285F4'>{{title}}完成</text>
+    </view>
+  </view>
+  <scroll-view scroll-view scroll-y class='content'>
+    <view class="caseList" wx:if="{{caseInfo.process==1}}">
+      <view class="left ">登字号</view>
+      <view class="right">
+        <text>{{caseInfo.dCaseNo?caseInfo.dCaseNo:''}}</text>
+      </view>
+    </view>
+    <view class="caseList" wx:if="{{caseInfo.process==0}}">
+      <view class="left ">流水号</view>
+      <view class="right">
+        <text>{{caseInfo.serialNumber?caseInfo.serialNumber:''}}</text>
+      </view>
+    </view>
+    <view class="caseList"  wx:if="{{title=='审核'}}">
+      <view class="left ">案件信息</view>
+      <view class="right">
+        <text>{{caseInfo.caseNo?caseInfo.caseNo:''}}</text>
+      </view>
+    </view>
+    <view class="caseList"  wx:if="{{title=='分发'||title=='分配'}}">
+      <view class="left ">调解号</view>
+      <view class="right">
+        <text>{{caseInfo.sqCaseNo?caseInfo.sqCaseNo:''}}</text>
+      </view>
+    </view>
+    <view class="caseList" >
+      <view class="left ">案由</view>
+      <view class="right">
+        <text>{{caseInfo.brief?caseInfo.brief.name:""}}</text>
+      </view>
+    </view>
+    <view class="caseList">
+      <view class="left ">当前状态</view>
+      <view class="right">
+        <text>已审核</text>
+      </view>
+    </view>
+    <view class="caseList">
+      <view class="left ">审核意见</view>
+      <view class="right">
+        <text wx:if="{{caseInfo.acceptance==1}}">同意</text>
+        <text wx:if="{{caseInfo.acceptance==2}}">不予受理</text>
+        <text wx:if="{{caseInfo.acceptance==3}}">补正</text>
+      </view>
+    </view>
+    <view class="caseList"  wx:if="{{title=='分发'||title=='分配'}}">
+      <view class="left ">分发机构</view>
+      <view class="right">
+        <text>{{caseInfo.court.allName?caseInfo.court.allName:''}}</text>
+      </view>
+    </view>
+    <view class="caseList" wx:if="{{title=='分配'}}">
+      <view class="left ">调解员</view>
+      <view class="right">
+        <text>{{caseInfo.mediater.name?caseInfo.mediater.name:''}}</text>
+      </view>
+    </view>
+  </scroll-view>
+  <view class='setcase-footer1'  wx:if="{{title=='审核'||title=='分发'}}">
+    <button bindtap="nextStep1" class="submit come">继续分配此案</button>
+    <button bindtap="nextStep2" class="submit">返回案件列表</button>
+  </view>
+  <view class='setcase-footer'  wx:if="{{title=='分配'}}">
+    <button bindtap="nextStep3" class="submit">返回案件列表</button>
+  </view>
+</view>

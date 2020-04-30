@@ -1,0 +1,47 @@
+<!-- 自定义的导航栏 -->
+<view class="custom" style="padding-top:{{statusBarHeight}}px">
+  <view class="textTit" wx:if="{{!topSeachBarBox}}">
+    <view class="textIco textIco-b" bindtap='back'>
+      <image src="{{imgUrl}}/home-icon/back_button.png" />
+    </view>
+    <text>我的文书</text>
+    <view class="textIco">
+      <image src="{{imgUrl}}/home-icon/searchIco.png" bindtap='searchBar' />
+    </view>
+  </view>
+  <view class="textTit" wx:if="{{topSeachBarBox}}">
+    <view class="searchBarBox">
+      <view>
+        <input bindinput='getNo' autofocus placeholder="请输入搜索案号" confirm-type="search" bindconfirm="searchCaseNo" />
+      </view>
+      <image src="{{imgUrl}}/home-icon/searchIco.png" bind:tap="searchCaseNo" />
+    </view>
+  </view>
+</view>
+<view class="empty_custom" style="padding-top:{{statusBarHeight}}px"></view>
+<view class='listMain'>
+  <view class='menu-footer'>
+    <view class="footer-item" redirect style="width: 100%">
+      <text style='font-size:15px;color:#4285F4'>案件选择</text>
+    </view>
+  </view>
+  <scroll-view scroll-y bindscrolltolower="loadingData" class='listcontent'>
+    <view class="caseList" wx:for="{{caseList}}" wx:key="index" bindtap="selectCase" data-dt="{{item}}">
+      <!-- <view class="left ">{{item.sqCaseNo ? item.sqCaseNo : item.dCaseNo}}</view> -->
+      <view class="left ">{{item.archiveNo}}</view>
+      <view class="right">
+        <i-icon type="right" class="check" size="25" wx:if="{{item.selected}}" />
+      </view>
+    </view>
+    <view wx:if="{{isLoading}}" style="padding-top: 16px;">
+      <i-load-more i-class="loads" tip="{{tip}}" loading='{{isLoading}}' />
+    </view>
+    <view wx:if="{{caseList.length == 0 || page >= total }}" style="padding-top: 16px;">
+      <i-load-more i-class="loads" tip="{{caseList.length == 0 ? '暂无数据' : '到底了~'}}" loading='{{ false }}' />
+    </view>
+  </scroll-view>
+  <view class='setcase-footer'>
+    <button bindtap="nextStep" class="submit">下一步</button>
+  </view>
+  <view bindtap="handleTap" class="filters-mask" wx:if="{{topSeachBarBox}}"></view>
+</view>

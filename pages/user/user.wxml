@@ -1,0 +1,36 @@
+
+<view class='user-main'>
+  <view  class='content'>
+    <view class='user-names'>
+      <view class="headImg">
+        <image  src=''></image>
+      </view>
+      <!--<view class='name-content'>
+        <view class='namesa'  hidden="{{isLoginOut}}">{{userInfoName}}</view>
+        <view class='namesa' bindtap='logins' style="color:rgba(29,210,193,1.00)"  hidden="{{!isLoginOut}}">未认证</view>        
+      </view>-->
+      <view class='name-content' wx:if="{{roleType==0}}">
+        <view class="{{isAttest ? 'namesa' : 'namesa attestColor'}}"  bindtap='logins'>{{isAttest ? '已认证' : '未认证'}}</view>               
+      </view>
+    </view>
+    <view class='user-menu'>
+      <view class='user-menu-item' data-text="我的调解" bindtap="changeUrl" wx:if="{{roleType==0}}">
+        <text>我的调解</text>
+        <i-icon type="unfold" style='float:right;line-height:64px;color:#ccc' size="28"/>
+      </view>
+      <view class='user-menu-item'  data-text="个人信息" bindtap="changeUrl">
+        <text>个人信息</text>
+        <i-icon type="unfold" style='float:right;line-height:64px;color:#ccc' size="28"/>
+      </view>
+      <view class='user-menu-item'  data-text="设置"  bindtap="changeUrl">
+        <text>设置</text>
+        <i-icon type="unfold" style='float:right;line-height:64px;color:#ccc' size="28"/>
+      </view>
+      <button  bindtap='submit' class="submit" wx:if="{{!isAttest&&roleType==0}}" data-text="{{buttonTxt}}">认证</button>
+      <!--<button  bindtap='quit' class="submit" wx:if="{{roleType==0}}" data-text="{{buttonTxt}}">注销</button>-->
+      <button  bindtap='quit' style="background: rgba(243,120,150,1);color:#fff;border:none" class="submit" data-text="{{buttonTxt}}">退出登录</button>
+    </view>
+  </view>
+</view>
+<import src="../certification/certification.wxml" />
+<template is="certification" data="{{isAttestModal}}"></template>

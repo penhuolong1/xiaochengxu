@@ -1,0 +1,103 @@
+/* pages/mycase/index/index.wxss */
+.searchHeader{
+    /* width: 100%; */
+    height: 35px;
+    position: relative;
+    top: 0;
+    bottom: 0;
+    padding: 10px;
+    z-index: 5;
+    background: #428FDA;
+    /* background: #40a9ff; */
+    /* border-bottom-right-radius: 10px;
+    border-top-left-radius: 10px; */
+
+    box-shadow: 0 2px 5px rgba(41, 10, 77, 0.5);
+}
+.searchInput{
+      font-family: Arial;
+    margin: 0 auto;
+    width: 80%;
+    font-size: 1rem;
+    text-align: center;
+    height: 35px;
+    /* border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px; */
+    border-radius: 40px;
+    padding-right: 70px;
+    box-sizing: border-box;
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: #fdfdfd;
+    text-indent: 2%;
+    outline: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    -o-appearance: none;
+    appearance: none;
+    transition: all 0.5s ease;
+}
+.search-icon{
+    display: block;
+    width: 35px;
+    height: 35px;
+    background: #fff;
+    border-radius: 50%;
+    position: absolute;
+    top: 10px;
+    right: 12%;
+    z-index: 999;
+    cursor: pointer;
+    box-shadow: -1px 1px 2px rgba(41, 10, 77, 0.5);
+}
+.searchImg{
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -15px;
+  margin-left: -15px;
+}
+.plade{
+  color:#fff;
+  font-size: 18px
+}
+
+.dex{
+  height: 100%;
+}
+.listcontent{
+  /* overflow-y: scroll; */
+  height: 100%;
+}
+.loads{
+  color: #fff
+}
+
+.right-cel{
+  position: absolute;
+  text-align: right;
+  padding-right: 20px;
+  right: 25px;
+  top: 8px;
+  height:20px ;
+  /* width:60px; */
+}
+.defent-span{
+    padding: 5px;
+    background-color: #fff;
+    color: #454545;
+    border: .5px solid #dedede;
+    margin-right: 5px;
+}
+.right-span{
+  padding: 5px;
+  margin-right: 5px;
+  background: #04be02;
+  border: 1px solid #04be02;
+  color: #fff;
+}

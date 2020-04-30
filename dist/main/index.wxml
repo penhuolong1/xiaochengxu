@@ -1,0 +1,11 @@
+<view class="main" hover-class="none" hover-stop-propagation="false"><slot></slot></view>
+<view class="footer">
+  <!-- <image class="logo item" src="../../assets/icons/ic_niu_logo.png" mode="aspectFit" lazy-load="false">
+  </image> -->
+  <image class="logo item app-icon" src="../../images/ic_app_logo.jpg" mode="aspectFit" lazy-load="false"></image>
+  <view class="item vertical-line">
+  </view>
+  <view class="item" style='color:#fff'>
+    视频庭审
+  </view>
+</view>

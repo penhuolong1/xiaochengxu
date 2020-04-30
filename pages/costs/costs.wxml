@@ -1,0 +1,54 @@
+<view class='mains'>
+  <scroll-view scroll-view scroll-y class='content'>
+    <i-panel title="选择案件类型" i-class='plains'> 
+      <view class="section" >
+        <picker name="hx_index" bindchange="bindPickerChangeFile" value="{{array2[hx_index].id}}" range-key="{{'text'}}" range="{{array2}}">
+          <view class="picker">
+            {{fileTypeName}}
+          </view>
+        </picker>
+      </view>
+    </i-panel>
+    <i-panel title="是否涉及财产" i-class='plains'> 
+      <view class="section" style="height:85px;">
+       <radio-group  bindchange="changeType">
+            <label class="radio ras" style='margin-right:10px;border-bottom: 1px solid #ccc;font-size:14px;'>
+                <radio  value="1" checked="{{isSel}}"/>是
+            </label>
+            <label class="radio ras" style='margin-right:10px;font-size:14px;'>
+                <radio value="0" checked="{{!isSel}}"/>否
+            </label>
+        </radio-group>
+      </view>
+    </i-panel>
+    <i-panel title="基础费用（人民币/元）" i-class='plains'> 
+      <view class="section" >
+        <i-input value="{{ basicCost }}" bind:change='getbasicCost' placeholder="请输入金额（不必填）" />
+        <text class="y-text" style='line-height:40px'>元</text>
+      </view>
+    </i-panel>
+    <view wx-if="{{isSel}}"> 
+      <i-panel  title="标的金额（人民币/元）" i-class='plains'> 
+        <view class="section" >
+          <i-input value="{{ applyStandard }}"  bind:change='getapplyStandard'  placeholder="请输入金额（必填）" />
+          <text class="y-text" style='line-height:40px'>元</text>
+        </view>
+      </i-panel>
+    </view>
+    <view style="text-align:right;color:#428FDA;margin-top: 5px;">
+      <text bindtap="goRule">点击此处查看诉讼费用缴纳办法</text>
+    </view>
+    
+    <i-panel title="计算结果" i-class='plains'>
+      <!-- <i-input value="{{ litigantName }}" right disabled bind:change='getlitigantName' title="受理费（元）"   placeholder="0.00" />
+        <i-input value="{{ legalManName }}" right disabled bind:change='getlegalManName' title="执行费（元）"  placeholder="0.00" />
+        <i-input value="{{ identityCard }}" right disabled bind:change='getidentityCard' title="保全费（元）"  placeholder="0.00" /> -->
+        <i-input value="{{ total }}" right disabled bind:change='getidentityCard' title="总计（元）" mode="wrapped" error  placeholder="0.00" />
+    </i-panel>
+    <view class='setcase-footer'>
+      <i-button  bind:click="nextStep" type="primary">计算</i-button>
+      <i-button  bind:click="upStep"  type="ghost">重置</i-button>
+    </view>
+  </scroll-view>
+  
+</view>

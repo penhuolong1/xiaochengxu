@@ -1,0 +1,33 @@
+<view class='homePage'>
+  <scroll-view scroll-y class='content'>
+    <view class="everyMsg">
+      <view class="time">今天 13:50</view>
+      <view class="headImg">
+        <image src="" />
+      </view>
+      <view class="msgText leftTxt">文本/图片/视频</view>
+    </view>
+    <view class="everyMsg" style="text-align:right">
+      <view class="time">今天 13:50</view>
+      <view class="msgText rightTxt">文本图片/视频文本/图片/视频文本/图片/视频文本/图片/视频文本/图片/视频文本/图片/视频</view>
+    </view>
+    <view class="everyMsg">
+      <view class="time">今天 13:50</view>
+      <view class="headImg">
+        <image src="" />
+      </view>
+      <view class="msgText leftTxt">文本/图片/视频</view>
+    </view>
+  </scroll-view>
+  <view class="editBox">
+    <view class="left">
+      <image src="{{imgUrl}}/chat1.png" />
+    </view>
+    <view class="main">
+      <textarea placeholder="编辑要发送的消息" />
+    </view>
+    <view class="right">
+      <image src="{{imgUrl}}/chat2.png" />
+    </view>
+  </view>
+</view>

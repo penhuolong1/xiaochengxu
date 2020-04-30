@@ -1,0 +1,15 @@
+<view class='user-main'>
+  <view class='content'>
+    <view class="roleBox">
+      <view class="roleText">案管人员</view>
+      <image src="{{imgUrl}}/selectLogin1.png" data-text="案管人员" bindtap="selectRole" />
+    </view>
+    <view class="roleBox">
+      <view class="roleText" style="background-color:#1DD2C1;">普通用户</view>
+      <image src="{{imgUrl}}/selectLogin2.png" data-text="普通用户" bindtap="selectRole" />
+      <button wx:if="{{!isAuthor}}" class="getBtn" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo"></button>
+    </view>
+  </view>
+</view>
+<import src="../certification/certification.wxml" />
+<template is="certification" data="{{isAttestModal}}"></template>

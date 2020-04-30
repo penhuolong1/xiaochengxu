@@ -1,0 +1,38 @@
+<!-- 自定义的导航栏 -->
+<view class="custom" style="padding-top:{{statusBarHeight}}px">
+  <view class="textTit" wx:if="{{!topSeachBarBox}}">
+    <view class="textIco textIco-b" bindtap='back'>
+      <image src="{{imgUrl}}/home-icon/back_button.png" />
+    </view>
+    <text>文书管理</text>
+  </view>
+  <view class="textTit" wx:if="{{topSeachBarBox}}">
+    <view class="searchBarBox">
+      <view>
+        <input bindinput='getNo' autofocus placeholder="请输入搜索案号" confirm-type="search" bindconfirm="searchCaseNo" />
+      </view>
+      <image src="{{imgUrl}}/home-icon/searchIco.png" />
+    </view>
+  </view>
+</view>
+<view class="empty_custom" style="padding-top:{{statusBarHeight}}px"></view>
+<view class='listMain'>
+  <view class='menu-footer' style="min-height:80px;">
+    <view class="footer-item" redirect style="width: 100%">
+      <view style='font-size:15px;color:#4285F4'>{{caseNo}}</view>
+      <view style='font-size:15px;color:#4285F4'>{{dipName}}</view>
+    </view>
+  </view>
+  <view class="contents">
+    <view class="content-block">
+      <view wx:for="{{litigantList}}" wx:key="index">
+        <image class="arrow-right-ico" src="{{imgUrl}}/arrow-right.png" />
+        {{item.litigationStatus.name  + item.litigantName}}：
+        <textarea auto-height bindinput="bindTextAreaBlur" value='{{item.email}}' id="factContent" class='susong' data-id="{{item.id}}" placeholder="请填写邮箱" />
+      </view>
+    </view>
+  </view>
+  <view style="margin: 10px 0px;">
+    <button bindtap="nextStep" class="submit">一键发送</button>
+  </view>
+</view>

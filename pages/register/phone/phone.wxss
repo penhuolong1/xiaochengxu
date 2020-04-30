@@ -1,0 +1,51 @@
+/* pages/setcase/one/one.wxss */
+page{
+  background: #fff;
+}
+.one-menu{
+  padding:15px 30px;
+  box-shadow:0px 0px 1px rgba(0,0,0,.2);
+  background:#fff;
+  height:275px;
+}
+/* .one-menu-item{
+  height:65px;
+  width:100%;
+  border-bottom:1px solid #ccc;
+} */
+.one-radio{
+  line-height:65px;
+  display:block;
+  border-bottom:1px solid #ccc;
+}
+
+
+
+.mains{
+  width:100%;
+  height:100%;
+}
+.content{
+  width: 100%;
+  height: calc(100% - 72px);
+  
+}
+.setcase-footer{
+  position:fixed;
+  bottom:0px;
+  width:100%;
+  right:0px;
+  left:0px;
+  height: 60px;
+}
+
+.send-code{
+  display: inline-block;
+  position: absolute;
+  right: 15px;
+  top: 55px;
+  color: #2D8CF0;
+}
+.code{
+  width:65%
+}

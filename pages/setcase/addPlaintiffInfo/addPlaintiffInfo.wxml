@@ -1,0 +1,102 @@
+<!-- 自定义的导航栏 -->
+<view class="custom" style="padding-top:{{statusBarHeight}}px">
+  <view class="textTit" wx:if="{{!topSeachBarBox}}">
+    <view class="textIco textIco-b" bindtap='back'>
+      <image src="{{imgUrl}}/home-icon/back_button.png" />
+    </view>
+    <text>{{isDefendAnt == 1 ? '被申请人':'申请人'}}身份信息</text>
+  </view>
+</view>
+<view class="empty_custom" style="padding-top:{{statusBarHeight}}px"></view>
+<view class='listMain'>
+  <view class='menu-footer' style="top: 10px;">
+    <view class="footer-item" redirect style="width: 100%">
+      <text style='font-size:15px;color:#4285F4;font-weight:bold'>
+        {{isDefendAnt == 1 ? '被申请人':'申请人'}}身份信息
+      </text>
+    </view>
+  </view>
+  <scroll-view scroll-y bindscrolltolower="loadingData" class='listcontent'>
+    <view class='i-cell i-input'>
+      <view class='i-cell-hd i-input-title'>当事人身份类型</view>
+      <picker wx:if="{{!litigantId}}" style="width:90%;text-align:right" name="hx_index" data-type="当事人身份类型" bindchange="bindPickerChangeAn" value="{{litigantType[hx_index].id}}" range-key="{{'text'}}" range="{{litigantType}}">
+        <view class="picker">
+          {{selectNames}}
+          <i-icon type="unfold" />
+        </view>
+      </picker>
+      <view wx:if="{{litigantId}}" class="picker" style="text-align:right;flex-grow:1;">
+        {{selectNames}}
+      </view>
+    </view>
+    <!-- 自然人 -->
+    <view wx:if="{{selectNames=='自然人'}}">
+      <view class='i-cell i-input'>
+        <view class='i-cell-hd i-input-title'>当事人身份证件</view>
+        <view class="picker" style="text-align:right;flex-grow:1;">{{cardType}}</view>
+        <!-- <picker 
+          style="width:90%;text-align:right" 
+          name="card" 
+          data-type="当事人身份证件" 
+          bindchange="bindPickerChangeAn" 
+          value="{{cardAry[card].id}}" 
+          range-key="{{'text'}}" 
+          range="{{cardAry}}">
+            <view class="picker">
+              {{cardType}}
+              <i-icon type="unfold" />
+            </view>
+        </picker> -->
+      </view>
+      <view class="minTit">
+        <view class="left">上传身份证件</view>
+      </view>
+      <view class="upload">
+        <view class='uploadBox' bindtap='uploadImg' data-vb="front">
+          <image src="{{photoUrl1}}"></image>
+        </view>
+        <view class='uploadBox' bindtap='uploadImg' data-vb="opposite">
+          <image src="{{photoUrl2}}"></image>
+        </view>
+      </view>
+    </view>
+    <!-- 非自然人 -->
+    <view wx:if="{{selectNames!=='自然人'}}">
+      <view class='i-cell i-input'>
+        <view class='i-cell-hd i-input-title'>当事人身份证件</view>
+        <view class="picker" style="text-align:right;flex-grow:1;">{{cardType}}</view>
+        <!-- <picker 
+          style="width:90%;text-align:right" 
+          name="iscard" 
+          data-type="非自然人当事人身份证件" 
+          bindchange="bindPickerChangeAn" 
+          value="{{iscardAry[iscard].id}}" 
+          range-key="{{'text'}}" 
+          range="{{iscardAry}}">
+            <view class="picker">
+              {{iscardType}}
+              <i-icon type="unfold" />
+            </view>
+        </picker> -->
+      </view>
+      <view class="minTit">
+        <view class="left">上传证件照片</view>
+      </view>
+      <view class="upload">
+        <view class='uploadBox' data-vb="legal" bindtap='uploadImg' style="width: 100%">
+          <view class="uploadIco" wx:if="{{photoUrl3==''}}">
+            <i-icon type="camera" size="40" style="margin-left:-3px;" />
+          </view>
+          <view wx:if="{{photoUrl3==''}}">拍照上传</view>
+          <image wx:if="{{photoUrl3!==''}}" src="{{photoUrl3}}" style="width:200px;margin:20px auto 0 auto;height:170px;" />
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+  <view class='setcase-footer'>
+    <button bindtap="nextPage" class="submit" wx:if="{{litigantId!==''&&operation=='view'}}">
+      下一页
+    </button>
+    <button bindtap="nextStep" wx:else class="submit">下一步</button>
+  </view>
+</view>

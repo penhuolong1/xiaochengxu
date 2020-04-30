@@ -1,0 +1,44 @@
+<!-- pages/witness/evidenceList/evidenceList.wxml -->
+<view style="height:100%;">
+  <i-tabs current="{{ current }}" bindchange="handleChange">
+    <i-tab key="tab1" title="已上传未提交证据"></i-tab>
+    <i-tab key="tab2" title="已提交"></i-tab>
+  </i-tabs>
+  <scroll-view scroll-y class='content'>
+    <view style="text-align:center;margin-top:15px;" wx:if="{{evidenceList.length === 0 }}">
+      暂无数据~
+    </view>
+    <view wx:key="{{item.evidenceId}}" wx:for-item="item" wx:for="{{evidenceList}}" style="border-bottom:1px dashed #ccc;margin-bottom:5px;">
+      <i-cell-group>
+        <i-cell title="证据名称：" value="{{item.name}}"></i-cell>
+        <i-cell title="证据对象：" value="{{item.prove}}"></i-cell>
+        <i-cell title="证据来源：" value="{{item.source}}"></i-cell>
+        <i-cell title="提交时间：" value="{{item.time}}"></i-cell>
+        <i-cell title="附件：">
+          <text class="right-cel" data-dt="{{item.file}}" bindtap="openModal">查看</text>
+        </i-cell>
+        <i-cell title="" wx:if="{{iself === 1 }}">
+          <button data-dt="{{item}}" bind:tap="deleEvidence" class="btns red">删　除</button>
+          <button data-dt="{{item}}" bind:tap="editEvidence" class="btns blue">编　辑</button>
+          <button data-dt="{{item}}" bind:tap="submits" class="btns green">提　交</button>
+        </i-cell>
+      </i-cell-group>
+    </view>
+  </scroll-view>
+  <view class='witness-footer'>
+    <i-button bind:click="addEvidence" i-class='nextBtn' type="primary">添加证据</i-button>
+  </view>
+</view>
+<i-modal title="附件列表" visible="{{ visible1 }}" show-cancel='{{cancelText}}' bind:ok="handleClose1" ok-text="关闭" bind:cancel="handleClose1">
+  <i-cell-group>
+    <i-cell wx:key="{{key}}" wx:for-item="item" wx:for="{{fileList}}" title="{{item.fileName}}">
+      <text class="right-cel" data-dt="{{item}}" bindtap="openFile">下载</text>
+    </i-cell>
+  </i-cell-group>
+</i-modal>
+<view wx:if="{{isPic}}" class='picShow'>
+  <view class="quit-b" bind:tap="toggleClosePic">
+    <image src="{{imgUrl}}/cansole.png" alt="" class="quit" />
+  </view>
+  <image class="img" src='{{picSrc}}' />
+</view>

@@ -1,0 +1,55 @@
+.mains{
+  width:100%;
+  height:100%;
+}
+.content{
+  width: 88%;
+  margin: 0 auto;
+  height: calc(100% - 55px);
+  padding-top: 55px;
+}
+.everyEvidence {
+  border-bottom: 1px solid #ccc;
+  font-size: 14px;
+  line-height: 25px;
+  padding-bottom: 20px;
+}
+.everyEvidence .minTit {
+  line-height:50px;
+  font-size:16px;
+}
+.everyEvidence .imgBox{
+  padding: 10px 10px 0 10px;
+  border-radius: 10px;
+  background-color: #ccc;
+}
+.everyEvidence .imgBox .box{
+  width: 33.3%;
+  display:inline-block;
+}
+.everyEvidence .imgBox .box image{
+  width: 100px;
+  height: 130px;
+}
+
+.content-block{
+  margin: 0 auto;
+  border-bottom: 1px solid #F2F5F8;
+  font-family: PingFang SC;
+  padding-bottom: 10px;
+}
+.content-block>view{
+  min-height: 50px;
+  vertical-align:middle;
+  font-size: 15px;
+  font-family: PingFang SC;
+  font-weight: 400;
+  color: rgba(50,54,67,1);
+  padding: 15px 0;
+  box-sizing: border-box
+}
+.arrow-right-ico{
+  width: 18px;
+  height: 9px;
+  margin-right: 10px;
+}

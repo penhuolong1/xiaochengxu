@@ -1,0 +1,37 @@
+<view class='headers'>
+    <i-steps current="{{current}}">
+        <i-step>
+            <view slot="title">身份认证</view>
+            <!-- <view slot="content">
+                这里是该步骤的描述信息
+            </view> -->
+        </i-step>
+        <i-step>
+            <view slot="title">身份确认</view>
+            <!-- <view slot="content">
+                这里是该步骤的描述信息
+            </view> -->
+        </i-step>
+        <i-step>
+            <view slot="title">完成</view>
+            <!-- <view slot="content">
+                这里是该步骤的描述信息
+            </view> -->
+        </i-step>
+    </i-steps>
+</view>
+<view class="main" hover-class="none" hover-stop-propagation="false">
+    <!-- index.wxml -->
+    <view class="page-body-wrapper">
+        <camera device-position="front" flash="off" binderror="error" style="width:100%;height:300px;border-radius:5px;"></camera>
+        <canvas wx:if="{{canvasshow}}" style="width: 100%;height:300px;position:absolute;" canvas-id="canvas"></canvas>
+        <view class='tip'>
+            <text>{{tips}}</text>
+        </view>
+        <image mode="aspectFit" src="{{src}}" class='result-img'></image>
+        <!-- <video wx:if="{{videoSrc}}" class="video" src="{{videoSrc}}"></video> -->
+    </view>
+    <!-- <video wx:if="{{videoSrc}}" class="video" src="{{videoSrc}}"></video> -->
+    <!-- <i-button bindclick="handleClick" type="primary">下一步</i-button> -->
+</view>
+<image src="{{tempImage}}" style="width:200px;height:200px;" />

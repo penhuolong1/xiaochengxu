@@ -1,0 +1,82 @@
+<!-- 自定义的导航栏 -->
+<view class="custom" style="padding-top:{{statusBarHeight}}px">
+  <view class="textTit" wx:if="{{!topSeachBarBox}}">
+    <view class="textIco textIco-b" bindtap='back'>
+      <image src="{{imgUrl}}/home-icon/back_button.png" />
+    </view>
+    <text>{{isDefendAnt==1?'被申请人':'申请人'}}身份</text>
+  </view>
+</view>
+<view class="empty_custom" style="padding-top:{{statusBarHeight}}px"></view>
+<view class='listMain'>
+  <view class='menu-footer' style="top: 10px;">
+    <view class="footer-item" redirect style="width: 100%">
+      <text style='font-size:15px;color:#4285F4;font-weight:bold'>
+        {{isDefendAnt==1?'被申请人':'申请人'}}身份
+      </text>
+    </view>
+  </view>
+  <scroll-view scroll-y bindscrolltolower="loadingData" class='listcontent'>
+    <view wx:if="{{roleType=='自然人'}}">
+      <i-input value="{{ nomalPeople.name }}" title="姓名" bind:change='getName' placeholder="名字" />
+      <view class="agent-wrapper">
+        <view class="label-icon">代理人</view>
+        <view wx:if="{{lawyers && lawyers.length > 0}}" class="right" style="color:#4285F4">
+          <text style="width:92%">详细内容</text>
+          <i-icon type="unfold" style="float:right" wx:if="{{!detailOpen}}" />
+          <i-icon type="packup" style="float:right" wx:if="{{detailOpen}}" />
+        </view>
+        <view wx:if="{{!lawyers}}" class="right" style="color:#4285F4">无</view>
+      </view>
+      <view class="agent-detail" wx:if="{{!detailOpen}}">
+        <view class="detail" wx:for="{{lawyers}}" wx:key="{{index}}">
+          <view class="left " style="width: 50px;">
+            <image src="{{imgUrl}}/arrow-right.png" />
+          </view>
+          <view class="right">代理人{{index+1}}:{{item.agentName}}</view>
+        </view>
+      </view>
+      <view class='i-cell i-input'>
+        <view class='i-cell-hd i-input-title'>性别</view>
+        <picker wx:if="{{!litigantId}}" style="width:90%;text-align:right;padding-right:10px;" name="sex" data-type="性别" bindchange="bindPickerChangeAn" value="{{sexAry[sex].text}}" range-key="{{'text'}}" range="{{sexAry}}">
+          <view class="picker">
+            {{nomalPeople.sex}}
+            <i-icon type="unfold" />
+          </view>
+        </picker>
+        <view class="detail-info" wx:if="{{litigantId}}">{{nomalPeople.sex}}</view>
+      </view>
+      <view class='i-cell i-input'>
+        <view class='i-cell-hd i-input-title'>出生</view>
+        <picker wx:if="{{!litigantId}}" mode="date" value="{{nomalPeople.birthday}}" bindchange="bindDateChange" style="width:90%;text-align:right;padding-right: 12px;padding-right:10px;">
+          <view class="picker">{{nomalPeople.birthday}}</view>
+        </picker>
+        <view class="detail-info" wx:if="{{litigantId}}">{{nomalPeople.birthday}}</view>
+      </view>
+      <i-input value="{{ nomalPeople.nation }}" isShowDetail="{{litigantId}}" title="民族" bind:change='getnation' placeholder="请输入" />
+      <i-input value="{{ nomalPeople.identityCard }}" isShowDetail="{{litigantId}}" bind:change='getCard' title="公民身份证号码" placeholder="请输入" />
+      <i-input value="{{ nomalPeople.litigantPhone }}" isShowDetail="{{litigantId}}" type="number" bind:change='getlitPhone' title="手机" placeholder="请输入" />
+      <i-input value="{{ nomalPeople.address }}" isShowDetail="{{litigantId}}" bind:change='getaddress' title="住址" placeholder="请输入" />
+      <i-input value="{{ nomalPeople.employer }}" isShowDetail="{{litigantId}}" bind:change='getemployer' title="工作单位" placeholder="请输入" />
+      <!-- <i-input value="{{ employerAddress }}" type="textarea" bind:change='getemployerAddress' title="工作地址" placeholder="请输入"  />
+      <i-input value="{{ nativePlace }}" type="textarea" bind:change='getnativePlace' title="户籍地址" placeholder="请输入"  />
+      <i-input value="{{ sendAddress }}" type="textarea" bind:change='getsendAddress' title="常住地址" placeholder="请输入"  /> -->
+    </view>
+    <view wx:if="{{roleType=='法人'}}">
+      <i-input value="{{ legalPeople.name }}" isShowDetail="{{litigantId}}" bind:change='getName' title="公司名称" placeholder="请输入" />
+      <i-input value="{{ legalPeople.identityCard }}" isShowDetail="{{litigantId}}" type="textarea" bind:change='getCard' title="统一信用代码" placeholder="请输入" />
+      <i-input value="{{ legalPeople.litigantPhone }}" isShowDetail="{{litigantId}}" type="number" bind:change='getlitigantPhone' title="法人公司固定电话" placeholder="请输入" />
+      <i-input value="{{ legalPeople.address }}" isShowDetail="{{litigantId}}" type="textarea" bind:change='getaddress' title="注册地址" placeholder="请输入" />
+      <i-input value="{{ legalPeople.employer }}" isShowDetail="{{litigantId}}" type="textarea" bind:change='getemployer' title="经营地址" placeholder="请输入" />
+      <i-input value="{{ legalPeople.legalManName }}" isShowDetail="{{litigantId}}" type="textarea" bind:change='getlegalManName' title="代表人姓名" placeholder="请输入" />
+      <i-input value="{{ legalPeople.legalManPhone }}" isShowDetail="{{litigantId}}" type="number" bind:change='getlegalManPhone' title="代表人手机号" placeholder="请输入" />
+      <i-input value="{{ legalPeople.legalManId }}" isShowDetail="{{litigantId}}" type="textarea" bind:change='getlegalManId' title="代表人身份证号" placeholder="请输入" />
+    </view>
+  </scroll-view>
+  <view class='setcase-footer'>
+    <button bindtap="nextPage" class="submit" wx:if="{{litigantId!==''&&operation=='view'}}">
+      返回
+    </button>
+    <button bindtap="nextStep" wx:else class="submit">保存</button>
+  </view>
+</view>

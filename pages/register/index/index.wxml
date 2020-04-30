@@ -1,0 +1,50 @@
+<!--pages/setcase/one/one.wxml-->
+<view class='mains'>
+  <scroll-view scroll-view class='content'>
+    <view class='one-menu' wx-if="{{!isLaywer}}">    
+      <view class='one-menu-item'>
+        <radio-group class="radio-group" bindchange="changeType">
+            <text class="one-radio">请选择您的身份</text>
+            <label class="one-radio">
+                <radio value="自然人" checked="{{identity == '自然人'}}"/>自然人
+            </label>
+            <label class="one-radio">
+                <radio value="法人/非法人" checked="{{identity == '法人/非法人'}}"/>法人/非法人
+            </label>
+            <label class="one-radio">
+                <radio value="代理人" checked="{{identity == '代理人'}}"/>代理人
+            </label>
+        </radio-group>
+      </view>
+    </view>
+    <view class='one-menu' wx-if="{{isLaywer}}">    
+      <view class='one-menu-item'>
+        <radio-group class="radio-group" bindchange="changeState">
+            <text class="one-radio">请选择代理人身份</text>
+            <label class="one-radio">
+                <radio value="1" checked="{{LawyerState == 1}}"/>律师
+            </label>
+            <label class="one-radio">
+                <radio value="2" checked="{{LawyerState == 2}}"/>法律工作者
+            </label>
+            <label class="one-radio">
+                <radio value="3" checked="{{LawyerState == 3}}"/>单位工作人员
+            </label>
+            <label class="one-radio">
+                <radio value="4" checked="{{LawyerState == 4}}"/>近亲属
+            </label>
+            <label class="one-radio">
+                <radio value="5" checked="{{LawyerState == 5}}"/>公民
+            </label>
+        </radio-group>
+      </view>
+    </view>
+  </scroll-view>
+  <view class='setcase-footer' wx-if="{{!isLaywer}}">
+    <i-button  bind:click="nextStep" type="primary">下一步</i-button>
+  </view>
+  <view class='setcase-footer' wx-if="{{isLaywer}}">
+    <i-button  bind:click="upStep" i-class='nextBtn float-left'  inline="true" type="ghost">上一步</i-button>
+    <i-button  bind:click="nextSteplawyer"  i-class='nextBtn float-right'  inline="true" type="primary">下一步</i-button>
+  </view>
+</view>

@@ -1,0 +1,2 @@
+<!--pages/bookWeb/bookWeb.wxml-->
+<web-view src="{{baseUrl + path}}" bindload="openSure" binderror="openErr"></web-view>

@@ -1,0 +1,159 @@
+<!-- 添加的申请人为自然人 -->
+<view class='mains'>
+  <view class='menu-footer'>
+    <view class="footer-item" redirect style="width: 100%;line-height: 100%;">
+      <text style='font-size:15px;color:#4285F4;font-weight:bold' wx:if="{{caseInfo.process==1}}">
+        {{caseInfo.dCaseNo?caseInfo.dCaseNo:''}}
+      </text>
+      <text style='font-size:15px;color:#4285F4;font-weight:bold' wx:if="{{caseInfo.process==0}}">
+        {{caseInfo.serialNumber?caseInfo.serialNumber:''}}
+      </text>
+      <text style='font-size:15px;color:#4285F4;font-weight:bold' wx:if="{{caseInfo.process!==0&&caseInfo.process!==1}}">
+        {{caseInfo.acceptance==1?caseInfo.sqCaseNo:caseInfo.dCaseNo}}
+      </text>
+    </view>
+  </view>
+  <scroll-view scroll-view scroll-y class='content'>
+    <view class="caseList" wx:if="{{caseInfo.process==1}}">
+      <view class="left ">登字号</view>
+      <view class="right">
+        <text>{{caseInfo.dCaseNo?caseInfo.dCaseNo:''}}</text>
+      </view>
+    </view>
+    <view class="caseList" wx:if="{{caseInfo.process==0}}">
+      <view class="left ">流水号</view>
+      <view class="right">
+        <text>{{caseInfo.serialNumber?caseInfo.serialNumber:''}}</text>
+      </view>
+    </view>
+    <view class="caseList" wx:if="{{caseInfo.process!==0&&caseInfo.process!==1}}">
+      <view class="left ">调解号</view>
+      <view class="right">
+        <text>{{caseInfo.acceptance==1?caseInfo.sqCaseNo:caseInfo.dCaseNo}}</text>
+      </view>
+    </view>
+    <view class="caseList">
+      <view class="left ">当前状态</view>
+      <view class="right">
+        <text wx:if="{{caseInfo.process==0}}">未申请</text>
+        <text wx:if="{{caseInfo.process==1}}">已申请</text>
+        <text wx:if="{{caseInfo.process==2}}">已受理</text>
+        <text wx:if="{{caseInfo.process==3}}">已分发</text>
+        <text wx:if="{{caseInfo.process==4}}">已分配</text>
+        <text wx:if="{{caseInfo.process==5}}">调解中</text>
+        <text wx:if="{{caseInfo.process==7}}">生成调解协议（待签字）</text>
+        <text wx:if="{{caseInfo.process==8}}">调解成功（已签字）</text>
+        <text wx:if="{{caseInfo.process==9}}">不予受理</text>
+      </view>
+    </view>
+    <view class="caseList">
+      <view class="left ">审核意见</view>
+      <view class="right">
+        <text wx:if="{{caseInfo.acceptance==0}}">未审核</text>
+        <text wx:if="{{caseInfo.acceptance==1}}">同意</text>
+        <text wx:if="{{caseInfo.acceptance==2}}">不予受理</text>
+        <text wx:if="{{caseInfo.acceptance==3}}">
+          补正（{{caseInfo.opinion?caseInfo.opinion:'无'}}）
+        </text>
+      </view>
+    </view>
+    <view class="caseList">
+      <view class="left ">案由</view>
+      <view class="right">
+        <text>{{caseInfo.brief?caseInfo.brief.name:"无"}}</text>
+      </view>
+    </view>
+    <!-- <view class="caseList" data-type="申请人" bindtap="viewMore">
+      <view class="left ">申请人</view>
+      <view class="right">
+        <text>{{applicantObj?applicantObj.litigantName:''}}</text>
+      </view>
+    </view>
+    <view class="caseList" data-type="被申请人" bindtap="viewMore">
+      <view class="left ">被申请人</view>
+      <view class="right">
+        <text>{{defendantObj?defendantObj.litigantName:''}}</text>
+      </view>
+    </view> -->
+    <view class="caseList">
+      <view class="left ">当事人</view>
+      <view class="right" style="color:#4285F4" data-text="当事人" bindtap="openDetail">
+        <text style="width:92%">详细内容</text>
+        <i-icon type="unfold" style="float:right" wx:if="{{!detailOpen3}}" />
+        <i-icon type="packup" style="float:right" wx:if="{{detailOpen3}}" />
+      </view>
+    </view>
+    <block wx:for="{{applicantObj}}" wx:key="{{index}}">
+    <view class="detail" wx:if="{{detailOpen3}}" data-type="申请人" data-id="{{item.id}}" bind:tap="viewMoreInfo">
+      <view class="left " style="width: 50px;">
+        <image src="{{imgUrl}}/arrow-right.png" />
+      </view>
+      <view class="right">申请人{{index+1}}:{{item.litigantName}}</view>
+    </view>
+    </block>
+    <block wx:for="{{defendantObj}}" wx:key="{{index}}">
+    <view class="detail" wx:if="{{detailOpen3}}" data-type="被申请人" data-id="{{item.id}}" bind:tap="viewMoreInfo">
+      <view class="left " style="width: 50px;">
+        <image src="{{imgUrl}}/arrow-right.png" />
+      </view>
+      <view class="right">被申请人{{index+1}}:{{item.litigantName}}</view>
+    </view>
+    </block>
+    <view class="caseList">
+      <view class="left ">请求标的</view>
+      <view class="right">
+        <text>{{caseInfo.applyStandard?caseInfo.applyStandard:""}}</text>
+      </view>
+    </view>
+    <view class="caseList">
+      <view class="left ">调解请求</view>
+      <view class="right" style="color:#4285F4" data-text="请求事项" bindtap="openDetail">
+        <text style="width:92%">详细内容</text>
+        <i-icon type="unfold" style="float:right" wx:if="{{!detailOpen1}}" />
+        <i-icon type="packup" style="float:right" wx:if="{{detailOpen1}}" />
+      </view>
+    </view>
+    <view class="detail" wx:if="{{detailOpen1}}">
+      <view class="left " style="width: 50px;">
+        <image src="{{imgUrl}}/arrow-right.png" />
+      </view>
+      <view class="right">{{caseInfo.mediateRequest?caseInfo.mediateRequest:''}}</view>
+    </view>
+    <view class="caseList">
+      <view class="left ">调解机构</view>
+      <view class="right">
+        <text>{{caseInfo.court.name}}</text>
+      </view>
+    </view>
+    <view class="caseList" wx:if="{{caseInfo.process!==0&&caseInfo.process!==1}}">
+      <view class="left">承办调解员</view>
+      <view class="right">
+        <text>{{caseInfo.mediater.name}}</text>
+      </view>
+    </view>
+    <view class="caseList">
+      <view class="left ">事实与理由</view>
+      <view class="right" style="color:#4285F4" data-text="事实与理由" bindtap="openDetail">
+        <text style="width:92%">详细内容</text>
+        <i-icon type="unfold" style="float:right" wx:if="{{!detailOpen2}}" />
+        <i-icon type="packup" style="float:right" wx:if="{{detailOpen2}}" />
+      </view>
+    </view>
+    <view class="detail" wx:if="{{detailOpen2}}">
+      <view class="left " style="width: 50px;">
+        <image src="{{imgUrl}}/arrow-right.png" />
+      </view>
+      <view class="right">{{caseInfo.reason?caseInfo.reason:""}}</view>
+    </view>
+    <view class="caseList" data-type="证据列表" bindtap="viewMore">
+      <view class="left">证据列表</view>
+      <view class="right">
+        <text>{{eviData.length!==0?eviData.length:'无'}}</text>
+      </view>
+    </view>
+  </scroll-view>
+  <!-- <view class='setcase-footer'>
+    <button bindtap="backPage" wx:if="{{type}}" class="submit">返回</button>
+    <button bindtap="entryRoom" wx:if="{{!type}}" class="submit">视频调解</button>
+  </view> -->
+</view>

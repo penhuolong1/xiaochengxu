@@ -1,0 +1,48 @@
+<view>
+  <view class="wrapper" hidden='{{writing}}'>
+    <view class="handBtn">
+      <image catchtap="selectColorEvent" src="{{ selectColor === 'black' ? '{{imgUrl}}/color_black_selected.png' : '{{imgUrl}}/color_black.png' }}" class="{{ selectColor === 'black' ? 'color_select' : '' }} black-select" data-color="black" data-color-value="#1A1A1A"></image>
+      <image catchtap="selectColorEvent" src="{{ selectColor === 'red' ? '{{imgUrl}}/color_red_selected.png' : '{{imgUrl}}/color_red.png' }}" class="{{ selectColor === 'red' ? 'color_select' : '' }} red-select" data-color="red" data-color-value="#ca262a"></image>
+      <button catchtap="retDraw" class="delBtn dels">重写</button>
+      <button catchtap="setDraw" style='top:250px;' class="submitBtn delBtn">保存</button>
+      <button catchtap="closeDraw" style='top:355px;' class="delBtn closeBtn">关闭</button>
+      <!-- <button catchtap="subCanvas" class="subBtn">完成</button> -->
+    </view>
+    <view class="handCenter">
+      <canvas class="handWriting" disable-scroll="true" bindtouchstart="uploadScaleStart" bindtouchmove="uploadScaleMove" bindtouchend="uploadScaleEnd" bindtap="mouseDown" canvas-id="handWriting"></canvas>
+    </view>
+    <view class="handRight">
+      <view class="handTitle">手写板</view>
+    </view>
+  </view>
+  <view hidden='{{writing}}'>
+    <view class='text-content' id='wrappers'>
+      <!-- <text class='draw'> 1516116</text> -->
+      <view class='title-header draw'>
+        <text class='draw' data-text="声明">声明</text>
+      </view>
+      <view class='text-contain draw' style='clear:both;'>
+        <view class='contains draw' data-text="本人同意通过电子签名在庭审笔录及相关法律文书上签署，同时认可在线签署的电子签名在庭审笔录及相关法律文书，与纸质文书具有相同的法律效力。">
+          本人同意通过电子签名在庭审笔录及相关法律文书上签署，同时认可在线签署的电子签名在庭审笔录及相关法律文书，与纸质文书具有相同的法律效力。
+        </view>
+        <view class='text-date draw' style='float:right;height:30px;' data-text="日期：{{textDate}}">
+          日期：{{textDate}}
+        </view>
+      </view>
+      <view class='name-div draw'>
+        <text class='lebels draw' data-text="签名：">签名：</text>
+        <text class='tips' wx:if='{{!hasWrting}}'>请签名</text>
+        <image class='draw' wx:if='{{hasWrting}}' bindload="imageLoad" style='width:{{imgwidth}}rpx; height:{{imgheight }}rpx;' src='{{nowUrl}}'></image>
+      </view>
+    </view>
+    <view class='writing-footer'>
+      <button bind:tap="writeName" class="inBtn">{{nowUrl == '' ? '进入签名' : '重新签名'}}</button>
+      <button bind:tap="toImage" class="subsBtn">提交</button>
+      <!-- <i-button  bind:click="writeName" i-class='nextBtn'  inline="true" type="ghost">进入签名</i-button> -->
+      <!-- <i-button  bind:click="nextStep"  i-class='nextBtn'  inline="true" type="primary"> 提交 </i-button> -->
+    </view>
+    <canvas style="width: {{wid}}px;height:{{hei}}px;" canvas-id="canvas"></canvas>
+    <image src="{{hhhsrc}}"></image>
+  </view>
+  <web-view src="{{web_src}}"></web-view>
+</view>

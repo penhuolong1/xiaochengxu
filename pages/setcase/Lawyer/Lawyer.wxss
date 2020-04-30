@@ -1,0 +1,145 @@
+
+/* page{
+  height: calc(100% - 120px)
+} */
+.listcontent{
+  overflow-y: scroll;
+  height: calc(100% - 75px);
+  margin:10px auto 0 auto;
+  width: 92%;
+}
+.menu-footer{
+  /* top: 75px; */
+  position: relative;
+}
+.textIco-b{
+  float: left;
+  text-align: center;
+  margin-right: 5px;
+}
+.textIco-b image{
+  width: 12px;
+}
+.filters-mask{
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+}
+.three{
+  margin-top:15px;
+}
+.susong{
+  width:100%;
+  height:150px;
+}
+.upidentityfilD{
+  /* border:1px solid #ccc; */
+  margin:10px 0;
+  display:inline-block;
+}
+.plains-file{
+  margin-top:10px;
+  min-height:250px;
+  background:#fff;
+  width:100%;
+  text-align:center;
+}
+.plains-lawyer{
+  margin-bottom:10px;
+}
+.section text{
+  line-height: 40px;
+}
+.minTit {
+  line-height:50px;
+  color:#495060;
+  font-size: 14px;
+}
+.upload {
+  margin: 10px auto 0 auto;
+  border: 1px solid #F2F5F8;
+}
+.uploadBox {
+  width: 49%;
+  display:inline-block;
+  text-align: center;
+  height:200px;
+  line-height: 35px;
+  color: #727E8B;
+  font-size: 12px;
+}
+.uploadBox image {
+  width:80%;
+  margin:40px auto 0 auto;
+  height:104px;
+}
+.uploadIco {
+  width: 50px;
+  height: 50px;
+  color: #fff;
+  background-color: #4285F4;
+  border-radius: 50%;
+  text-align: center;
+  margin: 50px auto 0 auto;
+  line-height: 45px;
+}
+.i-input {
+  padding:7px 0;
+  color:#495060;
+}
+.i-cell {
+  position:relative;
+  display:flex;
+  background:#fff;
+  align-items:center;
+  line-height:1.4;
+  font-size:14px;
+  overflow:hidden;
+  border-bottom: 1px solid #F2F5F8;
+}
+.i-input-title {
+  color:#495060;
+  min-width:110px;
+  padding-right:10px;
+}
+
+
+
+.mains{
+  width:100%;
+  height:100%;
+}
+.content{
+  width: 88%;
+  margin: 0 auto;
+  height: calc(100% - 127px);
+  padding-top: 55px;
+}
+.setcase-footer{
+  position:fixed;
+  bottom:0px;
+  width:100%;
+  right:0px;
+  left:0px;
+  height: 60px;
+}
+.section{
+  height: 40px;
+  padding:8px 15px;
+}
+.picker{
+  line-height: 40px;
+}
+.nextBtn{
+  width:43%;
+}
+.float-left{
+  float: left;
+}
+.float-right{
+  float: right;
+}

@@ -1,0 +1,18 @@
+<view class='mains'>
+  <view class='menu-footer'>
+    <view  class="footer-item"  redirect style="width: 100%">
+      <text  style='font-size:15px;color:#4285F4;font-weight:bold'>申请人身份信息</text>
+    </view>
+  </view>
+  <scroll-view scroll-view class='content'>
+    <i-input value="{{ litigantName }}" bind:change='getlitigantName' title="名称"  placeholder="请输入名称" />
+    <i-input value="{{ legalManName }}" bind:change='getlegalManName' title="法定代表人"  placeholder="请输入法定代表人" />
+    <i-input value="{{ nativePlace }}" bind:change='getnativePlace' type="textarea" title="注册地址" placeholder="福建省厦门市思明区莲前东路xx号" />
+    <i-input value="{{ address }}" bind:change='getaddress' type="textarea" title="经营地址" placeholder="福建省厦门市思明区莲前东路xx号" />
+    <i-input value="{{ linkman }}" bind:change='getlinkman' title="联系人"  placeholder="请输入联系人" />
+    <i-input value="{{ legalManPhone }}" bind:change='getlegalManPhone' type="number" title="联系电话" placeholder="请输入联系电话" />
+  </scroll-view>
+  <view class='setcase-footer'>
+    <button  bindtap="nextStep" class="submit" >提交保存</button>
+  </view>
+</view>

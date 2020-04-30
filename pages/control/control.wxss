@@ -1,0 +1,13 @@
+.line {
+  height: 2px;
+  width: 100%;
+  background-color: #fff;
+}
+.changePhone {
+  color:#1DD2C1;
+  font-size:14px;
+  display: inline-block;
+  width: 15%;
+  text-align: center;
+}
+

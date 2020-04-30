@@ -1,0 +1,50 @@
+<!-- 自定义的导航栏 -->
+<view class="custom" style="padding-top:{{statusBarHeight}}px">
+  <view class="textTit" wx:if="{{!topSeachBarBox}}">
+    <view class="textIco textIco-b" bindtap='back'>
+      <image src="{{imgUrl}}/home-icon/back_button.png" />
+    </view>
+    <text>代理人身份信息</text>
+  </view>
+</view>
+<view class="empty_custom" style="padding-top:{{statusBarHeight}}px"></view>
+<view class='listMain'>
+  <view class='menu-footer'>
+    <view class="footer-item" redirect style="width: 100%">
+      <text style='font-size:15px;color:#4285F4;font-weight:bold'>代理人身份信息</text>
+    </view>
+  </view>
+  <scroll-view scroll-y bindscrolltolower="loadingData" class='listcontent'>
+    <view class='i-cell i-input' style="padding:12px 0;">
+      <view class='i-cell-hd i-input-title'>委托人</view>
+      <view class="picker" style="text-align:right;flex-grow:1;">{{litigantName}}</view>
+    </view>
+    <view class='i-cell i-input' style="padding:12px 0;">
+      <view class='i-cell-hd i-input-title'>代理人身份</view>
+      <picker style="width:90%;text-align:right" name="litigantType" data-type="代理人身份" bindchange="bindPickerChangeAn" value="{{litigantTypeAry[litigantType].id}}" range-key="{{'text'}}" range="{{litigantTypeAry}}">
+        <view class="picker">
+          {{litigantType}}
+          <i-icon type="unfold" />
+        </view>
+      </picker>
+    </view>
+    <view class='i-cell i-input'>
+      <view class='i-cell-hd i-input-title'>代理人身份证件</view>
+      <view class="picker" style="text-align:right;flex-grow:1;">{{card}}</view>
+    </view>
+    <view class="minTit">
+      <view class="left">上传证件照片</view>
+    </view>
+    <view class="upload">
+      <view class='uploadBox' bindtap='uploadImg' data-vb="front">
+        <image src="{{photoUrl1}}"></image>
+      </view>
+      <view class='uploadBox' bindtap='uploadImg' data-vb="opposite">
+        <image src="{{photoUrl2}}"></image>
+      </view>
+    </view>
+  </scroll-view>
+  <view class='setcase-footer'>
+    <button bindtap="nextStep" class="submit">下一步</button>
+  </view>
+</view>

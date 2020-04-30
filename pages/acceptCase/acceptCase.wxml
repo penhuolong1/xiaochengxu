@@ -1,0 +1,133 @@
+<view style="height:100%;">
+  <view class='menu-footer'>
+    <view class="footer-item {{caseType==0 ? 'active-menu' :''}}" data-text="审核" bindtap="handleChange">
+      <text style='font-size:15px;'>审核</text>
+    </view>
+    <view class="footer-item {{caseType==1 ? 'active-menu' :''}}" data-text="分发" bindtap="handleChange">
+      <text style='font-size:15px;'>分发</text>
+    </view>
+    <view class="footer-item {{caseType==2 ? 'active-menu' :''}}" data-text="分配" bindtap="handleChange">
+      <text style='font-size:15px;'>分配</text>
+    </view>
+  </view>
+  <scroll-view scroll-y bindscrolltolower="loadingData" class='listcontent'>
+    <view class="caseList" wx:for="{{caseList}}" wx:key="{{index}}">
+      <view class='basicInfo list' data-check="{{index}}" bindtap="openDetail">
+        <view class="left" wx:if="{{caseType==0}}">{{item.dCaseNo}}</view>
+        <view class="left" wx:if="{{caseType==1||caseType==2}}">{{item.sqCaseNo}}</view>
+        <view class="right">
+          <i-icon type="unfold" size="20" wx:if="{{!item.check}}" />
+          <i-icon type="packup" size="20" wx:if="{{item.check}}" />
+        </view>
+      </view>
+      <view class="detailsInfo" wx:if="{{item.check}}" style="width:95%;margin:0 auto;">
+        <view class="list" bindtap="changeUrl" data-text="案件信息" data-item="{{item}}">
+          <view class="left">案件信息</view>
+          <view class="right">
+            <text wx:if="{{caseType==0}}">{{item.dCaseNo}}</text>
+            <text wx:if="{{caseType==1||caseType==2}}">{{item.sqCaseNo}}</text>
+            <i-icon type="enter" size="20" style="float: right" />
+          </view>
+        </view>
+        <view class="list" bindtap="openMinBox" data-index="{{index}}">
+          <view class="left">审核意见</view>
+          <view class="right">
+            <text wx:if="{{item.acceptance==0}}">请选择</text>
+            <text wx:if="{{item.acceptance==1}}">同意</text>
+            <text wx:if="{{item.acceptance==2}}">不同意</text>
+            <text wx:if="{{item.acceptance==3}}">补正</text>
+            <i-icon type="enter" size="20" style="float: right" wx:if="{{!item.optionBox}}"/>
+            <i-icon type="unfold" size="20" style="float: right" wx:if="{{item.optionBox}}"/>
+          </view>
+        </view>
+        <view wx:if="{{item.optionBox}}" style="border-left:1px solid #F2F5F8;border-right:1px solid #F2F5F8;border-bottom:1px solid #F2F5F8;">
+          <view class="caseList1" 
+            bindtap="changeOption"
+            data-num="1"
+            data-index="{{index}}"
+            >
+            <view class="left">同意</view>
+            <view class="right">
+              <i-icon type="right" class="check" size="25" wx:if="{{item.optionType==1}}"/>
+            </view>
+          </view>
+          <view style="padding-right:8px;" wx:if="{{item.optionType==1}}">
+            <i-input value="{{ item.sqCaseNo }}" bind:change='getsqCaseNo' title="调解号"  placeholder="请输入" />
+            <!--<i-input value="{{  }}" type="number" bind:change='getlitPhone' title="案由" placeholder="请输入" />-->
+            <view class="list" wx:if="{{caseType==0}}">
+              <view class="left" style="padding-left:20px;">案由</view>
+              <view class="right">
+                <picker 
+                  style="width:96%;text-align:right;" 
+                  name="reson"  
+                  data-index="{{index}}"
+                  bindchange="bindPickerChangeAn" 
+                  value="{{briefAry[reson].name}}" 
+                  range-key="{{'name'}}" 
+                  range="{{briefAry}}">
+                    <view class="picker">
+                      {{item.brife.name}}
+                      <i-icon type="unfold" />
+                    </view>
+                </picker>
+              </view>
+            </view>
+          </view>
+          <view class="caseList1" 
+            bindtap="changeOption"
+            data-num="2"
+            data-index="{{index}}"
+            >
+            <view class="left ">不予受理</view>
+            <view class="right">
+              <i-icon type="right" class="check" size="25" wx:if="{{item.optionType==2}}"/>
+            </view>
+          </view>
+          <view class="caseList1" 
+            bindtap="changeOption"
+            data-num="3"
+            data-index="{{index}}"
+            >
+            <view class="left ">补正</view>
+            <view class="right">
+              <i-icon type="right" class="check" size="25" wx:if="{{item.optionType==3}}"/>
+            </view>
+          </view>
+          <view style="width:100%" wx:if="{{item.optionType==3}}">
+            <textarea value='{{item.opinion}}' id="factContent" class='susong' bindinput='getOpinion' placeholder="请一次性告知申请人完整的补正意见..." />
+          </view>
+        </view>
+        <view class="list" 
+          wx:if="{{caseType==1||caseType==2}}" 
+          bindtap="changeUrl" 
+          data-text="分发机构"
+          data-item="{{item}}"
+          >
+          <view class="left">分发机构</view>
+          <view class="right">
+            <text>{{item.courtName}}</text>
+            <i-icon type="enter" size="20" style="float: right" />
+          </view>
+        </view>
+        <view class="list" 
+          wx:if="{{caseType==2}}"
+          bindtap="changeUrl" 
+          data-text="调解员"
+          data-item="{{item}}"
+          >
+          <view class="left">调解员</view>
+          <view class="right">
+            <text>请选择</text>
+            <i-icon type="enter" size="20" style="float: right" />
+          </view>
+        </view>
+        <view class="confirm"  bindtap="nextStep" data-item="{{item}}" wx:if="{{caseType==0}}">
+          <button>确认</button>
+        </view>
+      </view>
+    </view>
+    <view wx:if="{{caseList.length==0}}" style="padding-top: 16px;">
+      <i-load-more i-class="loads" tip="{{tip}}" loading='{{isLoading}}' />
+    </view>
+  </scroll-view>
+</view>

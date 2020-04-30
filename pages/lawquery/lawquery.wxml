@@ -1,0 +1,45 @@
+<law-head isSearch="{{false}}"></law-head>
+<view class="wrapper">
+  <view class="header">
+    <view class="laber">筛选条件</view>
+    <view class="result">筛选到12231个案例</view>
+  </view>
+  <view class="condition-wrapper">
+    <view class="condition-item">
+      <view class="text">买卖合同纠纷</view>
+      <view class="icon-wrapper">x</view>
+    </view>
+  </view>
+  <view class="title-wrapper">
+    <view class="text">买卖合同纠纷案</view>
+    <view class="detail">查看详情</view>
+  </view>
+  <view class="key-word-wrapper">
+    <view class="key-word">逾期支付价款</view>
+    <view class="key-word">逾期支付价款</view>
+    <view class="key-word">逾期支付价款</view>
+    <view class="key-word">逾期支付价款</view>
+  </view>
+  <view class="content-wrapper">
+    <view class="title">
+      <view class="text">分期付款买卖合同纠纷</view>
+      <view class="text">民事再审</view>
+    </view>
+    <view class="content-menu">
+      <view class="menu-item active">
+        <text>本院认为</text>
+      </view>
+      <view class="menu-item">
+        <text>本院查明</text>
+      </view>
+      <view class="menu-item">
+        <text>引用法条</text>
+      </view>
+    </view>
+    <view class="content">
+      <view class="content-icon"></view>
+      <view class="content-text">
+      本案二审的争议焦点是:(1)原审判决xxxxx公司应向XXxx公司支付的利息数额及计算方法是否合法正确;(2)原审判决xxx,xxx对xxx公司的还款责任在其减资范围内承担补充赔偿责任,是否合法正确。如果xxx、xxx应对xxx公司的还款责任在其减资范围内承担补充赔偿责任,对应的具体还款责任范围是什么。 (一)原审判决xxx公司应向xxx公司支付的利息......</view>
+    </view>
+  </view>
+</view>

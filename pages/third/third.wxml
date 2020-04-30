@@ -1,0 +1,45 @@
+<view class='headers'>
+    <i-steps current="{{current}}">
+        <i-step>
+            <view slot="title">身份认证</view>
+            <!-- <view slot="content">
+                这里是该步骤的描述信息
+            </view> -->
+        </i-step>
+        <i-step>
+            <view slot="title">视频录制</view>
+            <!-- <view slot="content">
+                这里是该步骤的描述信息
+            </view> -->
+        </i-step>
+        <i-step>
+            <view slot="title">完成</view>
+            <!-- <view slot="content">
+                这里是该步骤的描述信息
+            </view> -->
+        </i-step>
+    </i-steps>
+</view>
+<view class="main" hover-class="none" hover-stop-propagation="false">
+    <view style='padding:0 10px 20px 10px;text-align:center;'>
+        <image mode="aspectFit" src="{{imgUrl}}/success.png" class='result-img'></image>
+        <view class='tip'>
+            <text>认证成功！</text>
+        </view>
+        <view class='tip' style='margin-top:10px'>
+            <text>{{infos}}</text>
+        </view>
+    </view>
+    <!-- <view class="inputBox">
+    <input type="text" placeholder="请输入手机号码" value="{{ phoneNumer }}"/>
+    <input type="text" placeholder="请输入验证码" class="codeInput" value="{{ code }}" />
+    <span bindtap="getCode" >{{codeStr}}</span>
+  </view> -->
+    <i-input value="{{ phoneNumer }}" bind:change="changeIdNumber" type="text" title="手机号码" placeholder="请输入手机号码" />
+    <view class='bDiv'>
+        <i-input value="{{ code }}" bind:change="changeCode" title="验证码" placeholder="请输入验证码" style="width:68%;display:inline-block;" />
+        <span bindtap="getCode" class='getCodeBtn'>{{codeStr}}</span>
+    </view>
+    <button class='btndex' bindtap="handleClick">完成</button>
+    <i-toast id="toast" />
+</view>

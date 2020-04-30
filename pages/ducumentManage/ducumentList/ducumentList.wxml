@@ -1,0 +1,49 @@
+<!-- 自定义的导航栏 -->
+<view class="custom" style="padding-top:{{statusBarHeight}}px">
+  <view class="textTit" wx:if="{{!topSeachBarBox}}">
+    <view class="textIco textIco-b" bindtap='back'>
+      <image src="{{imgUrl}}/home-icon/back_button.png" />
+    </view>
+    <text>文书管理</text>
+    <!-- <view class="textIco">
+      <image src="{{imgUrl}}/home-icon/searchIco.png"  bindtap='searchBar'/>
+    </view> -->
+  </view>
+  <view class="textTit" wx:if="{{topSeachBarBox}}">
+    <view class="searchBarBox">
+      <view>
+        <input bindinput='getNo' autofocus placeholder="请输入搜索案号" confirm-type="search" bindconfirm="searchCaseNo" />
+      </view>
+      <image src="{{imgUrl}}/home-icon/searchIco.png" bind:tap="searchCaseNo" />
+    </view>
+  </view>
+</view>
+<view class="empty_custom" style="padding-top:{{statusBarHeight}}px"></view>
+<view class='listMain'>
+  <view class='menu-footer'>
+    <view class="footer-item {{caseType==1?'active-menu':''}}" bindtap="handleChange">
+      <text style='font-size:15px;'>已有文书选择</text>
+    </view>
+    <view class="footer-item {{caseType==0?'active-menu':''}}" redirect bindtap="handleChange">
+      <text style='font-size:15px;'>添加文书</text>
+    </view>
+  </view>
+  <scroll-view scroll-y bindscrolltolower="loadingData" class='listcontent'>
+    <view class="caseList" wx:for="{{ducumentList}}" wx:key="index" bindtap="selectCase" data-dt="{{item}}">
+      <view class="left ">{{item.name}}</view>
+      <view class="right">
+        <text wx:if="{{caseType==1}}" bindtap="send" data-id="{{item.id}}" data-text="{{item.name}}" style="color:{{item.sended ? '#7C7C7A' : '#1DD2C1'}};margin-right:10px;line-height: 60px;">
+          {{item.sended ? '已发送' : '发送'}}
+        </text>
+        <i-icon type="right" class="check" size="25" wx:if="{{item.selected}}" />
+      </view>
+    </view>
+    <view wx:if="{{ducumentList.length==0}}" style="padding-top: 16px;">
+      <i-load-more i-class="loads" tip="{{tip}}" loading='{{isLoading}}' />
+    </view>
+  </scroll-view>
+  <view class='setcase-footer'>
+    <button bindtap="nextStep" class="submit">下一步</button>
+  </view>
+  <view bindtap="handleTap" class="filters-mask" wx:if="{{topSeachBarBox}}"></view>
+</view>

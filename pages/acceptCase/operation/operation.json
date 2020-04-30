@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "案件受理",
+  "usingComponents": {
+    "i-button": "../../../../dist/button/index"
+  }
+}

@@ -1,0 +1,31 @@
+<!--审核意见-->
+<view class='mains'>
+  <view class='menu-footer'>
+    <view  class="footer-item"  redirect style="width: 100%">
+      <text  style='font-size:15px;color:#4285F4'>{{title}}</text>
+    </view>
+  </view>
+  <scroll-view scroll-view class='content'  wx:if="{{title=='分发机构'}}" bindscrolltolower="loadingData">
+    <view class="caseList" wx:for="{{jigouType}}" wx:key="{{ index }}" data-index="{{index}}" bindtap="changeCheck">
+      <view class="left ">{{item.name}}</view>
+      <view class="right">
+        <i-icon type="right" class="check" size="25" wx:if="{{item.check}}" />
+      </view>
+    </view>
+  </scroll-view>
+    <scroll-view scroll-view class='content' wx:if="{{title=='调解员'}}" bindscrolltolower="loadingData">
+    <view class="caseList" 
+    wx:for="{{peopleName}}" 
+    wx:key="{{ index }}" 
+    data-index="{{index}}" 
+    bindtap="changeCheck">
+      <view class="left ">{{item.name}}</view>
+      <view class="right">
+        <i-icon type="right" class="check" size="25" wx:if="{{item.check}}" />
+      </view>
+    </view>
+  </scroll-view>
+  <view class='setcase-footer'>
+    <button  bindtap="nextStep" class="submit" >下一步</button>
+  </view>
+</view>

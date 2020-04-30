@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "i-cell-group": "../../../dist/cell-group/index",
+    "i-modal": "../../../dist/modal/index",
+    "i-cell": "../../../dist/cell/index"
+  }
+}

@@ -1,0 +1,43 @@
+<!-- 自定义的导航栏 -->
+<view class="custom" style="padding-top:{{statusBarHeight}}px">
+  <view class="textTit" wx:if="{{!topSeachBarBox}}">
+    <view class="textIco textIco-b" bindtap='back'>
+      <image src="{{imgUrl}}/home-icon/back_button.png" />
+    </view>
+    <text>代理人身份信息</text>
+  </view>
+</view>
+<view class="empty_custom" style="padding-top:{{statusBarHeight}}px"></view>
+<view class='listMain'>
+  <view class='menu-footer'>
+    <view class="footer-item" redirect style="width: 100%">
+      <text style='font-size:15px;color:#4285F4;font-weight:bold'>代理人身份信息</text>
+    </view>
+  </view>
+  <scroll-view scroll-y bindscrolltolower="loadingData" class='listcontent'>
+    <i-input value="{{ name }}" title="姓名" bind:change='getname' placeholder="名字" />
+    <view class='i-cell i-input'>
+      <view class='i-cell-hd i-input-title'>当事人身份证件</view>
+      <view class="picker" style="text-align:right;flex-grow:1;">
+        <!-- {{ agentType==1 ? '律师执业证' : '中华人民共和国居民身份证'}} -->
+        中华人民共和国居民身份证
+      </view>
+    </view>
+    <i-input value="{{ agentIdentiCard }}" title="身份证号" bind:change='getagentIdentiCard' placeholder="请输入" />
+    <view class='i-cell i-input'>
+      <view class='i-cell-hd i-input-title'>性别</view>
+      <picker style="width:90%;text-align:right" name="sex" bindchange="bindPickerChangeAn" value="{{sexAry[sex].text}}" range-key="{{'text'}}" range="{{sexAry}}">
+        <view class="picker">
+          {{sex}}
+          <i-icon type="unfold" />
+        </view>
+      </picker>
+    </view>
+    <i-input value="{{ nation }}" title="民族" bind:change='getnation' placeholder="请输入" />
+    <i-input wx:if="{{ agentType==1 }}" value="{{ lawerNum }}" bind:change='getlawerNum' title="律师执业证号码" placeholder="请输入" />
+    <i-input value="{{ address }}" type="textarea" bind:change='getaddress' title="联系地址" placeholder="请输入" />
+  </scroll-view>
+  <view class='setcase-footer'>
+    <button bindtap="nextStep" class="submit">保存</button>
+  </view>
+</view>

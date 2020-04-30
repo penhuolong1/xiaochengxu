@@ -1,0 +1,79 @@
+.listcontent{
+  overflow-y:scroll;
+  height:calc(100% - 30px);
+  padding-top:40px;
+  width:90%;
+  margin:0 auto;
+}
+.list {
+  display: flex;
+  font-size: 14px;
+  line-height: 60px;
+  height:60px;
+  border-bottom: 1px solid #F2F5F8;
+}
+.list .right {
+  width:30px;
+  text-align: right;
+  color:#727E8B;
+}
+.list .left{
+  flex-grow: 1;
+  color: #323643;
+  padding-left: 8px;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+}
+.detailsInfo .list .right{
+  width:200px;
+}
+.list .right text{
+  display:inline-block;
+  max-width:240px;
+  margin-right:8px;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+.confirm button {
+  width: 544rpx;
+  height: 88rpx;
+  line-height: 88rpx;
+  border-radius: 44rpx;
+  background:#4285F4; 
+  color: #fff;
+  font-size: 34rpx;
+  margin: 30px auto 50px auto;
+}
+.caseList1 {
+  width: 100%;
+  display: flex;
+  margin: 0 auto;
+  line-height: 60px;
+}
+.caseList1 .left { 
+  flex-grow:1;
+  color: #323643;
+  font-size:15px;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+  padding-left:15px;
+}
+.caseList1 .right{
+  width:30px;
+  line-height:52px;
+}
+.caseList1 .right .check {
+  color: #86D530;
+}
+.susong{
+  width:83%;
+  height:200px;
+  background: rgba(255,255,255,1);
+  border: 1px solid #F2F5F8;
+  line-height: 30px;
+  padding: 10px;
+  margin: 20px auto 20px auto;
+}

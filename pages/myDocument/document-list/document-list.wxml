@@ -1,0 +1,68 @@
+<!-- 自定义的导航栏 -->
+<view class="custom" style="padding-top:{{statusBarHeight}}px">
+  <view class="textTit" wx:if="{{!topSeachBarBox}}">
+    <view class="textIco textIco-b" bindtap='back'>
+      <image src="{{imgUrl}}/home-icon/back_button.png" />
+    </view>
+    <text>我的文书</text>
+    <!-- <view class="textIco">
+      <image src="{{imgUrl}}/home-icon/searchIco.png"  bindtap='searchBar'/>
+    </view> -->
+  </view>
+  <view class="textTit" wx:if="{{topSeachBarBox}}">
+    <view class="searchBarBox">
+      <view>
+        <input bindinput='getNo' autofocus placeholder="请输入搜索案号" confirm-type="search" bindconfirm="searchCaseNo" />
+      </view>
+      <image src="{{imgUrl}}/home-icon/searchIco.png" bind:tap="searchCaseNo" />
+    </view>
+  </view>
+</view>
+<view class="empty_custom" style="padding-top:{{statusBarHeight}}px;"></view>
+<view class='listMain'>
+  <view class='menu-footer'>
+    <view class="footer-item" redirect style="width: 100%">
+      <text style='font-size:15px;color:#4285F4'>文书选择</text>
+    </view>
+  </view>
+  <scroll-view scroll-y bindscrolltolower="loadingData" class='listcontent'>
+    <!-- <view class="caseList" wx:for="{{ducumentList}}" wx:key="index" bindtap="selectCase" data-dt="{{item}}">
+      <view class="left ">{{item.name}}</view>
+      <view class="right">
+        <i-icon type="right" class="check" size="25" wx:if="{{item.selected}}" />
+      </view>
+    </view>
+    <view wx:if="{{ducumentList.length==0}}" style="padding-top: 16px;">
+      <i-load-more i-class="loads" tip="{{tip}}" loading='{{isLoading}}' />
+    </view> -->
+    <view wx:for="{{list}}" wx:key="index">
+      <view class='list-item' bindtap='openMenu' data-index="{{index}}">
+        <text class='item-title'>{{item.name}}</text>
+        <text wx:if="{{item.listFile.length > 0}}" class='{{item.openFlag?"rotate" : ""}} cuIcon-unfold open-btn icon'></text>
+      </view>
+      <view class='line'></view>
+      <view class='item-about' style='height:{{item.openFlag? item.listFile.length * 80 + "rpx" : "0px"}}'>
+        <view class='list-item' 
+            wx:for="{{item.listFile}}" 
+            wx:for-index="idx" 
+            wx:for-item="listFile"  
+            wx:key="idx"
+            bindtap='checkBook' 
+            data-index="{{index}}" 
+            data-idx="{{idx}}">
+          <text class='item-tip' wx:if="{{listFile.signType == 1}}">已签字</text>
+          <text class='text-green {{listFile.check?"cuIcon-check":""}} check-icon icon' style='margin-left:{{listFile.signType == 1?"66rpx" : 0}}'></text>
+          <text class='item-title'>{{listFile.name}}</text>
+          <text class='item-show' catchtap='lookBook' data-path="{{listFile.path}}">
+            <text>查看</text>
+            <text class='cuIcon-right'></text>
+          </text>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+  <view class='btn-box'>
+    <button bindtap="nextStep" class="btn bg-blue">批量签署</button>
+  </view>
+  <!-- <view bindtap="handleTap" class="filters-mask" wx:if="{{topSeachBarBox}}"></view> -->
+</view>
